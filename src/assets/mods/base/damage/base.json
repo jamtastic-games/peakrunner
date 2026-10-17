@@ -1,0 +1,21 @@
+// Damage kinds: what a hit is made of. A projectile names its kind; an
+// armor may resist kinds (`resist`). A kind may hurt more in the head or in
+// the back (direct hits only), and a hard enough direct hit of it may knock
+// the flag off a carrier hit from behind (`knock_flag`), drop a pack
+// (`drop_pack`) or knock the weapon out of a hand (`disarm`); 0: never.
+// In the base game every kind hurts the same everywhere, and nothing knocks.
+{
+  "blast": { "name": "Blast" },
+  "bullet": { "name": "Bullet" },
+  "slug": { "name": "Slug" },
+  "laser": { "name": "Laser" },
+  "energy": { "name": "Energy" },
+  "plasma": { "name": "Plasma" },
+  "mine": { "name": "Mine" },
+  "impact": { "name": "Impact" },
+  "fire": { "name": "Fire" },
+  "poison": { "name": "Poison" },
+  "electric": { "name": "Electric" },
+  "shock": { "name": "Shock" },
+  "blade": { "name": "Blade" }
+}

@@ -1,0 +1,30 @@
+{
+  "label": "Football",
+  "short": "Football",
+  "note": "No weapons. Pass, tackle, carry it into their end zone.",
+  "goal": "Carry the ball into their end zone · two 15-minute halves",
+  "start_message": "FOOTBALL — CARRY IT TO THEIR END ZONE",
+  "rules": "football",
+  "offered": true,
+  "clock": 1800.0,
+  "halves": 2,
+  "warmup": 20.0,
+  "respawn": 1.0,
+  "suicide_delay": 15.0,
+  "score_limit": 40,
+  "teams": "two",
+  "control_points": "ctf_active",
+  "conditions": false,
+  "movement": "classic",
+  "armor_scaling": false,
+  "equipment": false,
+  "deployables": false,
+  "ammo_stations": false,
+  "throwables": false,
+  "loot": false,
+  "repair_tool": false,
+  "purchases": false,
+  "requires": {
+    "football_field": true
+  }
+}

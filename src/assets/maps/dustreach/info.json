@@ -1,0 +1,6 @@
+{
+  "name": "Dustreach",
+  "note": "Sandstone citadels across rolling dunes, joined by the Sun Gate on the central saddle.",
+  "bases": [[1024,130,391], [1024,130,1657]],
+  "dust": [0.80, 0.66, 0.46]
+}

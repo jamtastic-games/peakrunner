@@ -1,0 +1,30 @@
+{
+  "label": "Capture the Flag",
+  "short": "CTF",
+  "note": "Grab their flag, bring it home. Stations, turrets, deployables.",
+  "goal": "First to 3 captures",
+  "start_message": "DEPLOYED — TAKE THEIR FLAG",
+  "rules": "ctf",
+  "offered": true,
+  "clock": 480.0,
+  "halves": 1,
+  "warmup": 10.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 3,
+  "teams": "two",
+  "control_points": "ctf_active",
+  "conditions": false,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": true,
+  "deployables": true,
+  "ammo_stations": true,
+  "throwables": true,
+  "loot": true,
+  "repair_tool": true,
+  "purchases": true,
+  "requires": {
+    "football_field": false
+  }
+}

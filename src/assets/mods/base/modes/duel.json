@@ -1,0 +1,32 @@
+{
+  "label": "Duel",
+  "short": "DUEL",
+  "note": "One on one in light armor's default kit, from facing spots: take your opponent down to win the round.",
+  "goal": "One life a round · first to 3 rounds",
+  "start_message": "DUEL — FIRST TO 3 ROUNDS",
+  "rules": "duel",
+  "offered": false,
+  "clock": 600.0,
+  "halves": 1,
+  "warmup": 5.0,
+  "respawn": 60.0,
+  "suicide_delay": 0.0,
+  "score_limit": 3,
+  "teams": "two",
+  "control_points": "none",
+  "conditions": false,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": false,
+  "deployables": false,
+  "ammo_stations": false,
+  "throwables": true,
+  "loot": false,
+  "repair_tool": false,
+  "purchases": false,
+  "armors": ["light"],
+  "packs": [],
+  "requires": {
+    "football_field": false
+  }
+}

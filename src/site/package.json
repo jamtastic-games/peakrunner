@@ -1,0 +1,1 @@
+{"name":"peakrunner-site","private":true,"version":"0.1.0","type":"module","scripts":{"dev":"node serve.mjs","check":"node --check public/app.js && node --check serve.mjs"}}

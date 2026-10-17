@@ -1,0 +1,79 @@
+// What Sparkfall's weapons, packs, turrets and throwables send flying.
+{
+  // Breacher: ten pellets in a cone, nine each.
+  "breacher-pellet": { "size": 0.6, "color": [1.0, 0.72, 0.35], "class": "straight", "speed": 260.0, "inherit": 0.5, "life": 0.25, "damage": 9.0, "flash": 0.2,
+    "pellets": 10, "cone": 5.0, "water": "fizzle", "expire": "vanish", "kill": "Breacher", "look": "tracer", "damage_kind": "bullet" },
+  // Longbore: a very fast slug; double in the head.
+  "longbore-slug": { "size": 0.6, "color": [0.85, 0.95, 1.0], "class": "straight", "speed": 3000.0, "inherit": 0.0, "life": 0.6, "damage": 80.0, "flash": 0.6,
+    "expire": "vanish", "kill": "Longbore", "look": "rail", "damage_kind": "snipe" },
+  // Slugger: a heavy pistol round that knocks weapons loose.
+  "slugger-round": { "size": 1.8, "color": [1.0, 0.5, 0.15], "class": "straight", "speed": 700.0, "inherit": 0.5, "life": 0.8, "damage": 34.0, "flash": 0.4,
+    "expire": "vanish", "kill": "Slugger", "look": "tracer", "damage_kind": "heavy-round" },
+  // Hailstorm: a stream of small rounds once the barrels spin.
+  "hailstorm-round": { "size": 0.85, "color": [1.0, 0.85, 0.3], "class": "straight", "speed": 600.0, "inherit": 0.5, "life": 1.0, "damage": 5.0, "flash": 0.1,
+    "water": "fizzle", "expire": "vanish", "clears_mines": true, "kill": "Hailstorm", "look": "tracer", "damage_kind": "bullet" },
+  // Torch: short-lived flame blobs that set what they touch burning.
+  "torch-flame": { "class": "straight", "speed": 32.0, "inherit": 0.9, "life": 0.9, "gravity": 0.15, "radius": 0.35, "reach": 0.4,
+    "water": "fizzle", "blast": "torch", "self_damage": 0.0, "effect": "burning", "kill": "Torch", "damage_kind": "fire",
+    "parts": [{ "mesh": "sphere", "size": [0.35, 0.35, 0.35], "color": [1.0, 0.5, 0.1], "glow": 2.5 }] },
+  // Gust cannon: a slow wave that throws people about.
+  "gust-wave": { "class": "straight", "speed": 55.0, "inherit": 0.5, "life": 1.5, "radius": 0.6, "reach": 0.8, "blast": "gust",
+    "self_damage": 0.0, "kill": "Gust cannon", "damage_kind": "impact",
+    "parts": [{ "mesh": "disc", "size": [0.9, 0.12, 0.9], "turn": [90, 0, 0], "color": [0.8, 0.9, 1.0], "glow": 1.4 }] },
+  // Spark rifle: an electric bolt; static on whoever it catches.
+  "spark-bolt": { "size": 1.4, "color": [0.55, 0.85, 1.0], "class": "straight", "speed": 200.0, "inherit": 0.5, "life": 1.5, "blast": "spark", "self_damage": 0.3,
+    "effect": "static", "kill": "Spark rifle", "look": "blaster", "damage_kind": "electric" },
+  // Tether: a hook on a line. Pull drags the one it hits to you; push
+  // shoves them off; grapple drags you to wherever it bites.
+  "tether-pull": { "model": "tether-hook", "size": 0.5, "class": "straight", "speed": 160.0, "inherit": 0.0, "life": 0.4, "damage": 6.0, "pull": 22.0, "effect": "tethered",
+    "expire": "vanish", "kill": "Tether", "look": "tracer", "damage_kind": "impact" },
+  "tether-push": { "model": "tether-hook", "size": 0.5, "class": "straight", "speed": 160.0, "inherit": 0.0, "life": 0.4, "damage": 6.0, "pull": -24.0,
+    "expire": "vanish", "kill": "Tether", "look": "tracer", "damage_kind": "impact" },
+  "tether-grapple": { "model": "tether-hook", "size": 0.5, "class": "straight", "speed": 220.0, "inherit": 0.0, "life": 0.4, "damage": 1.0, "grapple": 26.0,
+    "expire": "vanish", "kill": "Tether", "look": "tracer", "damage_kind": "impact" },
+  // Hunter launcher: a dumbfire rocket, a locking one, one that seeks jets.
+  "hunter-rocket": { "model": "rocket", "class": "straight", "speed": 55.0, "inherit": 0.5, "life": 6.0, "accel": 120.0, "max_speed": 240.0,
+    "blast": "hunter", "self_damage": 0.6, "kill": "Hunter launcher", "look": "mortar", "smoke": true, "damage_kind": "blast" },
+  "hunter-seeker": { "model": "rocket", "class": "straight", "speed": 45.0, "inherit": 0.5, "life": 6.0, "accel": 40.0, "max_speed": 75.0,
+    "seek": { "turn": 85.0, "cone": 8.0, "range": 420.0, "targets": ["players"], "proximity": 2.0 },
+    "blast": "hunter-lock", "self_damage": 0.6, "kill": "Hunter launcher", "look": "mortar", "smoke": true, "damage_kind": "blast" },
+  "hunter-heat": { "model": "rocket", "class": "straight", "speed": 45.0, "inherit": 0.5, "life": 5.0, "accel": 40.0, "max_speed": 80.0,
+    "seek": { "turn": 115.0, "cone": 10.0, "range": 320.0, "targets": ["jetting"], "proximity": 2.0 },
+    "blast": "hunter-lock", "self_damage": 0.6, "kill": "Hunter launcher", "look": "mortar", "smoke": true, "damage_kind": "blast" },
+  // Lance: a charged beam (up to 90 at full charge).
+  "lance-beam": { "class": "beam", "speed": 0.0, "inherit": 0.0, "life": 0.25, "damage": 60.0, "range": 900.0, "expire": "vanish",
+    "kill": "Lance", "look": "laser", "damage_kind": "laser" },
+  // Multitool: a held beam that repairs (or, in its other mode, claims).
+  "multitool-repair": { "class": "stream", "speed": 0.0, "inherit": 0.0, "life": 0.1, "expire": "vanish", "kill": "Multitool",
+    "damage_kind": "energy", "stream": { "range": 18.0, "repair": 30.0, "heal": 0.0 } },
+  "multitool-claim": { "class": "stream", "speed": 0.0, "inherit": 0.0, "life": 0.1, "expire": "vanish", "kill": "Multitool",
+    "damage_kind": "energy", "stream": { "range": 12.0, "claim": 5.0 } },
+  // A Hornet pack's mini rocket: homes on players.
+  "hornet-missile": { "model": "missile", "class": "straight", "speed": 40.0, "inherit": 0.5, "life": 5.0, "accel": 50.0, "max_speed": 90.0,
+    "seek": { "turn": 140.0, "cone": 25.0, "range": 160.0, "targets": ["players"], "proximity": 1.5 },
+    "blast": "hornet", "self_damage": 0.3, "kill": "Hornet", "look": "mortar", "smoke": true, "damage_kind": "blast" },
+  // A missile battery's: steered by whoever works the battery.
+  "guided-missile": { "model": "guided-missile", "class": "straight", "speed": 45.0, "inherit": 0.0, "life": 10.0, "accel": 30.0, "max_speed": 70.0, "guided": 90.0,
+    "blast": "hunter", "self_damage": 1.0, "kill": "Missile battery", "look": "mortar", "smoke": true, "damage_kind": "blast" },
+  // A spark turret's bolt.
+  "turret-spark": { "size": 1.4, "color": [0.55, 0.85, 1.0], "class": "straight", "speed": 160.0, "inherit": 0.0, "life": 2.0, "blast": "spark", "effect": "static",
+    "kill": "Spark turret", "look": "blaster", "damage_kind": "electric" },
+  // Thrown things.
+  "frag": { "model": "frag", "extends": "hand-grenade", "blast": "frag", "kill": "Frag" },
+  "kick-charge": { "model": "charge", "extends": "hand-grenade", "life": 1.5, "blast": "kick", "self_damage": 0.0, "kill": "Kick charge", "damage_kind": "impact" },
+  "concussion": { "model": "concussion", "extends": "hand-grenade", "blast": "concussion", "effect": "dazed", "kill": "Concussion", "damage_kind": "impact" },
+  "static-grenade": { "model": "static-grenade", "extends": "hand-grenade", "blast": "static", "effect": "static", "kill": "Static grenade", "damage_kind": "static" },
+  "blight-grenade": { "model": "blight-grenade", "extends": "hand-grenade", "blast": "blight", "effect": "blight", "kill": "Blight grenade", "damage_kind": "poison" },
+  "breach-charge": { "model": "charge", "extends": "hand-grenade", "life": 4.0, "blast": "breach", "structure_blast": "breach-structure", "kill": "Breach charge" },
+  "firebomb": { "model": "firebomb", "extends": "hand-grenade", "life": 1.2, "blast": "firebomb", "self_damage": 0.2, "effect": "burning", "kill": "Firebomb",
+    "damage_kind": "fire" },
+  "contact-mine": { "model": "contact-mine", "extends": "mine", "blast": "contact-mine", "kill": "Contact mine",
+    "trigger": { "rest_life": 600.0, "arm": 1.5, "radius": 2.0, "sympathy": 4.0, "shot_radius": 0.35 } },
+  "shock-mine": { "model": "shock-mine", "extends": "mine", "blast": "shock-mine", "kill": "Shock mine", "damage_kind": "shock",
+    "trigger": { "rest_life": 600.0, "arm": 1.5, "radius": 3.0, "sympathy": 4.0, "shot_radius": 0.35 } },
+  // These become something where they land.
+  "tripwire-dart": { "model": "dart", "extends": "mine", "trigger": null, "life": 20.0, "becomes": "tripwire", "kill": "Tripwire" },
+  "tripmine-dart": { "model": "dart", "extends": "mine", "trigger": null, "life": 20.0, "becomes": "laser-sentry", "kill": "Laser tripmine" },
+  "medkit": { "model": "medkit", "extends": "mine", "trigger": null, "life": 20.0, "drops": "repair-kit", "kill": "Medkit",
+    "parts": [{ "mesh": "bevel", "size": [0.45, 0.3, 0.3], "color": [0.9, 0.9, 0.9] }, { "mesh": "cube", "size": [0.47, 0.08, 0.32], "color": [0.3, 0.95, 0.45], "glow": 1.0 }] }
+}

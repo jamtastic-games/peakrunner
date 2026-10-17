@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Play in the browser — PeakRunner</title>
+  <meta name="description" content="Play PeakRunner in your browser: bot matches on every map, no download or install.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+  <script src="/play/play.js" type="module"></script>
+</head>
+<body class="play-page">
+  <canvas id="peakrunner_canvas" tabindex="0" aria-label="PeakRunner game"></canvas>
+  <div id="play-overlay" class="play-overlay">
+    <div class="play-card">
+      <a class="wordmark" href="/">PEAK<span>RUNNER</span><i aria-hidden="true"></i></a>
+      <p class="eyebrow">Browser preview</p>
+      <h1>Play in the browser.</h1>
+      <p>Bot matches on every map, right here. Online matches still need the <a class="text-link" href="/#downloads">desktop game</a>.</p>
+      <ul class="play-notes">
+        <li>A one-time download of about 40 MB; your browser keeps it for next time.</li>
+        <li>Needs a recent Chrome, Edge, Firefox or Safari on a computer with a keyboard and mouse. Click the game to capture the mouse; <kbd>Esc</kbd> releases it.</li>
+        <li>Runs slower than the desktop game, especially on laptops; lower the render scale under Graphics if it stutters.</li>
+      </ul>
+      <button id="play-start" class="button primary" type="button">Load the game</button>
+      <p id="play-status" class="play-status" role="status"></p>
+    </div>
+  </div>
+</body>
+</html>

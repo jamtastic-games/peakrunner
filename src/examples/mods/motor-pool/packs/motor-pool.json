@@ -1,0 +1,5 @@
+// The stock library's vehicle pad, carried like the field inventory: placed
+// near your base's stations, one a team. Stand on it and press the use key
+// to take a vehicle.
+{ "motor-pad": { "name": "Vehicle pad", "about": "Placed near your base: your team takes vehicles from it.", "use": "place",
+    "deployable": "vehicle-pad", "base_station_only": true } }

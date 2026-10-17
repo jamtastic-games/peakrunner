@@ -1,0 +1,16 @@
+{
+  "id": "frostline",
+  "name": "Frostline",
+  "seed": 70331,
+  "bases": [
+    {"team": 0, "position": [1024, 233, 368], "yaw": 180},
+    {"team": 1, "position": [1024, 233, 1680], "yaw": 0}
+  ],
+  "beacon": {"position": [1024, 262, 1024]},
+  "control_points": [
+    {"id": "beacon", "name": "Beacon", "centre": true, "ctf_active": true, "turret": "rocket-turret", "turret_range": "half_to_base", "drain": {"radius": 60, "rate": 10}},
+    {"id": "west-col", "name": "West Col", "x": 757, "z": 1024},
+    {"id": "east-col", "name": "East Col", "x": 1291, "z": 1024}
+  ],
+  "water": {"centre": [1024, 1024], "mirror": true, "channel": 2, "bodies": [{"name": "Meltwater Pool", "x": 576, "z": 724, "rx": 20, "rz": 16, "yaw": 10, "depth": 2.6, "color": [0.2, 0.42, 0.5]}]}
+}

@@ -1,0 +1,20 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/mine/raw.glb",
+      "fit": {
+        "min": [-0.225, -0.225, -0.225],
+        "max": [0.225, 0.225, 0.225]
+      },
+      "triangles": 1500,
+      "texture": 512,
+      "orient": [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, -1]
+      ],
+      "solidify": 3
+    }
+  }
+}

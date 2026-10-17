@@ -1,0 +1,21 @@
+// Sparkfall's bursts. No burst kills a full-health light armor outright:
+// every one stays under 100 at its centre (study §8.3).
+{
+  "gust": { "radius": 9.0, "max_damage": 18.0, "edge_fraction": 0.3, "impulse": 9000.0 },
+  "spark": { "radius": 4.0, "max_damage": 30.0, "edge_fraction": 0.2, "impulse": 400.0 },
+  "torch": { "radius": 3.0, "max_damage": 14.0, "edge_fraction": 0.4, "impulse": 100.0 },
+  "hunter": { "radius": 10.0, "max_damage": 80.0, "edge_fraction": 0.12, "impulse": 2200.0 },
+  "hunter-lock": { "radius": 7.0, "max_damage": 70.0, "edge_fraction": 0.12, "impulse": 1800.0 },
+  "hornet": { "radius": 4.5, "max_damage": 34.0, "edge_fraction": 0.15, "impulse": 700.0 },
+  "frag": { "radius": 10.0, "max_damage": 72.0, "edge_fraction": 0.12, "impulse": 1500.0 },
+  "kick": { "radius": 14.0, "max_damage": 12.0, "edge_fraction": 0.4, "impulse": 9800.0 },
+  "concussion": { "radius": 14.0, "max_damage": 45.0, "edge_fraction": 0.2, "impulse": 300.0 },
+  "static": { "radius": 16.0, "max_damage": 30.0, "edge_fraction": 0.3, "impulse": 600.0 },
+  "blight": { "radius": 10.0, "max_damage": 40.0, "edge_fraction": 0.3, "impulse": 300.0 },
+  "breach": { "radius": 16.0, "max_damage": 95.0, "edge_fraction": 0.15, "impulse": 4000.0 },
+  "breach-structure": { "radius": 16.0, "max_damage": 400.0, "edge_fraction": 0.2, "impulse": 3000.0 },
+  "contact-mine": { "radius": 9.0, "max_damage": 85.0, "edge_fraction": 0.12, "impulse": 2000.0 },
+  "shock-mine": { "radius": 10.0, "max_damage": 25.0, "edge_fraction": 0.3, "impulse": 9000.0 },
+  "firebomb": { "radius": 12.0, "max_damage": 15.0, "edge_fraction": 0.4, "impulse": 7000.0 },
+  "wreck": { "radius": 12.0, "max_damage": 60.0, "edge_fraction": 0.15, "impulse": 3000.0 }
+}

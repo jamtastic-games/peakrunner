@@ -1,0 +1,41 @@
+// Packs: what a player wears on the back, one at a time, used with the
+// deploy key. Most place the deployable of the same name where the player
+// aims (the pack is used up); worn ones work while worn (`always`) or while
+// switched on (`toggle`). `base_station_only`: a field inventory doesn't
+// hand it out. Which armor may wear which: `armors/<id>.packs`.
+{
+  // Worn: they help their wearer.
+  // Energy comes back twice as fast while worn.
+  "energy": { "name": "Energy pack", "about": "Your energy comes back twice as fast.",
+    "use": "always", "effects": ["recharging"] },
+  // Switched on, damage is paid from energy. Like the jammer, it drains a
+  // little faster than the wearer's armor recharges (`drain_regen`), so the
+  // tank empties slowly even at rest: the classic's shield drains 1.125
+  // times the recharge, its jammer 1.3125 times.
+  "shield": { "name": "Shield pack", "about": "Switched on, hits take energy instead of armor, and it slowly uses up your energy.",
+    "use": "toggle", "effects": ["shielded"], "drain_regen": 1.125, "min_energy": 2.0 },
+  // Switched on, mends its wearer.
+  "repair": { "name": "Repair pack", "about": "Switched on, mends you over time.",
+    "use": "toggle", "effects": ["mending"], "drain": 5.0, "min_energy": 3.0 },
+  // Switched on, sensors and turrets can't pick you out.
+  "jammer": { "name": "Sensor jammer", "about": "Switched on, sensors and turrets can't pick you out; it slowly uses up your energy.",
+    "use": "toggle", "effects": ["jammed"], "drain_regen": 1.3125, "min_energy": 2.0 },
+  // Half again as many rounds.
+  "ammo-pack": { "name": "Ammo pack", "about": "Carry half again as many rounds.", "use": "always", "ammo_scale": 1.5 },
+
+  // Placed: sensors, for every armor.
+  "motion-sensor": { "name": "Motion sensor", "about": "Put down a sensor: enemies moving within 60 m show on your team's screens, with an alarm.",
+    "use": "place", "deployable": "motion-sensor" },
+  "pulse-sensor": { "name": "Pulse sensor", "about": "Put down a sensor: enemies within 100 m show on your team's screens.",
+    "use": "place", "deployable": "pulse-sensor" },
+  "jammer-pylon": { "name": "Jammer pylon", "about": "Put down a pylon: teammates within 20 m are hidden from sensors and turrets.",
+    "use": "place", "deployable": "jammer-pylon" },
+
+  // Placed: medium and heavy armor only.
+  "turret": { "name": "Turret", "about": "Repeater rounds at enemies in sight, 70 m.", "use": "place", "deployable": "turret" },
+  "wall": { "name": "Wall", "about": "Solid cover. Stops everyone and every shot.", "use": "place", "deployable": "wall" },
+  "field": { "name": "Force field", "about": "A door for your team; a wall for theirs.", "use": "place", "deployable": "field" },
+  "ammo": { "name": "Ammo station", "about": "Your team restocks here.", "use": "place", "deployable": "ammo", "base_station_only": true },
+  "inventory": { "name": "Field inventory", "about": "A small station: your team changes weapons and small packs here.",
+    "use": "place", "deployable": "inventory", "base_station_only": true }
+}

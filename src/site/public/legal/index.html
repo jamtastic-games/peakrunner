@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Terms and privacy — PeakRunner</title>
+  <meta name="description" content="PeakRunner's terms of use, privacy notice and third-party licenses.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="wordmark" href="/" aria-label="PeakRunner home">PEAK<span>RUNNER</span><i aria-hidden="true"></i></a>
+      <nav aria-label="Main navigation">
+        <a href="/#servers">Servers</a><a href="/#maps">Maps</a><a href="/docs/">Guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a>
+        <a class="button small primary" href="/#downloads">Download</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="On this page">
+      <span class="group">Legal</span>
+      <a href="#terms">Terms of use</a><a href="#warranty">No warranty</a><a href="#privacy">Privacy</a><a href="#licenses">Licenses</a><a href="#contact">Contact</a>
+    </nav>
+    <main class="prose" id="main">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms and privacy.</h1>
+      <p class="lede">The short version: PeakRunner is a free playtest, provided as is. It has no accounts, no ads and no tracking.</p>
+
+      <h2 id="terms">Terms of use</h2>
+      <p>PeakRunner is free software. Its code is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License version 3</a>, and its art and maps under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a>: you may use, study, change and share them on those licenses' terms. The PeakRunner name and logo are not licensed; a modified version must use its own name and logo and must not suggest that it is official. Maps and mods you make for PeakRunner are yours to license as you choose.</p>
+      <p>Play fair and be decent in chat. Chat is checked and rate-limited, and anyone who abuses a server, the directory or this site may be blocked.</p>
+
+      <h2 id="warranty">No warranty</h2>
+      <p>PeakRunner is a playtest. It is provided <strong>"as is", without warranty of any kind</strong>, express or implied, including fitness for a particular purpose. You use it at your own risk. The authors are not liable for any damages or losses arising from its use, to the extent the law allows.</p>
+      <p>Downloads are not code-signed yet, so your operating system may warn you before running them. Check each download's SHA-256 against the one listed on the downloads page. If you host a server, you are responsible for it and for the network it runs on.</p>
+
+      <h2 id="privacy">Privacy</h2>
+      <ul>
+        <li><strong>No accounts, ads or tracking.</strong> This site sets no cookies and loads nothing from other sites, with one exception you choose: the gameplay montage on the home page. Until you press play it is only a picture from this site; pressing play loads the video from YouTube's privacy-enhanced player (youtube-nocookie.com), and YouTube's privacy policy applies to what it then does.</li>
+        <li><strong>Playing online:</strong> a match server sees your IP address (to send you the game and to limit abuse), the player name you choose, your chat and your play. Your name, chat and play are shown to the other players in that match. Servers keep this in memory while you play; their logs record joins and departures by a number, not your name or address.</li>
+        <li><strong>Player counts:</strong> the game makes a random number the first time it joins a server and keeps it in its settings file. When it joins, it sends a code made from that number and the server's address, so servers at different addresses can't tell they're seeing the same player. The official servers keep only a salted one-way hash of the code, by day and in total, to show on this site how many people have played; nothing ties it to your name, your IP address or your play, and only the two counts are published. Delete the game's settings file and you count as someone new.</li>
+        <li><strong>Server list:</strong> when you browse servers, the game and this site ask our directory for the list. Community servers that announce themselves are listed with their public address.</li>
+        <li><strong>Downloads and updates:</strong> downloading from this site, or the launcher checking for updates, sends ordinary web requests. This site does not keep access logs.</li>
+        <li><strong>Cloudflare</strong> carries this site and the directory, and processes those requests under its own privacy policy. Gameplay goes directly to the match server.</li>
+        <li><strong>Your computer:</strong> the game and launcher keep your settings on your own computer. They never store match passwords.</li>
+        <li>Servers run by other people follow their own practices.</li>
+      </ul>
+
+      <h2 id="licenses">Licenses</h2>
+      <p>The montage's music is "Suspense Tension - Suspenseful Tense" by lNPLUSMUSIC, used under the Pixabay Content License (composer Poradovskyi Andrii, BMI IPI 1055591064).</p>
+      <p>PeakRunner includes open-source components, each used under its own license. The full list and license texts: <a href="/legal/third-party-notices.txt">third-party notices</a>. Every download also carries <code>LICENSE.txt</code> (the GNU GPL), <code>CC-BY-SA-4.0.txt</code>, <code>COPYRIGHT.txt</code> (which license covers which files) and <code>THIRD-PARTY-NOTICES.txt</code>.</p>
+
+      <h2 id="contact">Contact</h2>
+      <p>Questions, privacy requests or reports: message the moderators of <a href="https://www.reddit.com/r/peakrunner/">r/peakrunner</a>.</p>
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="/">PEAK<span>RUNNER</span></a>
+      <nav aria-label="Footer"><a href="/docs/">Player guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a><a href="https://dir.peakrunner.net/servers">Directory API</a><a href="/legal/">Terms and privacy</a></nav>
+      <p>Independent playtest · original maps and art · provided as is, without warranty</p>
+    </div>
+  </footer>
+</body>
+</html>

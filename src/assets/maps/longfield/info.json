@@ -1,0 +1,6 @@
+{
+  "name": "Longfield",
+  "note": "Football. A floodlit turf field in a skiable bowl, end zones 250 m apart.",
+  "bases": [[1024,100,899], [1024,100,1149]],
+  "dust": [0.36, 0.40, 0.26]
+}

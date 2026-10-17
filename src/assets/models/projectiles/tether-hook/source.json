@@ -1,0 +1,16 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/tether-hook/raw.glb",
+      "fit": {
+        "min": [-0.225, -0.225, -0.225],
+        "max": [0.225, 0.225, 0.225]
+      },
+      "triangles": 2000,
+      "texture": 512,
+      "concept": "projectiles/tether-hook/concept.png",
+      "view": "left"
+    }
+  }
+}

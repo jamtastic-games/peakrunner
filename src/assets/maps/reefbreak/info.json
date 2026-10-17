@@ -1,0 +1,6 @@
+{
+  "name": "Reefbreak",
+  "note": "An atoll: flags on the reef ring, freighter bases hovering over the lagoon, a lighthouse island and wading shallows.",
+  "bases": [[1024,68,724], [1024,68,1324]],
+  "dust": [0.80, 0.74, 0.60]
+}

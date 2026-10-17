@@ -1,0 +1,41 @@
+// What Sparkfall's class keys, packs, gadgets and weapons leave on players.
+// Movement multiples are predicted by every client; damage over time is the
+// server's. Stealth reveals itself: firing or being hit ends it, enemies
+// within 15 m see a shimmer, and a veiled player can't take a flag.
+{
+  // The Courier's class key: quicker, a little mended, for eight seconds.
+  "overdrive": { "name": "Overdrive", "seconds": 8.0, "heal": 3.0, "regen_scale": 1.5,
+    "movement": { "jet": 1.45, "side": 1.3, "air_cap": 1.35, "walk": 1.35, "jump": 1.5 },
+    "stack": "refresh", "tint": [1.0, 0.85, 0.4, 0.1], "glow": [1.0, 0.8, 0.3, 0.12] },
+  // Too much Overdrive: it hurts, and the jets sputter.
+  "overstrained": { "name": "Overstrained", "seconds": 4.0, "damage": 6.0, "damage_kind": "impact",
+    "movement": { "jet": 0.6 }, "tint": [0.9, 0.2, 0.1, 0.15] },
+  // The Striker's class key: energy pours back in.
+  "surged": { "name": "Surged", "seconds": 6.0, "regen_scale": 2.5, "energy": 10.0, "tint": [0.4, 1.0, 0.6, 0.08] },
+  // The Bulwark's class key: hits paid from energy, for a while (`absorb`
+  // prices the hit before armor: 0.42, the Bulwark's share of a hit, is an
+  // energy a point it is spared).
+  "warded": { "name": "Warded", "seconds": 20.0, "absorb": 0.42, "tint": [0.3, 0.6, 1.0, 0.1], "glow": [0.3, 0.6, 1.0, 0.18] },
+  // Veiled: all but invisible.
+  "veiled": { "name": "Veiled", "seconds": 0.5, "visibility": 0.04, "hide_name": true, "sensor_hidden": true, "shimmer": 15.0,
+    "reveal": true, "blocks": { "flag": true }, "tint": [0.6, 0.6, 0.8, 0.12] },
+  // Static: energy drains and barely comes back. A Cell pack's wearer is
+  // spared the worst (Sparkfall's Cell is immune by its armor's choice).
+  "static": { "name": "Static", "seconds": 3.0, "energy": -12.0, "regen_scale": 0.2, "cleansed": true,
+    "tint": [0.5, 0.7, 1.0, 0.1], "glow": [0.5, 0.7, 1.0, 0.15] },
+  // Blight: poison for six seconds; stations cleanse it; Wardens shrug it off.
+  "blight": { "name": "Blight", "seconds": 6.0, "damage": 4.0, "damage_kind": "poison", "cleansed": true,
+    "immune": ["warden"], "tint": [0.4, 0.9, 0.2, 0.1], "glow": [0.4, 0.9, 0.2, 0.15] },
+  // Burning: a few seconds of fire.
+  "burning": { "name": "Burning", "seconds": 3.0, "damage": 5.0, "damage_kind": "fire", "stack": "refresh",
+    "tint": [1.0, 0.45, 0.1, 0.1], "glow": [1.0, 0.45, 0.1, 0.2] },
+  // Dazed by a concussion: slow and short-jumping.
+  "dazed": { "name": "Dazed", "seconds": 3.0, "movement": { "walk": 0.6, "jet": 0.7, "jump": 0.6 }, "tint": [0.8, 0.8, 0.8, 0.1] },
+  // The Siegeframe's class key: planted, its energy flooding back.
+  "anchored": { "name": "Anchored", "seconds": 8.0, "regen_scale": 3.0, "movement": { "walk": 0.0, "jump": 0.0 },
+    "blocks": { "jet": true }, "glow": [1.0, 0.6, 0.2, 0.12] },
+  // Mended by a Mender pack or a mend pylon.
+  "mended": { "name": "Mended", "seconds": 1.0, "heal": 8.0 },
+  // Tethered: dragged and slowed.
+  "tethered": { "name": "Tethered", "seconds": 1.5, "movement": { "jet": 0.5, "side": 0.5 } }
+}

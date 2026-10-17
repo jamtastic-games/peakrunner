@@ -1,0 +1,328 @@
+{
+  "terrain_layers": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "sky_layers": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "water_layer": 13,
+  "water": {
+    "position": "-384 -160 54",
+    "scale": "720 150 1"
+  },
+  "texture_count": 25,
+  "lightmap": {
+    "pages": 5,
+    "first_layer": 20,
+    "texel_m": 0.5,
+    "sun": [
+      -0.57735,
+      0.57735,
+      -0.57735
+    ],
+    "lamps": 48,
+    "baker_sha256": "66d1c04a0581f283b62d4a01a9229abd22fbd18a738474c8c5c148db84800fed"
+  },
+  "version": 1,
+  "id": "longfield",
+  "name": "Longfield",
+  "flags": [
+    [
+      1024.0,
+      100.0,
+      899.0
+    ],
+    [
+      1024.0,
+      100.0,
+      1149.0
+    ]
+  ],
+  "spawns": [
+    [
+      1003.0,
+      101.2,
+      874.0
+    ],
+    [
+      1045.0,
+      101.2,
+      1174.0
+    ]
+  ],
+  "exact_spawns": true,
+  "spawn_points": [
+    [
+      [
+        1003.0,
+        101.2,
+        874.0,
+        3.141592653589793
+      ],
+      [
+        1017.0,
+        101.2,
+        874.0,
+        3.141592653589793
+      ],
+      [
+        1031.0,
+        101.2,
+        874.0,
+        3.141592653589793
+      ],
+      [
+        1045.0,
+        101.2,
+        874.0,
+        3.141592653589793
+      ],
+      [
+        1003.0,
+        101.2,
+        881.0,
+        3.141592653589793
+      ],
+      [
+        1017.0,
+        101.2,
+        881.0,
+        3.141592653589793
+      ],
+      [
+        1031.0,
+        101.2,
+        881.0,
+        3.141592653589793
+      ],
+      [
+        1045.0,
+        101.2,
+        881.0,
+        3.141592653589793
+      ]
+    ],
+    [
+      [
+        1045.0,
+        101.2,
+        1174.0,
+        0.0
+      ],
+      [
+        1031.0,
+        101.2,
+        1174.0,
+        0.0
+      ],
+      [
+        1017.0,
+        101.2,
+        1174.0,
+        0.0
+      ],
+      [
+        1003.0,
+        101.2,
+        1174.0,
+        0.0
+      ],
+      [
+        1045.0,
+        101.2,
+        1167.0,
+        0.0
+      ],
+      [
+        1031.0,
+        101.2,
+        1167.0,
+        0.0
+      ],
+      [
+        1017.0,
+        101.2,
+        1167.0,
+        0.0
+      ],
+      [
+        1003.0,
+        101.2,
+        1167.0,
+        0.0
+      ]
+    ]
+  ],
+  "holes": [],
+  "entities": [],
+  "instances": [
+    {
+      "asset": "longfield-stadium-v1",
+      "team": 0,
+      "yaw": 0,
+      "anchors": {
+        "flag": [
+          1024.0,
+          100.0,
+          899.0
+        ],
+        "end_zone": [
+          1024.0,
+          101.2,
+          899.0
+        ],
+        "kickoff": [
+          1024.0,
+          101.0,
+          986.5
+        ],
+        "spawn": [
+          1003.0,
+          101.2,
+          874.0
+        ]
+      }
+    },
+    {
+      "asset": "longfield-stadium-v1",
+      "team": 1,
+      "yaw": 180,
+      "anchors": {
+        "flag": [
+          1024.0,
+          100.0,
+          1149.0
+        ],
+        "end_zone": [
+          1024.0,
+          101.2,
+          1149.0
+        ],
+        "kickoff": [
+          1024.0,
+          101.0,
+          1061.5
+        ],
+        "spawn": [
+          1045.0,
+          101.2,
+          1174.0
+        ]
+      }
+    }
+  ],
+  "ambient_emitters": [],
+  "sky": {
+    "visibleDistance": "2500",
+    "fogDistance": "1500",
+    "fogColor": "0.46 0.44 0.52"
+  },
+  "control_points": [],
+  "look": {
+    "sun_color": [
+      1.0,
+      0.78,
+      0.58
+    ],
+    "sun_disc": 0.7,
+    "exposure": 1.02,
+    "ambient_sky": [
+      0.56,
+      0.56,
+      0.66
+    ],
+    "ambient_ground": [
+      0.42,
+      0.44,
+      0.36
+    ],
+    "sky": {
+      "zenith": [
+        0.12,
+        0.14,
+        0.3
+      ],
+      "horizon": [
+        0.86,
+        0.58,
+        0.42
+      ],
+      "cloud_cover": 0.35,
+      "cloud_color": [
+        0.95,
+        0.7,
+        0.55
+      ],
+      "cloud_scale": 1.4,
+      "sun_size": 0.035
+    }
+  },
+  "water_enabled": false,
+  "water_volumes": [],
+  "football": {
+    "end_zones": [
+      [
+        1024.0,
+        101.2,
+        899.0
+      ],
+      [
+        1024.0,
+        101.2,
+        1149.0
+      ]
+    ],
+    "kickoff": [
+      [
+        1024.0,
+        101.0,
+        986.5
+      ],
+      [
+        1024.0,
+        101.0,
+        1061.5
+      ]
+    ],
+    "radius": 9.0,
+    "bounds": [
+      896.0,
+      796.0,
+      1152.0,
+      1252.0
+    ]
+  },
+  "terrain_shade": {
+    "size": 1024,
+    "texel_m": 2.0,
+    "sun": [
+      -0.57735,
+      0.57735,
+      -0.57735
+    ],
+    "shaded_fraction": 0.0107,
+    "baker_sha256": "981ed46e40de6348d03e479856a4b7fb985d238650b23c0ce951077761b47f6c"
+  },
+  "asset_sha256": "d2580bbc64d533a5c394d31ea5fc698d250d80d29f938f40597717c322228c53",
+  "terrain_source_sha256": "09015adeb14e1c0e0c929b55507cd0ea7244952e9aca992cd29bed9c9b3f459f",
+  "material_source_sha256": "31b213618fc3d2b8e75a1b865d0d2a2d91ee6f461aa6d2c7965e7f0807e6e43b",
+  "provenance": "PeakRunner original stadium geometry, original procedural terrain and original material kit; no extracted assets or external height data",
+  "definition_sha256": "012ca63db35b092203296231837a740e62489d67a23fdbdf34aa06c999be853e",
+  "files": {
+    "height.bin": "5cfaab9c8e97b23d9d5ff3d97299ebfe90c8cd3f006a84c9980dbd0418ac075c",
+    "vertices.bin": "933ed250bfb77ec931e22a5e713e33f5c25322d448390ca2972d4d75f646e892",
+    "collision.bin": "9c45f6af639e71bd197f3fc7071b17448efb25e9fd26fe937a47166c8b232a0c",
+    "weights.rgba": "288031a767533644c2c2ffa388ad233e3a8d0454ea8b7db7d7d156ebdce7ff47",
+    "textures.rgba": "22bfd7c079f0430b4abeca4fab2207858de5e341ce3e4777ee9a257f5a5528d6",
+    "ambient.f32": "52b06180983895f8fc9e5a9f2fc4d10f05f9bcc3d23aaf1f58142e3c47aec29e",
+    "shade.rg": "d2efc9881f3f3a73c2335c5b9fbe3d8fa64b371849031ed6c153f6a9dfa6f0ab"
+  }
+}

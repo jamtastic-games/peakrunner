@@ -1,0 +1,26 @@
+// Throwables: what the grenade (G) and mine (M) keys throw. Hold to wind
+// up: a throw leaves at `min_strength` to full `speed`, keeping `inherit` of
+// the thrower's velocity; `time` is the pause before the next throw.
+// `team_max` limits how many a team may have out (0: no limit). Each names
+// the projectile it becomes; an armor says which it carries and how many.
+{
+  "hand-grenade": {
+    "name": "Grenade",
+    "about": "Hold to wind up, release to throw. 2 s fuse.",
+    "projectile": "hand-grenade",
+    "speed": 20.0,
+    "inherit": 1.0,
+    "time": 0.1,
+    "min_strength": 0.3
+  },
+  "mine": {
+    "name": "Mine",
+    "about": "Hold to throw. Arms at rest; enemies set it off.",
+    "projectile": "mine",
+    "speed": 24.0,
+    "inherit": 1.0,
+    "time": 0.1,
+    "min_strength": 0.3,
+    "team_max": 12
+  }
+}

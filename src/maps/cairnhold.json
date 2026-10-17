@@ -1,0 +1,102 @@
+{
+  "id": "cairnhold",
+  "name": "Cairnhold",
+  "seed": 60417,
+  "bases": [
+    {
+      "team": 0,
+      "position": [
+        1024,
+        191,
+        580
+      ],
+      "yaw": 180
+    },
+    {
+      "team": 1,
+      "position": [
+        1024,
+        191,
+        1468
+      ],
+      "yaw": 0
+    }
+  ],
+  "ring": {
+    "position": [
+      1024,
+      240,
+      1024
+    ]
+  },
+  "control_points": [
+    {
+      "id": "ring",
+      "name": "The Ring",
+      "x": 1024,
+      "z": 1024,
+      "on_ring": true,
+      "ctf_active": true,
+      "turret": "rocket-turret",
+      "turret_range": "half_to_base"
+    },
+    {
+      "id": "west-cairn",
+      "name": "West Cairn",
+      "x": 672,
+      "z": 1012
+    },
+    {
+      "id": "east-cairn",
+      "name": "East Cairn",
+      "x": 1376,
+      "z": 1036
+    }
+  ],
+  "fog_color": "0.78 0.71 0.60",
+  "look": {
+    "sun_color": [
+      1.0,
+      0.9,
+      0.74
+    ],
+    "sun_disc": 0.9,
+    "exposure": 1.08,
+    "ambient_sky": [
+      0.6,
+      0.6,
+      0.66
+    ],
+    "ambient_ground": [
+      0.5,
+      0.45,
+      0.38
+    ],
+    "height_fog": {
+      "density": 0.003,
+      "base": 190,
+      "falloff": 28
+    },
+    "sky": {
+      "zenith": [
+        0.2,
+        0.27,
+        0.44
+      ],
+      "horizon": [
+        0.82,
+        0.73,
+        0.6
+      ],
+      "cloud_cover": 0.5,
+      "cloud_color": [
+        0.97,
+        0.86,
+        0.7
+      ],
+      "cloud_scale": 1.6,
+      "sun_size": 0.03
+    }
+  },
+  "water": {"centre": [1024, 1024], "mirror": true, "channel": 2, "bodies": [{"name": "Peat Burn", "x": 662, "z": 776, "rx": 15, "rz": 24, "yaw": -12, "depth": 2.8, "flow": [0.15, 0.6], "color": [0.1, 0.18, 0.22]}]}
+}

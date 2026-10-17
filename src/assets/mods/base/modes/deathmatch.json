@@ -1,0 +1,30 @@
+{
+  "label": "Deathmatch",
+  "short": "DM",
+  "note": "Every player for themselves. Random time of day, weather and a twist.",
+  "goal": "Everyone's a target · first to 20 frags",
+  "start_message": "DEATHMATCH — EVERYONE IS A TARGET",
+  "rules": "deathmatch",
+  "offered": false,
+  "clock": 600.0,
+  "halves": 1,
+  "warmup": 10.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 20,
+  "teams": "free_for_all",
+  "control_points": "none",
+  "conditions": true,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": true,
+  "deployables": false,
+  "ammo_stations": true,
+  "throwables": true,
+  "loot": true,
+  "repair_tool": true,
+  "purchases": true,
+  "requires": {
+    "football_field": false
+  }
+}

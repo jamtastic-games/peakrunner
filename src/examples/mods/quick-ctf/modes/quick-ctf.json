@@ -1,0 +1,10 @@
+{
+  "base": "ctf",
+  "label": "Quick CTF",
+  "short": "QCTF",
+  "note": "Five captures to win, five-minute rounds.",
+  "goal": "First to 5 captures",
+  "start_message": "QUICK CTF — FIRST TO FIVE",
+  "clock": 300.0,
+  "score_limit": 5
+}

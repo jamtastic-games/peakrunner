@@ -1,0 +1,21 @@
+{
+  "name": "Ashveil",
+  "note": "A spired temple over a buried cathedral, in a caldera of cinder cones, basalt and hot air.",
+  "bases": [
+    [
+      452.0,
+      74.4,
+      250.0
+    ],
+    [
+      114.33,
+      105.96,
+      364.293
+    ]
+  ],
+  "dust": [
+    0.5,
+    0.3,
+    0.2
+  ]
+}

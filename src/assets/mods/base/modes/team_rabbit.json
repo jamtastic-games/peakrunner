@@ -1,0 +1,30 @@
+{
+  "label": "Team Rabbit",
+  "short": "TR",
+  "note": "Each team has 50 lives; the team holding the flag takes two a kill.",
+  "goal": "Take their lives · 50 each, double with the flag",
+  "start_message": "TEAM RABBIT — TAKE THEIR LIVES",
+  "rules": "team_rabbit",
+  "offered": true,
+  "clock": 600.0,
+  "halves": 1,
+  "warmup": 10.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 50,
+  "teams": "two",
+  "control_points": "none",
+  "conditions": false,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": true,
+  "deployables": true,
+  "ammo_stations": true,
+  "throwables": true,
+  "loot": true,
+  "repair_tool": true,
+  "purchases": true,
+  "requires": {
+    "football_field": false
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "longfield",
+  "name": "Longfield",
+  "seed": 71103,
+  "mode": "football",
+  "halves": [
+    {"team": 0, "yaw": 0},
+    {"team": 1, "yaw": 180}
+  ],
+  "fog_color": "0.46 0.44 0.52",
+  "look": {
+    "sun_color": [1.0, 0.78, 0.58],
+    "sun_disc": 0.7,
+    "exposure": 1.02,
+    "ambient_sky": [0.56, 0.56, 0.66],
+    "ambient_ground": [0.42, 0.44, 0.36],
+    "sky": {
+      "zenith": [0.12, 0.14, 0.3],
+      "horizon": [0.86, 0.58, 0.42],
+      "cloud_cover": 0.35,
+      "cloud_color": [0.95, 0.7, 0.55],
+      "cloud_scale": 1.4,
+      "sun_size": 0.035
+    }
+  }
+}

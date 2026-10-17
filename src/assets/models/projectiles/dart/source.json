@@ -1,0 +1,20 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/dart/raw.glb",
+      "fit": {
+        "min": [-0.15, -0.15, -0.15],
+        "max": [0.15, 0.15, 0.15]
+      },
+      "triangles": 1200,
+      "texture": 256,
+      "orient": [
+        [0, 0, -1],
+        [0, 1, 0],
+        [1, 0, 0]
+      ],
+      "solidify": 3
+    }
+  }
+}

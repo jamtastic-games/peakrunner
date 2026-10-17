@@ -1,0 +1,6 @@
+{
+  "name": "Cairnhold",
+  "note": "Hillside bunkers, trench-linked flag towers and a central ring on rugged ground.",
+  "bases": [[1024,191,580], [1024,191,1468]],
+  "dust": [0.46, 0.43, 0.38]
+}

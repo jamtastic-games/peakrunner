@@ -1,0 +1,7 @@
+// The stock library's vehicle guns: weapons fired from vehicles' seats
+// (`vehicles/library.json`), never offered at stations.
+{
+  // The tank's main gun: a heavy shell straight along the turret, slow to reload.
+  "tank-cannon": { "name": "Hogback cannon", "about": "A heavy shell along the turret.", "family": "tank-cannon", "offered": false,
+    "projectile": "tank-shell", "reload": 2.4, "shake": 0.16, "view": "mortar", "sound": "mortar" }
+}

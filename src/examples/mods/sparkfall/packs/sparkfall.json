@@ -1,0 +1,31 @@
+// Sparkfall's packs: worn ones, used ones, and the Rigger's kit of placed
+// things. Armors say which they may wear (armors/sparkfall.json).
+{
+  "veil": { "name": "Veil pack", "about": "Switched on, you're all but invisible; firing or a hit ends it.", "use": "toggle",
+    "effects": ["veiled"], "drain": 9.0, "min_energy": 5.0, "price": 150, "bot": "combat",
+    "parts": [{ "mesh": "bevel", "size": [0.4, 0.5, 0.2], "color": [0.25, 0.25, 0.35] }, { "mesh": "sphere", "at": [0, 0.15, 0.12], "size": [0.1, 0.1, 0.05], "color": [0.6, 0.6, 1.0], "glow": 1.5 }] },
+  "buffer": { "extends": "shield", "name": "Buffer", "about": "Switched on, hits drain your energy instead.", "drain": 5.0, "drain_regen": 0.0, "price": 120,
+    "bot": "combat", "offered": true },
+  "cell": { "extends": "energy", "name": "Cell", "about": "Your energy comes back twice as fast.", "price": 60, "offered": true },
+  "mender": { "extends": "repair", "name": "Mender", "about": "Switched on, mends you over time.", "price": 100, "offered": true },
+  "recall": { "name": "Recall pack", "offered": true, "price": 120 },
+  "hornet": { "name": "Hornet", "about": "Mini rockets that home on whoever's in front of you.", "use": "use", "energy": 10.0, "cooldown": 3.0,
+    "action": { "fire": "hornet-pod" }, "price": 200, "bot": "combat" },
+  "bandolier": { "extends": "ammo-pack", "name": "Bandolier", "about": "Half again as many rounds; drop it for a teammate.", "price": 60, "offered": true },
+  // The Rigger's kit.
+  "spring-pad": { "name": "Spring pad", "use": "place", "deployable": "spring-pad", "price": 40 },
+  "boost-plate": { "name": "Boost plate", "use": "place", "deployable": "boost-plate", "price": 40 },
+  "gate": { "name": "Gate", "use": "place", "deployable": "gate", "price": 80 },
+  "deck": { "name": "Deck", "use": "place", "deployable": "deck", "price": 30 },
+  "zap-grate": { "name": "Zap grate", "use": "place", "deployable": "zap-grate", "price": 60 },
+  "mend-pylon": { "name": "Mend pylon", "use": "place", "deployable": "mend-pylon", "price": 80, "bot": "defense" },
+  "ward-pylon": { "name": "Ward pylon", "use": "place", "deployable": "ward-pylon", "price": 120 },
+  "veil-pylon": { "name": "Veil pylon", "use": "place", "deployable": "veil-pylon", "price": 150 },
+  "static-pylon": { "name": "Static pylon", "use": "place", "deployable": "static-pylon", "price": 100, "bot": "defense" },
+  "hush-pylon": { "name": "Hush pylon", "use": "place", "deployable": "hush-pylon", "price": 60 },
+  "eye": { "name": "Eye", "use": "place", "deployable": "eye", "price": 50, "bot": "defense" },
+  "spark-turret": { "name": "Spark turret", "use": "place", "deployable": "spark-turret", "price": 120, "bot": "defense" },
+  "missile-battery": { "name": "Missile battery", "use": "place", "deployable": "missile-battery", "price": 250, "base_station_only": true },
+  "command-post": { "name": "Command post", "use": "place", "deployable": "command-post", "price": 150, "base_station_only": true },
+  "flier-bay": { "name": "Flier bay", "use": "place", "deployable": "flier-bay", "price": 200, "base_station_only": true }
+}

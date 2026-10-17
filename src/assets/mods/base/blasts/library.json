@@ -1,0 +1,4 @@
+// The stock library's blasts.
+{
+  "turret-rocket": { "falloff": "quadratic", "radius": 7.0, "max_damage": 50.0, "edge_damage": 10.0, "core_damage": 40.0, "kick": 5.0 }
+}

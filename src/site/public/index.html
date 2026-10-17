@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PeakRunner — Own the ridgeline</title>
+  <meta name="description" content="PeakRunner is a fast, jet-powered team shooter: ski downhill, burn skyward and land the disc. Eleven original maps, seven modes, free playtest for Mac, Windows and Linux.">
+  <meta property="og:title" content="PeakRunner — Own the ridgeline"><meta property="og:description" content="Ski, jet and fight across eleven original maps. Capture the Flag, Capture &amp; Hold, Team Deathmatch, Rabbit, Team Rabbit, Football and Duel.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://peakrunner.net/"><meta property="og:image" content="https://peakrunner.net/assets/maps/tower-complex.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="wordmark" href="/" aria-label="PeakRunner home">PEAK<span>RUNNER</span><i aria-hidden="true"></i></a>
+      <nav aria-label="Main navigation">
+        <a href="#servers">Servers</a><a href="#maps">Maps</a><a href="/docs/">Guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a>
+        <a class="button small primary" href="#downloads">Download</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-copy">
+        <p class="eyebrow">Free playtest · Mac · Windows · Linux</p>
+        <h1 id="hero-title">Own the<br><em>ridgeline.</em></h1>
+        <p class="lede">A fast team shooter where the ground is your engine. Ski down every slope, jet over the next one, and land the disc before they land the flag.</p>
+        <div class="actions"><a class="button primary" href="#downloads">Get the launcher</a><a class="button" href="#servers">See live matches</a></div>
+        <p class="hero-note">No install? <a class="text-link" href="/play/">Play bot matches in your browser</a>.</p>
+      </div>
+      <p class="wrap hero-caption">Tower Complex · in-game capture</p>
+    </section>
+
+    <div class="status-bar"><div class="wrap status-inner"><span><i class="status-dot" aria-hidden="true"></i> Network</span><strong id="network-status" role="status">Connecting to the directory…</strong><span class="status-extra">Encrypted UDP · dedicated servers</span></div></div>
+
+    <section class="wrap section watch" id="watch" aria-labelledby="watch-title">
+      <div class="section-heading"><div><p class="eyebrow">Watch</p><h2 id="watch-title">See it move.</h2></div><a class="text-link" href="https://www.youtube.com/@PeakrunnerCentral">More on YouTube →</a></div>
+      <div class="video" id="montage" data-video="97EtYLFZD3Y" data-title="PeakRunner Montage 1">
+        <button class="video-poster" type="button" aria-label="Play PeakRunner Montage 1 (loads the video from YouTube)">
+          <img src="/assets/maps/ashveil.jpg" alt="" width="1280" height="800" loading="lazy">
+          <span class="video-play" aria-hidden="true"></span>
+          <span class="video-caption"><strong>PeakRunner Montage 1</strong><span>Plays from YouTube's privacy-enhanced player. Nothing loads from YouTube until you press play.</span></span>
+        </button>
+      </div>
+      <p class="credit">Music: "Suspense Tension - Suspenseful Tense" by lNPLUSMUSIC, from <a class="text-link" href="https://pixabay.com/">Pixabay</a> (Pixabay Content License); composer Poradovskyi Andrii, BMI IPI 1055591064.</p>
+    </section>
+
+    <section class="wrap section" id="servers" aria-labelledby="servers-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Live now</p><h2 id="servers-title">Pick a match.</h2></div>
+        <div class="refresh-block"><span id="updated">Refreshed every 5 seconds</span><button id="refresh" class="button small" type="button">Refresh</button></div>
+      </div>
+      <p id="played" class="section-intro" hidden></p>
+      <p class="section-intro">Every listed server is checked by the directory before it appears. Click one to see its map, score and roster, then join it from <strong>Find match</strong> in the game.</p>
+      <div class="server-tools" role="search" aria-label="Filter servers">
+        <label class="field grow"><span>Find</span><input id="server-filter" type="search" placeholder="Name, map, mode or place" autocomplete="off" spellcheck="false"></label>
+        <label class="field"><span>Mode</span><select id="mode-filter"><option value="">All modes</option></select></label>
+        <label class="check"><input id="hide-empty" type="checkbox"> Hide empty</label>
+        <label class="check"><input id="hide-full" type="checkbox"> Hide full</label>
+      </div>
+      <div id="server-list" class="server-table-wrap" aria-live="polite"><p class="empty">Fetching live servers…</p></div>
+      <p class="subtle">Running your own? <a class="text-link" href="/docs/hosting/">List it here in a few steps</a>.</p>
+    </section>
+
+    <section class="band" id="maps" aria-labelledby="maps-title">
+      <div class="wrap section">
+        <div class="section-heading"><div><p class="eyebrow">Eleven original maps</p><h2 id="maps-title">Know the ground.</h2></div></div>
+        <p class="section-intro">Every map is built from scratch for PeakRunner. Servers choose the map and mode and rotate through them; the images are real captures from the game.</p>
+        <div id="map-grid" class="map-grid"></div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="modes" aria-labelledby="modes-title">
+      <div class="section-heading"><div><p class="eyebrow">Seven ways to play</p><h2 id="modes-title">Same speed, different goals.</h2></div></div>
+      <div class="mode-grid">
+        <article class="mode"><h3>Capture the Flag</h3><p>Take the enemy flag from their base and bring it home while yours is safe. Knock out their generator to shut down turrets and stations.</p></article>
+        <article class="mode"><h3>Capture &amp; Hold</h3><p>Stand on the towers to take them, then hold them. Every tower your team owns scores over time.</p></article>
+        <article class="mode"><h3>Team Deathmatch</h3><p>First team to the frag limit. Each round rolls its own time of day, weather, wind and a twist, like heavies only.</p></article>
+        <article class="mode"><h3>Rabbit</h3><p>One gold flag. Grab it and hold on while everyone else hunts you together: every 15 seconds with the flag is a point.</p></article>
+        <article class="mode"><h3>Team Rabbit</h3><p>Fifty lives a side. The first death drops a flag, and while your team holds it, every kill takes two of theirs.</p></article>
+        <article class="mode"><h3>Football</h3><p>No weapons. Pass, tackle and carry the ball into the end zone on the two stadium maps. Body checks hurt.</p></article>
+        <article class="mode"><h3>Duel</h3><p>One on one. Challenge someone, or a bot, from the lobby tower and fight first to three rounds. Many duels run at once, and anyone can watch.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap section yours" id="make" aria-labelledby="make-title">
+      <div>
+        <p class="eyebrow">Make it yours</p>
+        <h2 id="make-title">Your server. Your rules.</h2>
+        <p class="section-intro">Tune the physics, invent a mode, write new rules or add a map. Mods are folders of plain files: host them, and players get them when they join, after they say yes.</p>
+        <div class="yours-list">
+          <a href="/docs/hosting/"><b>01</b><span><strong>Host a server</strong><small>Download it, answer a few questions, share the link.</small></span></a>
+          <a href="/docs/mods/#recipe"><b>02</b><span><strong>Make a mod</strong><small>One folder and a few lines of JSON, checked for you.</small></span></a>
+          <a href="/docs/mods/#rules"><b>03</b><span><strong>Write new rules</strong><small>A short script decides what scores and what wins.</small></span></a>
+        </div>
+      </div>
+      <div class="yours-art" role="img" aria-label="Old Holler under a warm evening sky: a map variant made as a mod"><span>Old Holler at Dusk · a map variant</span></div>
+    </section>
+
+    <section class="band" id="downloads" aria-labelledby="download-title">
+      <div class="wrap section">
+        <div class="section-heading"><div><p class="eyebrow">Download</p><h2 id="download-title">Get in the game.</h2></div><span class="release-label" id="release-version">Loading release…</span></div>
+        <p class="section-intro">The launcher is the recommended way to play: install it once and it keeps the game up to date with signed updates, and can repair or roll back an install. Servers need the current release, so the launcher makes sure you can always join.</p>
+        <div class="download-grid" id="launcher-list"><p class="empty">Checking downloads…</p></div>
+        <details class="standalone">
+          <summary>Standalone game packages</summary>
+          <p>The full game without the launcher. It runs straight away but does not update itself: download it again when a new release comes out.</p>
+          <div class="download-grid compact" id="standalone-list"></div>
+        </details>
+        <p class="subtle">These are playtest builds: they are not notarized or code-signed by Apple or Microsoft, so your system may ask you to confirm the first launch. <a class="text-link" href="/docs/#install">Install help</a> · checksums are listed on each download.</p>
+      </div>
+    </section>
+
+    <section class="wrap section playbook" aria-label="How to play">
+      <div><span class="index">01</span><h3>Keep your speed.</h3><p>Hold Space on a downhill to ski. Friction nearly vanishes, so the terrain does the work.</p></div>
+      <div><span class="index">02</span><h3>Spend your energy.</h3><p>Right mouse jets. Clear a ridge, climb onto a roof, or turn a fall into an escape.</p></div>
+      <div><span class="index">03</span><h3>Lead the shot.</h3><p>Discs, repeater rounds, grenades and mortars all fly differently. Aim where they are going.</p></div>
+      <p class="playbook-more"><a class="text-link" href="/docs/#controls">All controls and tips →</a></p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="/">PEAK<span>RUNNER</span></a>
+      <nav aria-label="Footer"><a href="/docs/">Player guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a><a href="https://www.youtube.com/@PeakrunnerCentral">YouTube</a><a href="https://www.reddit.com/r/peakrunner/">r/peakrunner</a><a href="https://dir.peakrunner.net/servers">Directory API</a><a href="/legal/">Terms and privacy</a></nav>
+      <p>Independent playtest · original maps and art · provided as is, without warranty</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+// The stock library's placed things: the sensors and the jammer pylon the
+// base game's packs place, the capture points' turrets, and building blocks
+// for mods to carry in packs, extend or redefine. A body
+// (`behavior`) carries capabilities: a pad throws whoever stands on it, a
+// teleporter links to its partner, an aura holds an effect on players near,
+// a sensor senses enemies for its team, a camera is looked through from a
+// command station, a shock hurts enemies who touch it.
+{
+  // Straight up.
+  "launch-pad": { "name": "Launch pad", "about": "Step on: straight up.", "behavior": "pad", "hull": 150.0, "team_limit": 6,
+    "pad": { "forward": 0.0, "up": 32.0, "along": "up" } },
+  // Along the way it was placed, low and fast.
+  "accelerator-pad": { "name": "Accelerator pad", "about": "Step on: thrown the way it faces.", "behavior": "pad", "hull": 150.0, "team_limit": 4,
+    "pad": { "forward": 30.0, "up": 14.0, "along": "facing" } },
+  // A deck to stand on.
+  "platform": { "name": "Platform", "about": "A deck to stand on.", "behavior": "pad", "size": [2.0, 0.15, 2.0], "hull": 300.0, "team_limit": 10 },
+  // A deck that shocks enemies on it.
+  "shock-floor": { "name": "Shock floor", "about": "A deck that shocks enemies who touch it.", "behavior": "pad", "size": [2.0, 0.15, 2.0],
+    "hull": 250.0, "team_limit": 4, "shock": { "damage": 12.0, "cooldown": 0.6 } },
+  // Place two: step into one, out of the other.
+  "teleporter": { "name": "Teleporter", "about": "Place two: step into one, come out of the other.", "behavior": "gate", "hull": 200.0,
+    "team_limit": 4, "teleport": { "cooldown": 2.0 } },
+  // Sensors: an alarm for movement nearby, and a wider pulse.
+  "motion-sensor": { "name": "Motion sensor", "about": "Senses enemies moving within 60 m, with an alarm.", "behavior": "post", "hull": 80.0,
+    "team_limit": 6, "sensor": { "range": 60.0, "moving": true, "alarm": true } },
+  "pulse-sensor": { "name": "Pulse sensor", "about": "Senses enemies within 100 m.", "behavior": "post", "hull": 120.0, "team_limit": 4,
+    "sensor": { "range": 100.0 } },
+  "camera": { "name": "Camera", "about": "Look through it from a command station.", "behavior": "post", "hull": 60.0, "team_limit": 6, "camera": true },
+  // Pylons hold an effect on teammates near.
+  "jammer-pylon": { "name": "Jammer pylon", "about": "Teammates within 20 m are hidden from sensors.", "behavior": "post", "hull": 120.0,
+    "team_limit": 3, "aura": { "effect": "jammed", "range": 20.0 } },
+  "shield-pylon": { "name": "Shield pylon", "about": "Teammates within 15 m pay damage from energy.", "behavior": "post", "hull": 150.0,
+    "team_limit": 2, "aura": { "effect": "shielded", "range": 15.0 } },
+  "repair-pylon": { "name": "Repair pylon", "about": "Mends teammates within 10 m.", "behavior": "post", "hull": 120.0, "team_limit": 2,
+    "aura": { "effect": "mending", "range": 10.0 } },
+  // Cameras and turrets, seen and worked from here.
+  "command-station": { "name": "Command station", "about": "Look through your team's cameras and turrets, work a turret, set a waypoint.",
+    "behavior": "command", "hull": 300.0, "team_limit": 2 },
+  // Vehicles bought here appear over it.
+  "vehicle-pad": { "name": "Vehicle pad", "about": "Stand on it to take a vehicle.", "behavior": "pad", "size": [3.5, 0.15, 3.5],
+    "hull": 600.0, "team_limit": 1, "vehicles": ["skiff", "transport", "cycle", "tank"] },
+  // Turrets for capture points (`control_points[].turret` in a map): not
+  // carried or bought; they fight for whoever holds the point.
+  "rocket-turret": { "name": "Rocket turret", "about": "Heat-seeking rockets at enemies using their jets, for the point's holder.",
+    "behavior": "turret", "hull": 600.0, "team_limit": 0,
+    "turret": { "range": 150.0, "sensed_range": 220.0, "speed": 40.0, "life": 6.0, "cooldown": 2.6, "leads": false, "fires": true,
+      "projectile": "turret-rocket", "jetting_only": true } },
+  "plasma-turret": { "name": "Plasma turret", "about": "Plasma bursts, 100 m, for the point's holder.",
+    "behavior": "turret", "hull": 600.0, "team_limit": 0,
+    "turret": { "range": 100.0, "sensed_range": 180.0, "speed": 80.0, "life": 3.0, "cooldown": 1.2, "leads": true, "fires": true,
+      "projectile": "turret-plasma" } },
+  // A marker to come back to (the recall pack's).
+  "beacon": { "name": "Beacon", "about": "A marker to recall to.", "behavior": "post", "look": "beacon", "hull": 40.0, "team_limit": 16, "per_player": 1 }
+}

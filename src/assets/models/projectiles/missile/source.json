@@ -1,0 +1,16 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/missile/raw.glb",
+      "fit": {
+        "min": [-0.225, -0.225, -0.225],
+        "max": [0.225, 0.225, 0.225]
+      },
+      "triangles": 1500,
+      "texture": 256,
+      "concept": "projectiles/missile/concept.png",
+      "view": "left"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "label": "Duel lobby",
+  "short": "LOBBY",
+  "note": "A duel server's lobby: look around, then challenge someone (or a bot) from the duel board.",
+  "goal": "Open the duel board to challenge someone",
+  "start_message": "DUELS — OPEN THE DUEL BOARD TO CHALLENGE SOMEONE",
+  "rules": "duel",
+  "offered": false,
+  "clock": 7200.0,
+  "halves": 1,
+  "warmup": 0.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 1,
+  "teams": "two",
+  "control_points": "none",
+  "conditions": false,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": false,
+  "deployables": false,
+  "ammo_stations": false,
+  "throwables": false,
+  "loot": false,
+  "repair_tool": false,
+  "purchases": false,
+  "weapons": [],
+  "armors": ["light"],
+  "packs": [],
+  "requires": {
+    "football_field": false
+  }
+}

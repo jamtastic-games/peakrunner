@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Player guide — PeakRunner</title>
+  <meta name="description" content="Install PeakRunner, join your first match, and learn the controls, modes, armor and equipment.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="wordmark" href="/" aria-label="PeakRunner home">PEAK<span>RUNNER</span><i aria-hidden="true"></i></a>
+      <nav aria-label="Main navigation">
+        <a href="/#servers">Servers</a><a href="/#maps">Maps</a><a href="/docs/" aria-current="page">Guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a>
+        <a class="button small primary" href="/#downloads">Download</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="On this page">
+      <span class="group">Start</span>
+      <a href="#install">Install</a><a href="#first-match">Your first match</a><a href="#updates">Updates and repair</a>
+      <span class="group">Play</span>
+      <a href="#controls">Controls</a><a href="#movement">Skiing and jetting</a><a href="#modes">Modes</a><a href="#kit">Armor and kit</a>
+      <span class="group">Help</span>
+      <a href="#graphics">Graphics and performance</a><a href="#trouble">Troubleshooting</a>
+      <span class="group">More</span>
+      <a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a>
+    </nav>
+    <main class="prose" id="main">
+      <p class="eyebrow">Player guide</p>
+      <h1>Drop in.</h1>
+      <p class="lede">Everything you need to install PeakRunner, join a match and hold your own once you're there.</p>
+
+      <h2 id="install">Install</h2>
+      <p>Get the <strong>launcher</strong> for your system from the <a class="text-link" href="/#downloads">downloads</a>. It installs the game, keeps it up to date and can repair a broken install. A standalone package is also available if you'd rather not use the launcher, but it won't update itself.</p>
+      <table>
+        <thead><tr><th>System</th><th>What you need</th><th>First launch</th></tr></thead>
+        <tbody>
+          <tr><td>macOS</td><td>Apple Silicon (M1 or later).</td><td>Unzip and open <strong>PeakRunner Launcher</strong>. The playtest is not notarized, so macOS may block it the first time: open <em>System Settings → Privacy &amp; Security</em> and choose <strong>Open Anyway</strong>. Don't turn Gatekeeper off.</td></tr>
+          <tr><td>Windows</td><td>64-bit Windows 10 or 11 and a DirectX 12 or Vulkan capable GPU.</td><td>Extract the ZIP and run <strong>PeakRunnerLauncher.exe</strong>. It isn't code-signed, so SmartScreen may ask you to confirm (<em>More info → Run anyway</em>).</td></tr>
+          <tr><td>Linux</td><td>x86-64 with glibc 2.36 or newer (Debian 12, Ubuntu 23.04+ and similar), Vulkan drivers, and ALSA, udev, X11 or Wayland and libxkbcommon-x11.</td><td>Extract the archive and run <code>./peakrunner-launcher</code> from a desktop session.</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><p>This is a playtest. Windows builds have only had limited testing on real x64 hardware, and Linux has been tested with software rendering; please report problems.</p></div>
+
+      <h2 id="first-match">Your first match</h2>
+      <ol>
+        <li>In the launcher, choose <strong>Install game</strong>, then <strong>Play</strong>.</li>
+        <li>In the game, choose <strong>Find match</strong> and set your name (top right; 1–24 letters, numbers or spaces).</li>
+        <li>Pick a server from the list and choose <strong>Join game</strong>, or double-click it. Every server in the directory is checked before it's listed, and the connection is encrypted.</li>
+        <li>You'll join the team with fewer players. Press <kbd>Tab</kbd> for the scoreboard and <kbd>Esc</kbd> for the menu, where you can also change your name.</li>
+      </ol>
+      <p>Some servers run <strong>mods</strong> or extra maps. Find match shows them with the download size, and when you join, the game lists what you're missing and asks. Choose <strong>Download and join</strong> and it fetches them from that server, checks every file, and keeps them for next time. You only ever download data, and when you leave, your game is back to normal. <a class="text-link" href="/docs/mods/">Make your own →</a></p>
+      <p>The list shows every server's ping, mode, map, players, version and mods. Click a column title to sort by it, filter by name, map, mode or mod, and hide empty or full servers. Click <strong>☆</strong> to add a server to your <strong>favorites</strong>: they stay at hand with <strong>Favorites only</strong>, and appear even when they aren't listed. A green dot means ready, amber a slow connection, red a server your game can't join (a different version) or one that isn't answering; a lock means it needs a password, which you type below the list and which is never saved.</p>
+      <p>To join a server that isn't listed, choose <strong>Join by address…</strong> and paste its address (for example <code>quic://play.example.net:7777</code>) or an invite link.</p>
+      <p>Just curious? The <a class="text-link" href="/play/">browser preview</a> runs bot matches with no install (online matches need the desktop game).</p>
+      <p>Want to practice first? Choose <strong>Singleplayer</strong> on the main menu, pick a mode and map, and choose <strong>Start match</strong> for a local game against bots. No network needed; bot difficulty and the sky are there too. New to it? The main menu's <strong>Library</strong> explains everything in a few pictures.</p>
+
+      <h2 id="updates">Updates and repair</h2>
+      <p>Servers only accept the current game version. The launcher checks for signed updates, downloads only what changed, and never replaces files while the game is running.</p>
+      <ul>
+        <li><strong>Repair / verify</strong> checks every file and restores anything damaged.</li>
+        <li><strong>Rollback</strong> returns to the previous install. An older game may not be able to join live servers.</li>
+        <li>New launcher versions themselves are a new download from this site.</li>
+      </ul>
+
+      <h2 id="controls">Controls</h2>
+      <p>Every key below can be changed on the <strong>Controls</strong> screen in the main menu. <kbd>Esc</kbd>, <kbd>Tab</kbd>, <kbd>Enter</kbd> and <kbd>F3</kbd> are fixed.</p>
+      <table>
+        <thead><tr><th>Key</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></td><td>Move and strafe</td></tr>
+          <tr><td><kbd>Space</kbd></td><td>Jump; hold to ski</td></tr>
+          <tr><td>Right mouse</td><td>Jet</td></tr>
+          <tr><td>Left mouse</td><td>Fire</td></tr>
+          <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd></td><td>Your weapon slots, in the order you chose them (light armor has 3, medium 4, heavy 5)</td></tr>
+          <tr><td><kbd>E</kbd></td><td>Use a station: step into an inventory station from the front to open it; hold to zoom a rifle (the wheel switches between 4× and 8×; the nearer the sight brings people, the farther out you can tell who they are)</td></tr>
+          <tr><td><kbd>Q</kbd></td><td>Repair tool (hold)</td></tr>
+          <tr><td><kbd>G</kbd> / <kbd>M</kbd></td><td>Throw a grenade / a mine</td></tr>
+          <tr><td><kbd>B</kbd></td><td>Deploy your pack, then click to place it</td></tr>
+          <tr><td><kbd>R</kbd></td><td>Third-person view; turns a pack while placing it</td></tr>
+          <tr><td><kbd>T</kbd> / <kbd>Y</kbd></td><td>Chat to everyone / to your team. <kbd>Enter</kbd> sends, <kbd>Esc</kbd> cancels</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Respawn</td></tr>
+          <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Toss the flag you carry, to a teammate or over a wall</td></tr>
+          <tr><td><kbd>V</kbd></td><td>Map vote (online): call one, or vote yes/no on one. On a duel server: the duel board</td></tr>
+          <tr><td><kbd>Tab</kbd> · <kbd>Esc</kbd> · <kbd>F3</kbd></td><td>Scoreboard · menu · frame-rate overlay</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="movement">Skiing and jetting</h2>
+      <p>Speed is everything. Hold <kbd>Space</kbd> and you ski: friction almost disappears, so every downhill turns into speed and every uphill costs some. Good routes chain slopes together so you arrive at the enemy base already fast.</p>
+      <p>The jet (right mouse) burns energy, which refills when you stop. Use short bursts to clear the top of a hill without losing momentum, to climb onto roofs and ledges, or to soften a landing. Shots inherit some of your velocity, so leading a target matters, and so does your own speed.</p>
+
+      <h2 id="modes">Modes</h2>
+      <p>The server chooses the map and mode and rotates through them. The current mode is shown on the server's listing and in the game.</p>
+      <h3>Capture the Flag</h3>
+      <p>Grab the enemy flag from their base and carry it to your own flag while yours is home. Each base runs on a <strong>generator</strong>: destroy it to take down that team's turrets and stations until someone repairs it.</p>
+      <h3>Capture &amp; Hold</h3>
+      <p>Stand in a tower's ring to take it for your team. Towers keep scoring for their owner until the other team takes them back.</p>
+      <h3>Team Deathmatch</h3>
+      <p>Two teams, a frag limit and a clock. Each round rolls random conditions: time of day, weather, wind and sometimes a twist such as heavy armor only, rifles for everyone, or glass-cannon damage.</p>
+      <h3>Rabbit</h3>
+      <p>One gold flag in the middle of the map. Whoever holds it is the rabbit, and everyone else hunts them together: hunters can't hurt each other. Taking the flag is a point, and every 15 seconds you hold it (all your turns added up) is another; a hunter's kill of the rabbit is a point and each of the rabbit's kills two. Hunters see the rabbit when it takes the flag and every half minute after, unless someone has hit it lately. The rabbit can't throw the flag; a dropped one goes home after 45 seconds. No mortars or mines. Most points when time runs out wins.</p>
+      <h3>Team Rabbit</h3>
+      <p>Each team has 50 lives, and every death costs one. The first death drops a gold flag; while your team holds it, each of your kills takes two lives. The carrier can throw it to a teammate (<kbd>Ctrl</kbd>+<kbd>F</kbd>). Left on the ground, it vanishes until the next death brings it back.</p>
+      <h3>Duels</h3>
+      <p>On a duel server everyone meets in the lobby, a map to look around on without weapons. Press <kbd>V</kbd> for the duel board: challenge anyone in the lobby, or a bot (Rookie up to Ace, always ready), and answer challenges to you (<kbd>1</kbd> accepts, <kbd>2</kbd> declines). An accepted duel plays in an arena of its own, so many run at once: both of you in light armor's default kit, facing each other from spots about 100 m apart, one life a round, first to 3 rounds. Then you're back in the lobby with your record. From the board you can also watch a duel, and while watching, <kbd>J</kbd> goes to the next one.</p>
+      <p>The lobby is Tenfold Tower: ten floors joined by a spiral stair, each its own arena for the blade, a side game that counts for nothing. Inside the tower the jets are off and everyone holds a blade. Click to swing (each click a different swing), hold to build power for a heavier one, and click quickly for combos: a third quick click whirls, a hold after one lunges, a hold after two slams. Right click guards. Every swing and every second on guard costs stamina, and a blow on your guard costs stamina for its damage; what stamina can't pay comes off your armor. Cut down, you're back 5 seconds later at a random spot: any floor, or outside on the plaza, where it's quiet. You join at a random spot too. On servers with bots, they spar on the lower floors.</p>
+      <h3>Voting for the next map</h3>
+      <p>Online, press <kbd>V</kbd> to call a vote for any map and mode in the server's rotation. A banner shows it to everyone, who then have a minute to press <kbd>V</kbd> and vote. It passes straight away once more than half the players say yes, and otherwise passes if yes beats no when time runs out. After a failed vote, no new vote can be called for 5 minutes.</p>
+      <h3>Football</h3>
+      <p>Played on the stadium maps, Longfield and Highgoal. No weapons: carry the ball over the line or through the goal, pass it, and tackle the carrier to make them fumble. Everyone blocks everyone, but only hits on the other team hurt.</p>
+
+      <h2 id="kit">Armor and kit</h2>
+      <p>Choose your loadout at your team's <strong>inventory station</strong>: step in from the front and press <kbd>E</kbd>, which also restocks your ammunition. Pick your armor, the weapons for your slots (light armor carries 3, medium 4, heavy 5: disc launcher, repeater, grenade launcher or mortar, laser or railgun, plasma gun, blaster, drain gun, target marker) and a pack. What you choose comes back every time you respawn, until you choose again, and four favorites save whole setups for <kbd>F1</kbd>–<kbd>F4</kbd>. A field inventory pack puts a small station anywhere: weapons and packs, but not armor.</p>
+      <table>
+        <thead><tr><th></th><th>Light</th><th>Medium</th><th>Heavy</th></tr></thead>
+        <tbody>
+          <tr><td>Damage taken</td><td>Normal</td><td>Three quarters</td><td>Half</td></tr>
+          <tr><td>Movement</td><td>Full speed, strong jet</td><td>Between the two</td><td>Slow on foot, weak jet: ski for speed</td></tr>
+          <tr><td>Weapon slots</td><td>3</td><td>4</td><td>5</td></tr>
+          <tr><td>Only this armor</td><td>Laser rifle: an instant beam on your energy</td><td>–</td><td>Mortar, with an elevation gauge for lobbing; railgun: a slug you lead that downs light armor in one hit and empties your energy</td></tr>
+          <tr><td>Packs</td><td>Worn packs and sensors</td><td>Every pack</td><td>Every pack</td></tr>
+          <tr><td>Discs / repeater rounds</td><td>15 / 100</td><td>20 / 150</td><td>25 / 200</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>Packs</strong>: worn ones help you (energy, shield, repair, sensor jammer, more ammo; <kbd>B</kbd> switches the shield, repair pack and jammer); the drain gun empties an enemy's energy, and the target marker is a laser you hold on anything: your whole team sees a target there, for 12 seconds after you let go.</li>
+        <li><strong>Deployables</strong> (<kbd>B</kbd>): motion and pulse sensors and jammer pylons for any armor; turrets, walls, force fields and ammo stations for medium and heavy armor. Each team can have up to 4 turrets and 8 of each of the others. Anyone's fire wears them down, so if a teammate's wall is in the way, shoot it out; your own force fields let your shots through, so use a blast.</li>
+        <li><strong>Grenades and mines</strong> (<kbd>G</kbd>, <kbd>M</kbd>): each press throws one, full strength. Mines go off when an enemy comes close, when any blast lands nearby, or when someone shoots them.</li>
+        <li><strong>Repair tool</strong> (hold <kbd>Q</kbd>): fixes teammates, your equipment and your deployables, using energy. Destroyed equipment comes back online once it's repaired past half.</li>
+        <li><strong>Death packs:</strong> fallen players drop a pack of some of what they carried. Run over it to take what fits your kit.</li>
+      </ul>
+
+      <h2 id="graphics">Graphics and performance</h2>
+      <p>Open <strong>Graphics…</strong> from the main menu (or Graphics in the pause menu). Settings apply immediately and are saved.</p>
+      <ul>
+        <li><strong>Display mode:</strong> windowed or fullscreen. Your system's own fullscreen control is remembered too.</li>
+        <li><strong>Render scale:</strong> draws the 3D scene at 100, 85, 70 or 50% of the window's pixels, with the HUD kept sharp. Lower it on large or high-DPI screens, or on slower GPUs.</li>
+        <li><strong>Vsync:</strong> on gives smooth, tear-free frames; off lowers input latency but can tear.</li>
+        <li><strong>Show FPS</strong> (or <kbd>F3</kbd>): frame rate, frame-time spread and how many simulation steps each frame ran.</li>
+      </ul>
+
+      <h2 id="trouble">Troubleshooting</h2>
+      <ul>
+        <li><strong>"Incompatible game version" or a server won't accept you:</strong> update the game in the launcher (standalone players: download the current package).</li>
+        <li><strong>The game won't open on macOS:</strong> use Privacy &amp; Security → Open Anyway, as above.</li>
+        <li><strong>Choppy fullscreen:</strong> keep vsync on and try a lower render scale; press <kbd>F3</kbd> to see what the frame rate is doing.</li>
+        <li><strong>Can't reach any server:</strong> matches use encrypted UDP. Some networks (schools, offices, some VPNs) block it.</li>
+        <li><strong>Logs:</strong> the launcher writes <code>game.log</code> in <code>~/Library/Application Support/PeakRunnerLauncher</code> (Mac), <code>%LOCALAPPDATA%\PeakRunnerLauncher</code> (Windows) or <code>~/.local/share/PeakRunnerLauncher</code> (Linux).</li>
+      </ul>
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="/">PEAK<span>RUNNER</span></a>
+      <nav aria-label="Footer"><a href="/docs/">Player guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a><a href="https://dir.peakrunner.net/servers">Directory API</a><a href="/legal/">Terms and privacy</a></nav>
+      <p>Independent playtest · original maps and art · provided as is, without warranty</p>
+    </div>
+  </footer>
+</body>
+</html>

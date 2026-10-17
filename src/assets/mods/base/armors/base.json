@@ -1,0 +1,107 @@
+// Armors: the bodies players wear. Movement is the skier model's numbers;
+// `weapons` lists what the armor may carry, with full rounds (0 for a
+// weapon paid with energy); `packs` lists the packs it may wear (none
+// listed: any); `grenade` and `mine` are what the G and M keys throw. A mod
+// patches any of these by id, or adds its own.
+//
+// The three sizes split the arsenal (docs/loadouts.md): light alone carries
+// the laser rifle, heavy alone the mortar and railgun; light wears only
+// personal and sensor packs, while medium and heavy wear every pack,
+// turrets and stations included. Slots: light 3, medium 4, heavy 5.
+{
+  "light": {
+    "name": "Light armor",
+    "about": "Fast, jets hard. Three weapons, the laser rifle; personal and sensor packs.",
+    "build": "light",
+    "movement": {
+      "jet": 37.28,
+      "side": 22.0,
+      "drain": 15.0,
+      "regen": 12.0,
+      "min_jet": 3.0,
+      "jump": 1.0,
+      "fade_up": true,
+      "air_cap": 20.0,
+      "ski_drag": 0.0
+    },
+    "walk_scale": 1.0,
+    "damage_taken": 1.0,
+    "mass_scale": 1.0,
+    "weapon_slots": 3,
+    "weapons": { "disc": 15, "chaingun": 100, "grenade_launcher": 10, "laser": 0, "plasma": 30, "blaster": 0,
+      "drain-gun": 0, "target-marker": 0 },
+    "kit": ["disc", "chaingun", "grenade_launcher"],
+    "packs": ["energy", "shield", "repair", "jammer", "ammo-pack", "motion-sensor", "pulse-sensor", "jammer-pylon"],
+    "grenade": { "throwable": "hand-grenade", "count": 5 },
+    "mine": { "throwable": "mine", "count": 3 }
+  },
+  "heavy": {
+    "name": "Heavy armor",
+    "about": "Twice the armor, slow, a long weak jet. Five weapons, the mortar and railgun; every pack.",
+    "build": "heavy",
+    "movement": {
+      "jet": 23.5,
+      "side": 8.0,
+      "drain": 11.3,
+      "regen": 6.5,
+      "min_jet": 3.0,
+      "jump": 1.0,
+      "fade_up": true,
+      "air_cap": 10.0,
+      "ski_drag": 0.0
+    },
+    "walk_scale": 0.55,
+    "damage_taken": 0.5,
+    "mass_scale": 2.0,
+    "weapon_slots": 5,
+    "weapons": { "disc": 25, "chaingun": 200, "mortar": 10, "railgun": 20, "plasma": 45, "blaster": 0,
+      "drain-gun": 0, "target-marker": 0 },
+    "kit": ["disc", "chaingun", "mortar"],
+    "grenade": { "throwable": "hand-grenade", "count": 8 },
+    "mine": { "throwable": "mine", "count": 3 }
+  },
+  // Football's own body: a short strong burst. Worn by everyone in modes
+  // with the classic movement model, never chosen at a station.
+  "football": {
+    "name": "Football kit",
+    "offered": false,
+    "movement": {
+      "jet": 44.444443,
+      "side": 35.555557,
+      "drain": 124.99999,
+      "regen": 8.0,
+      "min_jet": 2.0833333,
+      "jump": 0.6661337,
+      "fade_up": false,
+      "air_cap": 20.0,
+      "ski_drag": 0.0
+    },
+    "walk_scale": 1.0,
+    "damage_taken": 1.0,
+    "mass_scale": 1.0,
+    "weapon_slots": 1
+  },
+  // Between light and heavy: four weapons (no laser rifle, mortar or
+  // railgun) and every pack. Mods extend it (`"extends": "medium"`).
+  "medium": {
+    "extends": "light",
+    "name": "Medium armor",
+    "about": "Steadier, slower to jet. Four weapons; every pack, turrets and stations included.",
+    "build": "medium",
+    "movement": {
+      "jet": 30.0,
+      "side": 15.0,
+      "drain": 13.0,
+      "regen": 9.0,
+      "air_cap": 15.0
+    },
+    "walk_scale": 0.8,
+    "damage_taken": 0.75,
+    "mass_scale": 1.4,
+    "weapon_slots": 4,
+    "weapons": { "disc": 20, "chaingun": 150, "grenade_launcher": 12, "laser": null, "plasma": 38, "blaster": 0 },
+    "kit": ["disc", "chaingun", "plasma", "grenade_launcher"],
+    "packs": null,
+    "grenade": { "throwable": "hand-grenade", "count": 6 }
+  }
+}

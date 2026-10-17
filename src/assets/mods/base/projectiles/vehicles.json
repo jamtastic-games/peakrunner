@@ -1,0 +1,6 @@
+// The stock library's vehicle rounds (`weapons/vehicles.json`).
+{
+  // Fast and nearly flat, dropping a little at range; bursts where it strikes.
+  "tank-shell": { "class": "straight", "speed": 160.0, "inherit": 0.3, "life": 4.0, "gravity": 0.15, "water": "fizzle",
+    "blast": "tank-shell", "self_damage": 0.5, "kill": "Hogback cannon", "look": "mortar", "damage_kind": "blast" }
+}

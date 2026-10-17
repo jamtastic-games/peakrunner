@@ -1,0 +1,12 @@
+target
+dist
+out
+screenshots
+docs
+*.app
+**/__pycache__
+**/node_modules
+cf-key*
+*.key
+*.pem
+.env*

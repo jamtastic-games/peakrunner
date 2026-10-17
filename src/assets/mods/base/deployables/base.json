@@ -1,0 +1,51 @@
+// Deployables: what players place where they aim, carried as a pack
+// (packs/base.json). `behavior` is what it does once placed; `hull` is its
+// health and `team_limit` how many a team may have standing. A turret says
+// how it detects and what it fires.
+{
+  "turret": {
+    "name": "Turret",
+    "about": "Repeater rounds at enemies in sight, 70 m.",
+    "behavior": "turret",
+    "hull": 150.0,
+    "team_limit": 4,
+    "turret": {
+      "range": 70.0,
+      "sensed_range": 70.0,
+      "speed": 420.0,
+      "life": 1.0,
+      "cooldown": 0.25,
+      "leads": false,
+      "fires": true,
+      "projectile": "bullet"
+    }
+  },
+  "wall": {
+    "name": "Wall",
+    "about": "Solid cover. Stops everyone and every shot.",
+    "behavior": "wall",
+    "hull": 400.0,
+    "team_limit": 8
+  },
+  "field": {
+    "name": "Force field",
+    "about": "A door for your team; a wall for theirs.",
+    "behavior": "field",
+    "hull": 250.0,
+    "team_limit": 8
+  },
+  "ammo": {
+    "name": "Ammo station",
+    "about": "Your team restocks here.",
+    "behavior": "ammo",
+    "hull": 150.0,
+    "team_limit": 8
+  },
+  "inventory": {
+    "name": "Field inventory",
+    "about": "A small station: your team changes weapons and small packs here.",
+    "behavior": "inventory",
+    "hull": 300.0,
+    "team_limit": 2
+  }
+}

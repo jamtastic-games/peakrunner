@@ -1,0 +1,4 @@
+// The base turret, firing the disc launcher's round instead of bullets.
+{ "disc-turret": { "extends": "turret", "name": "Disc turret", "about": "Discs at enemies in sight, 60 m.",
+    "turret": { "range": 60.0, "sensed_range": 80.0, "speed": 95.0, "life": 5.0, "cooldown": 1.6, "leads": true, "fires": true,
+      "projectile": "disc" } } }

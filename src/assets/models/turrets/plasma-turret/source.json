@@ -1,0 +1,22 @@
+{
+  "team": "red",
+  "parts": {
+    "body": {
+      "raw": "turrets/plasma-turret/raw.glb",
+      "orient": [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, -1]
+      ],
+      "fit": {
+        "min": [-1.2, 0.0, -1.2],
+        "max": [1.2, 2.4, 1.2]
+      },
+      "align": {
+        "y": "min"
+      },
+      "triangles": 6000,
+      "texture": 1024
+    }
+  }
+}

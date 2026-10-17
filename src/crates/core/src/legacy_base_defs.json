@@ -1,0 +1,309 @@
+{
+  "movement": {
+    "gravity": 20.0,
+    "mass": 90.0,
+    "jump_impulse": 8.34,
+    "min_jump_speed": 14.933333,
+    "max_jump_speed": 22.4,
+    "horiz_max": 125.0,
+    "up_max": 38.826668,
+    "up_resist_speed": 15.597866,
+    "up_resist": 0.35,
+    "walk_accel": 78.0,
+    "walk_max": 11.2,
+    "ground_brake": 32.0,
+    "walk_step_down": 0.8,
+    "air_accel": 6.0,
+    "ski_turn_accel": 28.0,
+    "ski_slope_gravity": 2.0,
+    "energy_max": 60.0,
+    "air_hit_kick": 1.5
+  },
+  "armors": {
+    "light": {
+      "movement": {
+        "jet": 37.28,
+        "side": 22.0,
+        "drain": 15.0,
+        "regen": 12.0,
+        "min_jet": 3.0,
+        "jump": 1.0,
+        "fade_up": true,
+        "air_cap": 20.0,
+        "ski_drag": 0.0
+      },
+      "walk_scale": 1.0,
+      "damage_taken": 1.0,
+      "mass_scale": 1.0,
+      "ammo": [15, 100, 10, 0],
+      "plasma_ammo": 30,
+      "weapon_slots": 3,
+      "throwables": [5, 3]
+    },
+    "heavy": {
+      "movement": {
+        "jet": 23.5,
+        "side": 8.0,
+        "drain": 11.3,
+        "regen": 6.5,
+        "min_jet": 3.0,
+        "jump": 1.0,
+        "fade_up": true,
+        "air_cap": 10.0,
+        "ski_drag": 0.0
+      },
+      "walk_scale": 0.55,
+      "damage_taken": 0.5,
+      "mass_scale": 2.0,
+      "ammo": [25, 200, 10, 20],
+      "plasma_ammo": 45,
+      "weapon_slots": 4,
+      "throwables": [8, 3]
+    },
+    "football": {
+      "jet": 44.444443,
+      "side": 35.555557,
+      "drain": 124.99999,
+      "regen": 8.0,
+      "min_jet": 2.0833333,
+      "jump": 0.6661337,
+      "fade_up": false,
+      "air_cap": 20.0,
+      "ski_drag": 0.0
+    }
+  },
+  "weapons": {
+    "disc": {
+      "speed": 95.0,
+      "inherit": 0.75,
+      "life": 5.0,
+      "reload": 1.05,
+      "spread": 0.0,
+      "recoil": 0.0,
+      "shake": 0.08,
+      "self_damage": 0.4,
+      "arm": 0.0
+    },
+    "chaingun": {
+      "speed": 420.0,
+      "inherit": 0.75,
+      "life": 1.2,
+      "reload": 0.075,
+      "spread": 6.0,
+      "recoil": 0.002,
+      "shake": 0.015,
+      "self_damage": 1.0,
+      "arm": 0.0
+    },
+    "grenade_launcher": {
+      "speed": 48.0,
+      "inherit": 0.75,
+      "life": 2.0,
+      "reload": 0.85,
+      "spread": 0.0,
+      "recoil": 0.012,
+      "shake": 0.08,
+      "self_damage": 1.0,
+      "arm": 0.0
+    },
+    "mortar": {
+      "speed": 65.0,
+      "inherit": 0.5,
+      "life": 20.0,
+      "reload": 2.0,
+      "spread": 0.0,
+      "recoil": 0.012,
+      "shake": 0.08,
+      "self_damage": 1.0,
+      "arm": 0.35
+    },
+    "laser": {
+      "energy": 24.0,
+      "damage": 60.0,
+      "reload": 1.1,
+      "range": 2600.0,
+      "fade": 0.18
+    },
+    "railgun": {
+      "speed": 640.0,
+      "inherit": 0.15,
+      "damage": 78.0,
+      "reload": 1.6,
+      "life": 3.0
+    },
+    "plasma": {
+      "speed": 70.0,
+      "inherit": 0.5,
+      "life": 3.0,
+      "reload": 0.55,
+      "spread": 0.0,
+      "recoil": 0.004,
+      "shake": 0.04,
+      "self_damage": 0.6,
+      "arm": 0.0
+    },
+    "blaster": {
+      "speed": 190.0,
+      "inherit": 0.5,
+      "life": 1.4,
+      "reload": 0.3,
+      "energy": 7.0,
+      "damage": 13.0,
+      "bounce": 0.8
+    }
+  },
+  "blasts": {
+    "disc": {
+      "radius": 7.5,
+      "max_damage": 75.757576,
+      "edge_fraction": 0.12,
+      "impulse": 2000.0,
+      "core": 0.0
+    },
+    "grenade": {
+      "radius": 15.0,
+      "max_damage": 72.72727,
+      "edge_fraction": 0.12,
+      "impulse": 2000.0,
+      "core": 0.0
+    },
+    "mortar": {
+      "radius": 20.0,
+      "max_damage": 151.51515,
+      "edge_fraction": 0.12,
+      "impulse": 5000.0,
+      "core": 0.0
+    },
+    "hand_grenade": {
+      "radius": 10.0,
+      "max_damage": 75.757576,
+      "edge_fraction": 0.12,
+      "impulse": 1500.0,
+      "core": 0.0
+    },
+    "mine": {
+      "radius": 10.0,
+      "max_damage": 98.48485,
+      "edge_fraction": 0.12,
+      "impulse": 2000.0,
+      "core": 0.0
+    },
+    "plasma": {
+      "radius": 4.5,
+      "max_damage": 36.0,
+      "edge_fraction": 0.12,
+      "impulse": 900.0,
+      "core": 0.0
+    },
+    "grenade_structure": {
+      "radius": 15.0,
+      "max_damage": 72.72727,
+      "edge_fraction": 0.12,
+      "impulse": 1500.0,
+      "core": 0.0
+    },
+    "mortar_structure": {
+      "radius": 20.0,
+      "max_damage": 151.51515,
+      "edge_fraction": 0.12,
+      "impulse": 3200.0,
+      "core": 0.0
+    }
+  },
+  "throwables": {
+    "grenade_throw": 20.0,
+    "mine_throw": 24.0,
+    "inherit": 1.0,
+    "time": 0.1,
+    "min_strength": 0.3,
+    "grenade_fuse": 2.0,
+    "mine_flight": 8.0,
+    "mine_life": 900.0,
+    "mine_arm": 1.0,
+    "mine_trigger": 2.5,
+    "mine_team_max": 12,
+    "mine_sympathy": 4.0,
+    "mine_shot_radius": 0.35
+  },
+  "repair": {
+    "range": 12.0,
+    "energy": 5.0,
+    "min_energy": 3.0,
+    "player": 6.0,
+    "hull": 20.0
+  },
+  "equipment": {
+    "sensor": {
+      "range": 260.0,
+      "sensed_range": 260.0,
+      "speed": 0.0,
+      "life": 0.0,
+      "cooldown": 0.0,
+      "leads": false,
+      "fires": false,
+      "projectile": 0
+    },
+    "bullet_turret": {
+      "range": 80.0,
+      "sensed_range": 150.0,
+      "speed": 420.0,
+      "life": 1.0,
+      "cooldown": 0.22,
+      "leads": false,
+      "fires": true,
+      "projectile": 1
+    },
+    "plasma_turret": {
+      "range": 80.0,
+      "sensed_range": 150.0,
+      "speed": 80.0,
+      "life": 3.0,
+      "cooldown": 1.2,
+      "leads": true,
+      "fires": true,
+      "projectile": 3
+    },
+    "turret_hull": {
+      "hull": 250.0,
+      "shield_max": 450.0,
+      "shield_regen_rate": 110.0,
+      "shield_bullet_factor": 0.5
+    },
+    "sensor_hull": {
+      "hull": 150.0,
+      "shield_max": 300.0,
+      "shield_regen_rate": 110.0,
+      "shield_bullet_factor": 0.5
+    },
+    "generator_hull": 500.0,
+    "station_hull": 300.0,
+    "online_fraction": 0.5
+  },
+  "deployables": {
+    "turret": {
+      "range": 70.0,
+      "sensed_range": 70.0,
+      "speed": 420.0,
+      "life": 1.0,
+      "cooldown": 0.25,
+      "leads": false,
+      "fires": true,
+      "projectile": 1
+    },
+    "health": {
+      "turret": 150.0,
+      "wall": 400.0,
+      "field": 250.0,
+      "ammo": 150.0,
+      "inventory": 300.0
+    },
+    "team_limit": {
+      "turret": 4,
+      "wall": 8,
+      "field": 8,
+      "ammo": 8,
+      "inventory": 2
+    },
+    "range": 12.0
+  }
+}

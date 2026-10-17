@@ -1,0 +1,26 @@
+{
+  "id": "highgoal",
+  "name": "Highgoal",
+  "seed": 52219,
+  "mode": "football",
+  "halves": [
+    {"team": 0, "yaw": 0},
+    {"team": 1, "yaw": 180}
+  ],
+  "fog_color": "0.80 0.70 0.56",
+  "look": {
+    "sun_color": [1.0, 0.92, 0.8],
+    "sun_disc": 0.9,
+    "exposure": 1.05,
+    "ambient_sky": [0.64, 0.62, 0.6],
+    "ambient_ground": [0.56, 0.48, 0.38],
+    "sky": {
+      "zenith": [0.22, 0.36, 0.6],
+      "horizon": [0.86, 0.78, 0.64],
+      "cloud_cover": 0.2,
+      "cloud_color": [0.98, 0.94, 0.86],
+      "cloud_scale": 1.8,
+      "sun_size": 0.03
+    }
+  }
+}

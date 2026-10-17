@@ -1,0 +1,6 @@
+{
+  "name": "Ozarktic Blast",
+  "note": "A ridge across the middle, high ground west, and a dock valley east where two strange ships hover.",
+  "bases": [[1024,185,680], [1024,185,1368]],
+  "dust": [0.44, 0.46, 0.38]
+}

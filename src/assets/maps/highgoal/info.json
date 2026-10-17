@@ -1,0 +1,6 @@
+{
+  "name": "Highgoal",
+  "note": "Football. A walled sand arena whose goals stand on platforms 7 m up: jet up to score.",
+  "bases": [[1024,107,939], [1024,107,1109]],
+  "dust": [0.78, 0.66, 0.48]
+}

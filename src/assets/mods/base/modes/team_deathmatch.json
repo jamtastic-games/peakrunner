@@ -1,0 +1,30 @@
+{
+  "label": "Team Deathmatch",
+  "short": "TDM",
+  "note": "Team frags score. Random time of day, weather and a twist.",
+  "goal": "Frag their team · first to 40",
+  "start_message": "TEAM DEATHMATCH — FRAG THEIR TEAM",
+  "rules": "team_deathmatch",
+  "offered": true,
+  "clock": 600.0,
+  "halves": 1,
+  "warmup": 10.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 40,
+  "teams": "two",
+  "control_points": "none",
+  "conditions": true,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": true,
+  "deployables": true,
+  "ammo_stations": true,
+  "throwables": true,
+  "loot": true,
+  "repair_tool": true,
+  "purchases": true,
+  "requires": {
+    "football_field": false
+  }
+}

@@ -1,0 +1,5 @@
+// The stock library's vehicle blasts (`projectiles/vehicles.json`).
+{
+  // A tank shell: tighter than a mortar's, and as hard in the middle.
+  "tank-shell": { "radius": 9.0, "max_damage": 140.0, "edge_fraction": 0.12, "impulse": 3600.0 }
+}

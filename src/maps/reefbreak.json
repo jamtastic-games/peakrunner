@@ -1,0 +1,34 @@
+{
+  "id": "reefbreak",
+  "name": "Reefbreak",
+  "seed": 52613,
+  "bases": [
+    {"team": 0, "position": [1024, 81.0, 664], "yaw": 180},
+    {"team": 1, "position": [1024, 81.0, 1384], "yaw": 0}
+  ],
+  "control_points": [
+    {"id": "east-spit", "name": "East Spit", "x": 1239, "z": 1024},
+    {"id": "west-spit", "name": "West Spit", "x": 809, "z": 1024}
+  ],
+  "lighthouse": {"position": [1024, 1024]},
+  "outposts": [
+    {"team": 0, "position": [1281.5, 578.0], "yaw": 102},
+    {"team": 1, "position": [766.5, 1470.0], "yaw": 282}
+  ],
+  "look": {
+    "sun_color": [1.08, 1.02, 0.92],
+    "sun_disc": 1.4,
+    "exposure": 1.1,
+    "ambient_sky": [0.6, 0.7, 0.78],
+    "ambient_ground": [0.66, 0.62, 0.52],
+    "height_fog": {"density": 0.0006, "base": 60, "falloff": 24},
+    "sky": {
+      "zenith": [0.12, 0.32, 0.66],
+      "horizon": [0.7, 0.86, 0.92],
+      "cloud_cover": 0.22,
+      "cloud_color": [1.0, 1.0, 0.98],
+      "cloud_scale": 1.6,
+      "sun_size": 0.026
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/guided-missile/raw.glb",
+      "fit": {
+        "min": [-0.7, -0.7, -0.7],
+        "max": [0.7, 0.7, 0.7]
+      },
+      "triangles": 3000,
+      "texture": 512,
+      "orient": [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, -1]
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/blight-grenade/raw.glb",
+      "fit": {
+        "min": [-0.12, -0.12, -0.12],
+        "max": [0.12, 0.12, 0.12]
+      },
+      "triangles": 1500,
+      "texture": 256,
+      "orient": [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, -1]
+      ],
+      "solidify": 3
+    }
+  }
+}

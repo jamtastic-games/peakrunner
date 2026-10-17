@@ -1,0 +1,10 @@
+{
+  "base": "team_deathmatch",
+  "label": "Spree TDM",
+  "short": "SPREE",
+  "note": "Frag their team: every third frag in a row scores double and is called out. Killing yourself costs a point. First to 40.",
+  "goal": "Frag their team · streaks pay double",
+  "start_message": "SPREE — STREAKS PAY DOUBLE",
+  "score_limit": 40,
+  "script": "spree"
+}

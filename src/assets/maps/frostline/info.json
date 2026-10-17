@@ -1,0 +1,6 @@
+{
+  "name": "Frostline",
+  "note": "Polar research stations on steep mountain shelves, a beacon ridge and whiteout fog.",
+  "bases": [[1024,233,368], [1024,233,1680]],
+  "dust": [0.86, 0.88, 0.91]
+}

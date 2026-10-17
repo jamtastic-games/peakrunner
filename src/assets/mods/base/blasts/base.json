@@ -1,0 +1,24 @@
+// Blasts: what a burst does to bodies and structures around it. Linear
+// falloff keeps `edge_fraction` of `max_damage` at the `radius`; with `core`
+// above 0 it is concentrated (half damage at `core` metres). `impulse` is
+// the kick, divided by the body's mass. The base turrets' plasma keeps its
+// own older curve (`quadratic`): `edge_damage` x fall + `core_damage` x
+// fall², `max_damage` on a direct hit, and a fixed `kick` (m/s).
+{
+  "disc": { "radius": 7.5, "max_damage": 75.757576, "edge_fraction": 0.12, "impulse": 2000.0 },
+  "grenade": { "radius": 15.0, "max_damage": 72.72727, "edge_fraction": 0.12, "impulse": 2000.0 },
+  "mortar": { "radius": 20.0, "max_damage": 151.51515, "edge_fraction": 0.12, "impulse": 5000.0 },
+  "hand-grenade": { "radius": 10.0, "max_damage": 75.757576, "edge_fraction": 0.12, "impulse": 1500.0 },
+  "mine": { "radius": 10.0, "max_damage": 98.48485, "edge_fraction": 0.12, "impulse": 2000.0 },
+  "plasma": { "radius": 4.5, "max_damage": 36.0, "edge_fraction": 0.12, "impulse": 900.0 },
+  // The grenade launcher and mortar against equipment and deployables.
+  "grenade-structure": { "radius": 15.0, "max_damage": 72.72727, "edge_fraction": 0.12, "impulse": 1500.0 },
+  "mortar-structure": { "radius": 20.0, "max_damage": 151.51515, "edge_fraction": 0.12, "impulse": 3200.0 },
+  "turret-plasma": { "falloff": "quadratic", "radius": 6.0, "max_damage": 55.0, "edge_damage": 12.0, "core_damage": 43.0, "kick": 3.5 },
+  "turret-plasma-structure": { "radius": 6.0, "max_damage": 55.0, "edge_fraction": 0.0 },
+  // A vent's lava bomb landing: wide, heavy, and a hard shove.
+  "lava": { "radius": 9.0, "max_damage": 70.0, "edge_fraction": 0.15, "impulse": 2600.0 },
+  // Lava thrown up by a burst in it: a burn on top of the burst, out to
+  // 6 m, and a light shove.
+  "volcanic-splash": { "radius": 6.0, "max_damage": 30.0, "edge_fraction": 0.25, "impulse": 600.0 }
+}

@@ -1,0 +1,7 @@
+// The stock library's packs: building blocks the base game's own modes don't
+// offer (`offered: false`), for mods to offer, extend or redefine.
+{
+  // Put a beacon down; used again, go to it.
+  "recall": { "name": "Recall pack", "about": "Put a beacon down; use it again to go back to it.", "offered": false,
+    "use": "use", "cooldown": 3.0, "energy": 15.0, "action": { "recall": "beacon" } }
+}

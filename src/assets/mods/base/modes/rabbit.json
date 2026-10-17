@@ -1,0 +1,32 @@
+{
+  "label": "Rabbit",
+  "short": "RAB",
+  "note": "One flag: hold it as long as you can while everyone else hunts you.",
+  "goal": "Take the flag and hold on · most points wins",
+  "start_message": "RABBIT — GET THE FLAG",
+  "rules": "rabbit",
+  "offered": true,
+  "clock": 600.0,
+  "halves": 1,
+  "warmup": 10.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 1200,
+  "teams": "free_for_all",
+  "control_points": "none",
+  "conditions": false,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": true,
+  "deployables": false,
+  "ammo_stations": true,
+  "throwables": true,
+  "loot": true,
+  "repair_tool": true,
+  "purchases": true,
+  "banned": ["mortar", "mine"],
+  "flag_return": 45.0,
+  "requires": {
+    "football_field": false
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "terrain_layers": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "sky_layers": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "water_layer": 13,
+  "water": {
+    "position": "-384 -160 54",
+    "scale": "720 150 1"
+  },
+  "texture_count": 22,
+  "lightmap": {
+    "pages": 2,
+    "first_layer": 20,
+    "texel_m": 0.5,
+    "sun": [
+      -0.57735,
+      0.57735,
+      -0.57735
+    ],
+    "lamps": 44,
+    "baker_sha256": "66d1c04a0581f283b62d4a01a9229abd22fbd18a738474c8c5c148db84800fed"
+  },
+  "version": 1,
+  "id": "highgoal",
+  "name": "Highgoal",
+  "flags": [
+    [
+      1024.0,
+      107.0,
+      939.0
+    ],
+    [
+      1024.0,
+      107.0,
+      1109.0
+    ]
+  ],
+  "spawns": [
+    [
+      994.0,
+      101.2,
+      922.0
+    ],
+    [
+      1054.0,
+      101.2,
+      1126.0
+    ]
+  ],
+  "exact_spawns": true,
+  "spawn_points": [
+    [
+      [
+        994.0,
+        101.2,
+        922.0,
+        3.141592653589793
+      ],
+      [
+        1006.0,
+        101.2,
+        922.0,
+        3.141592653589793
+      ],
+      [
+        1042.0,
+        101.2,
+        922.0,
+        3.141592653589793
+      ],
+      [
+        1054.0,
+        101.2,
+        922.0,
+        3.141592653589793
+      ],
+      [
+        994.0,
+        101.2,
+        928.0,
+        3.141592653589793
+      ],
+      [
+        1006.0,
+        101.2,
+        928.0,
+        3.141592653589793
+      ],
+      [
+        1042.0,
+        101.2,
+        928.0,
+        3.141592653589793
+      ],
+      [
+        1054.0,
+        101.2,
+        928.0,
+        3.141592653589793
+      ]
+    ],
+    [
+      [
+        1054.0,
+        101.2,
+        1126.0,
+        0.0
+      ],
+      [
+        1042.0,
+        101.2,
+        1126.0,
+        0.0
+      ],
+      [
+        1006.0,
+        101.2,
+        1126.0,
+        0.0
+      ],
+      [
+        994.0,
+        101.2,
+        1126.0,
+        0.0
+      ],
+      [
+        1054.0,
+        101.2,
+        1120.0,
+        0.0
+      ],
+      [
+        1042.0,
+        101.2,
+        1120.0,
+        0.0
+      ],
+      [
+        1006.0,
+        101.2,
+        1120.0,
+        0.0
+      ],
+      [
+        994.0,
+        101.2,
+        1120.0,
+        0.0
+      ]
+    ]
+  ],
+  "holes": [],
+  "entities": [],
+  "instances": [
+    {
+      "asset": "highgoal-arena-v1",
+      "team": 0,
+      "yaw": 0,
+      "anchors": {
+        "flag": [
+          1024.0,
+          107.0,
+          939.0
+        ],
+        "end_zone": [
+          1024.0,
+          108.2,
+          939.0
+        ],
+        "kickoff": [
+          1024.0,
+          101.0,
+          998.5
+        ],
+        "spawn": [
+          994.0,
+          101.2,
+          922.0
+        ]
+      }
+    },
+    {
+      "asset": "highgoal-arena-v1",
+      "team": 1,
+      "yaw": 180,
+      "anchors": {
+        "flag": [
+          1024.0,
+          107.0,
+          1109.0
+        ],
+        "end_zone": [
+          1024.0,
+          108.2,
+          1109.0
+        ],
+        "kickoff": [
+          1024.0,
+          101.0,
+          1049.5
+        ],
+        "spawn": [
+          1054.0,
+          101.2,
+          1126.0
+        ]
+      }
+    }
+  ],
+  "ambient_emitters": [],
+  "sky": {
+    "visibleDistance": "2500",
+    "fogDistance": "1500",
+    "fogColor": "0.80 0.70 0.56"
+  },
+  "control_points": [],
+  "look": {
+    "sun_color": [
+      1.0,
+      0.92,
+      0.8
+    ],
+    "sun_disc": 0.9,
+    "exposure": 1.05,
+    "ambient_sky": [
+      0.64,
+      0.62,
+      0.6
+    ],
+    "ambient_ground": [
+      0.56,
+      0.48,
+      0.38
+    ],
+    "sky": {
+      "zenith": [
+        0.22,
+        0.36,
+        0.6
+      ],
+      "horizon": [
+        0.86,
+        0.78,
+        0.64
+      ],
+      "cloud_cover": 0.2,
+      "cloud_color": [
+        0.98,
+        0.94,
+        0.86
+      ],
+      "cloud_scale": 1.8,
+      "sun_size": 0.03
+    }
+  },
+  "water_enabled": false,
+  "water_volumes": [],
+  "football": {
+    "end_zones": [
+      [
+        1024.0,
+        108.2,
+        939.0
+      ],
+      [
+        1024.0,
+        108.2,
+        1109.0
+      ]
+    ],
+    "kickoff": [
+      [
+        1024.0,
+        101.0,
+        998.5
+      ],
+      [
+        1024.0,
+        101.0,
+        1049.5
+      ]
+    ],
+    "radius": 4.0,
+    "bounds": [
+      969.5,
+      914.5,
+      1078.5,
+      1133.5
+    ]
+  },
+  "terrain_shade": {
+    "size": 1024,
+    "texel_m": 2.0,
+    "sun": [
+      -0.57735,
+      0.57735,
+      -0.57735
+    ],
+    "shaded_fraction": 0.0052,
+    "baker_sha256": "981ed46e40de6348d03e479856a4b7fb985d238650b23c0ce951077761b47f6c"
+  },
+  "asset_sha256": "4d090208c3f209151c504490698fa4f4ae6013a4bfede39b2f6450a4930df3ad",
+  "terrain_source_sha256": "8ed92ee0967d2afe7e60cff7278802867b6b5e706eaff2ca2a891a5c569caf1e",
+  "material_source_sha256": "369ad9f8f2e8d111ce4df0e4b1c43ea51661c9d520d3bb1dd5255066240ef8ee",
+  "provenance": "PeakRunner original arena geometry, original procedural terrain and original material kit; no extracted assets or external height data",
+  "definition_sha256": "214f25bc66a3b38888afba20e681659701a2f458bb5aa9720f4cf9a8249864f3",
+  "files": {
+    "height.bin": "c8f5afa0e9c0a38725419bee2eb1ed9b480da8ab046aca010944c31b221f81cd",
+    "vertices.bin": "5291d7f553249234426fe8407ff86c6f0bf206012aa948a681de36579c86447e",
+    "collision.bin": "eda9f4544b59ed849798d9123f70bc2d4d7700949aa65c899f2f5b3d642d58ee",
+    "weights.rgba": "5bb52179859f83be3c189d736a82a17ed0fffbd88359c1eac0b4945105507632",
+    "textures.rgba": "123dd4ede7d691e542576158f3e87897c50c6894879e547bdc7214344d2fef77",
+    "ambient.f32": "52b06180983895f8fc9e5a9f2fc4d10f05f9bcc3d23aaf1f58142e3c47aec29e",
+    "shade.rg": "22afbc6275f3ac049d8689cd328455206f3b8b3124401a76c9a911d295e67706"
+  }
+}

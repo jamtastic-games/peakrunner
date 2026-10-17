@@ -1,0 +1,10 @@
+// The stock library's rounds, for things the base game places but players
+// don't carry: the rocket of the centre points' rocket turrets.
+{
+  // Leaves the tube slow and speeds up, and follows the heat of the jets it
+  // was fired at: dodge it by turning hard, or by landing and letting it
+  // fly past. Smoke marks its line.
+  "turret-rocket": { "model": "rocket", "class": "straight", "speed": 40.0, "inherit": 0.0, "life": 6.0, "accel": 110.0, "max_speed": 160.0,
+    "seek": { "turn": 100.0, "cone": 0.0, "range": 1000.0, "targets": ["jetting"], "proximity": 2.5 },
+    "blast": "turret-rocket", "smoke": true, "kill": "Rocket turret", "look": "mortar", "damage_kind": "blast" }
+}

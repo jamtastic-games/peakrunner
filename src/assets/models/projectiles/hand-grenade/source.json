@@ -1,0 +1,19 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/hand-grenade/raw.glb",
+      "fit": {
+        "min": [-0.1, -0.1, -0.1],
+        "max": [0.1, 0.1, 0.1]
+      },
+      "triangles": 1500,
+      "texture": 256,
+      "orient": [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, -1]
+      ]
+    }
+  }
+}

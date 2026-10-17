@@ -1,0 +1,4 @@
+// Patch the base game's drain beam (projectiles/base.json): only the named
+// fields change. It reaches 60 m, and on a teammate it mends 15 health a
+// second; on a damaged turret or station it repairs 40 hull a second.
+{ "drain-stream": { "stream": { "range": 60.0, "heal": 15.0, "repair": 40.0 } } }

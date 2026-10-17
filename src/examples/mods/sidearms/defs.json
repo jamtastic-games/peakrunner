@@ -1,0 +1,6 @@
+{
+  "weapons": {
+    "disc": { "speed": 120.0, "reload": 0.8 },
+    "chaingun": { "reload": 0.06 }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "movement": {
+    "gravity": 20.0,
+    "mass": 90.0,
+    "jump_impulse": 8.34,
+    "min_jump_speed": 14.933333,
+    "max_jump_speed": 22.4,
+    "horiz_max": 125.0,
+    "up_max": 38.826668,
+    "up_resist_speed": 15.597866,
+    "up_resist": 0.35,
+    "walk_accel": 78.0,
+    "walk_max": 11.2,
+    "ground_brake": 32.0,
+    "walk_step_down": 0.8,
+    "air_accel": 6.0,
+    "ski_turn_accel": 28.0,
+    "ski_slope_gravity": 2.0,
+    "energy_max": 60.0,
+    "air_hit_kick": 1.5,
+    "landing_speed": 18.0,
+    "landing_scale": 1.4,
+    "landing_cap": 22.0,
+    "landing_share": 0.5,
+    "jet_jump": 0.5
+  },
+  "repair": {
+    "range": 12.0,
+    "energy": 5.0,
+    "min_energy": 3.0,
+    "player": 6.0,
+    "hull": 20.0,
+    "rest": 1.5
+  },
+  "equipment": {
+    "sensor": {
+      "range": 260.0,
+      "sensed_range": 260.0,
+      "speed": 0.0,
+      "life": 0.0,
+      "cooldown": 0.0,
+      "leads": false,
+      "fires": false,
+      "projectile": 0
+    },
+    "bullet_turret": {
+      "range": 80.0,
+      "sensed_range": 150.0,
+      "speed": 420.0,
+      "life": 1.0,
+      "cooldown": 0.22,
+      "leads": false,
+      "fires": true,
+      "projectile": 1
+    },
+    "plasma_turret": {
+      "range": 80.0,
+      "sensed_range": 150.0,
+      "speed": 80.0,
+      "life": 3.0,
+      "cooldown": 1.2,
+      "leads": true,
+      "fires": true,
+      "projectile": 3
+    },
+    "turret_hull": {
+      "hull": 250.0,
+      "shield_max": 450.0,
+      "shield_regen_rate": 110.0,
+      "shield_bullet_factor": 0.5
+    },
+    "sensor_hull": {
+      "hull": 150.0,
+      "shield_max": 300.0,
+      "shield_regen_rate": 110.0,
+      "shield_bullet_factor": 0.5
+    },
+    "generator_hull": 500.0,
+    "station_hull": 300.0,
+    "online_fraction": 0.5
+  },
+  "placement": {
+    "range": 12.0
+  },
+  "blade": {
+    "tap": 0.2,
+    "charge": 1.0,
+    "combo": 0.45,
+    "reach": 2.3,
+    "regen": 28.0,
+    "rest": 0.7,
+    "guard_drain": 12.0,
+    "guard_arc": 150.0,
+    "guard_cost": 1.0,
+    "guard_walk": 0.5,
+    "reel": 0.6,
+    "respawn": 5.0,
+    "charged": 2.2,
+    "charged_cost": 1.8,
+    "quick": { "time": 0.42, "cut": [0.08, 0.2], "arc": 130.0, "damage": 10.0, "stamina": 9.0, "push": 3.0 },
+    "power": { "time": 0.7, "cut": [0.12, 0.3], "arc": 150.0, "damage": 16.0, "stamina": 14.0, "push": 5.0 },
+    "whirl": { "time": 0.7, "cut": [0.1, 0.46], "arc": 360.0, "damage": 14.0, "stamina": 22.0, "push": 7.0 },
+    "lunge": { "time": 0.6, "cut": [0.06, 0.28], "arc": 50.0, "damage": 18.0, "stamina": 18.0, "push": 6.0, "dash": 14.0, "reach": 1.0 },
+    "slam": { "time": 0.85, "cut": [0.34, 0.46], "arc": 220.0, "damage": 22.0, "stamina": 26.0, "push": 10.0, "hop": 6.0, "reach": 0.6 }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "label": "Capture & Hold",
+  "short": "CnH",
+  "note": "Hold capture towers to score. First to 300.",
+  "goal": "Hold the points · first to 300",
+  "start_message": "DEPLOYED — HOLD THE POINTS",
+  "rules": "capture_and_hold",
+  "offered": true,
+  "clock": 480.0,
+  "halves": 1,
+  "warmup": 10.0,
+  "respawn": 3.4,
+  "suicide_delay": 0.0,
+  "score_limit": 300,
+  "teams": "two",
+  "control_points": "all",
+  "conditions": false,
+  "movement": "skier",
+  "armor_scaling": true,
+  "equipment": true,
+  "deployables": true,
+  "ammo_stations": true,
+  "throwables": true,
+  "loot": true,
+  "repair_tool": true,
+  "purchases": true,
+  "requires": {
+    "football_field": false,
+    "control_points": 2
+  }
+}

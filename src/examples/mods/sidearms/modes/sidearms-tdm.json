@@ -1,0 +1,12 @@
+{
+  "base": "team_deathmatch",
+  "label": "Sidearms TDM",
+  "short": "STDM",
+  "note": "Fast discs and chaingun only: no deployables or mines. First to 30.",
+  "goal": "Frag their team · first to 30",
+  "start_message": "SIDEARMS — FRAG THEIR TEAM",
+  "score_limit": 30,
+  "respawn": 2.0,
+  "deployables": false,
+  "throwables": false
+}

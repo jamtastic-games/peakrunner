@@ -1,0 +1,6 @@
+// The base heavy armor, with a plate that stops most of what comes from
+// ahead, a ward on the class key (C), and a hook.
+{ "guardian": { "extends": "heavy", "name": "Guardian", "about": "A plate in front; C: a ward.", "team_cap": 2,
+    "mounts": { "plate": { "at": "front", "blocker": { "arc": 50.0, "share": 0.4 } } },
+    "ability": { "name": "Ward", "use": "use", "energy": 20.0, "cooldown": 30.0, "action": { "effect": "ward" } },
+    "hook": "guardian", "tint": [0.4, 0.5, 0.7] } }

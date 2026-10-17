@@ -1,0 +1,16 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/mortar-shell/raw.glb",
+      "fit": {
+        "min": [-0.375, -0.375, -0.375],
+        "max": [0.375, 0.375, 0.375]
+      },
+      "triangles": 2500,
+      "texture": 512,
+      "concept": "projectiles/mortar-shell/concept.png",
+      "view": "left"
+    }
+  }
+}

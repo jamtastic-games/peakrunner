@@ -1,0 +1,6 @@
+{
+  "name": "Tower Complex",
+  "note": "Floating towers over rolling hills. Turret pods, a central shaft and flags on level two.",
+  "bases": [[1024,240,820], [1024,240,1228]],
+  "dust": [0.42, 0.38, 0.30]
+}

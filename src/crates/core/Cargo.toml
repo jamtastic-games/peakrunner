@@ -1,0 +1,21 @@
+[package]
+name = "peakrunner-core"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+
+[features]
+# No effect: every native build reads its maps from folders now
+# (src/catalog.rs). Kept so older build commands still work.
+external-map = []
+
+[dependencies]
+glam = { version = "0.29", features = ["serde"] }
+miniz_oxide = "0.9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[build-dependencies]
+miniz_oxide = "0.9"

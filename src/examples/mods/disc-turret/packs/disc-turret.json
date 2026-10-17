@@ -1,0 +1,2 @@
+// Carried like the base game's turret pack.
+{ "disc-turret": { "name": "Disc turret", "about": "Discs at enemies in sight, 60 m.", "use": "place", "deployable": "disc-turret" } }

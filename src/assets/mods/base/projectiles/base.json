@@ -1,0 +1,216 @@
+// Projectiles: what flies (or beams) once something fires or throws it.
+// `class` says how it moves and what touching something does:
+//   straight  flies in a line (with `gravity` it drops); bursts into its
+//             `blast` on contact, or hits for `damage` and is gone;
+//   shell     arcs and bounces until it has flown `arm` seconds, then
+//             bursts on the next contact (or when its life runs out);
+//   thrown    bounces dully and comes to rest; bursts when its life runs
+//             out, or, with a `trigger`, when an enemy comes near (a mine);
+//   beam      an instant line from the eye: `damage` at up to `range`.
+// Anything that fires one names it: weapons, turrets, throwables.
+{
+  // A blue disc with a light blue ribbon behind it.
+  "disc": { "model": "disc", "color": [0.12, 0.42, 1.0],
+    "trail": { "style": "ribbon", "color": [0.55, 0.85, 1.0] },
+    "class": "straight",
+    "speed": 95.0,
+    "inherit": 0.75,
+    "life": 5.0,
+    "blast": "disc",
+    "self_damage": 0.4,
+    "water": "burst",
+    "kill": "Disc launcher",
+    "look": "disc",
+    "damage_kind": "blast"
+  },
+  "bullet": {
+    "class": "straight",
+    "speed": 420.0,
+    "inherit": 0.75,
+    "life": 1.2,
+    "damage": 8.0,
+    "flash": 0.35,
+    "water": "fizzle",
+    "expire": "vanish",
+    "clears_mines": true,
+    "kill": "Repeater",
+    "kill_turret": "Bullet turret",
+    "look": "tracer",
+    "damage_kind": "bullet"
+  },
+  "grenade-shell": { "model": "grenade-shell",
+    "class": "shell",
+    "speed": 48.0,
+    "inherit": 0.75,
+    "life": 2.0,
+    "gravity": 1.0,
+    "arm": 0.35,
+    "elasticity": 0.5,
+    "keep": 0.82,
+    "smoke": true,
+    "blast": "grenade",
+    "structure_blast": "grenade-structure",
+    "kill": "Grenade launcher",
+    "look": "grenade",
+    "damage_kind": "blast"
+  },
+  "turret-plasma": { "size": 1.3,
+    "class": "straight",
+    "speed": 80.0,
+    "life": 3.0,
+    "radius": 0.45,
+    "reach": 0.45,
+    "water": "fizzle",
+    "blast": "turret-plasma",
+    "structure_blast": "turret-plasma-structure",
+    "kill": "Plasma turret",
+    "look": "turret_plasma",
+    "damage_kind": "plasma"
+  },
+  // Green smoke marks the lob.
+  "mortar-shell": { "model": "mortar-shell",
+    "trail": { "style": "smoke", "color": [0.34, 0.82, 0.32] },
+    "class": "shell",
+    "speed": 65.0,
+    "inherit": 0.5,
+    "life": 20.0,
+    "gravity": 1.0,
+    "arm": 0.35,
+    "elasticity": 0.5,
+    "keep": 0.82,
+    "blast": "mortar",
+    "structure_blast": "mortar-structure",
+    "kill": "Mortar",
+    "look": "mortar",
+    "damage_kind": "blast"
+  },
+  "hand-grenade": { "model": "hand-grenade",
+    "class": "thrown",
+    "life": 2.0,
+    "gravity": 1.0,
+    "elasticity": 0.15,
+    "slide": 0.55,
+    "rest_speed": 1.5,
+    "blast": "hand-grenade",
+    "kill": "Grenade",
+    "look": "hand_grenade",
+    "damage_kind": "blast"
+  },
+  "mine": { "model": "mine",
+    "class": "thrown",
+    "life": 8.0,
+    "gravity": 1.0,
+    "elasticity": 0.15,
+    "slide": 0.55,
+    "rest_speed": 1.5,
+    "expire": "vanish",
+    "blast": "mine",
+    "trigger": { "rest_life": 900.0, "arm": 1.0, "radius": 2.5, "sympathy": 4.0, "shot_radius": 0.35 },
+    "kill": "Mine",
+    "look": "mine",
+    "damage_kind": "mine"
+  },
+  "laser": {
+    "class": "beam",
+    "life": 0.18,
+    "damage": 60.0,
+    "range": 2600.0,
+    "expire": "vanish",
+    "kill": "Laser rifle",
+    "look": "laser",
+    "damage_kind": "laser"
+  },
+  // 600 m/s (300 until 2026-10-09), fast but still led at range; 126.67
+  // damage: 95 to medium armor (0.75), all of light's 100.
+  "rail-slug": {
+    "class": "straight",
+    "speed": 600.0,
+    "inherit": 0.15,
+    "life": 3.0,
+    "damage": 126.67,
+    "water": "fizzle",
+    "expire": "vanish",
+    "clears_mines": true,
+    "kill": "Railgun",
+    "look": "rail",
+    "damage_kind": "slug"
+  },
+  "plasma-bolt": {
+    "class": "straight",
+    "speed": 70.0,
+    "inherit": 0.5,
+    "life": 3.0,
+    "water": "fizzle",
+    "blast": "plasma",
+    "self_damage": 0.6,
+    "kill": "Plasma gun",
+    "look": "plasma",
+    "damage_kind": "plasma"
+  },
+  "blaster-bolt": {
+    "class": "straight",
+    "speed": 190.0,
+    "inherit": 0.5,
+    "life": 1.4,
+    "damage": 13.0,
+    "keep": 0.8,
+    "water": "fizzle",
+    "expire": "vanish",
+    "kill": "Blaster",
+    "look": "blaster",
+    "damage_kind": "energy"
+  },
+  // The drain gun's held beam: 25 energy a second off an enemy, and a
+  // little damage.
+  "drain-stream": { "class": "stream", "speed": 0.0, "inherit": 0.0, "life": 0.1, "expire": "vanish", "kill": "Drain gun",
+    "damage_kind": "energy", "stream": { "range": 40.0, "damage": 4.0, "drain": 25.0 } },
+  // The target marker's laser, held: no harm; whatever it touches (an
+  // enemy, followed, or the spot) is a target for the holder's team, and
+  // stays one 12 s after letting go.
+  "marker-beam": { "class": "stream", "speed": 0.0, "inherit": 0.0, "life": 0.1, "expire": "vanish", "kill": "Target marker",
+    "color": [1.0, 0.62, 0.18], "marks": 12.0, "damage_kind": "laser", "stream": { "range": 1000.0 } },
+  // A vent's lava bomb (a map's `vents`, features::Vent; named to sort
+  // after every other base projectile, so their wire numbers stay): a glowing molten
+  // blob on a high arc trailing dark smoke, bursting into burning rock. The
+  // vent sets its arc, so it has no muzzle speed of its own.
+  "vent-bomb": { "size": 2.6, "color": [1.0, 0.42, 0.08],
+    "trail": { "style": "smoke", "color": [0.16, 0.12, 0.1], "width": 0.9, "life": 2.4 },
+    "class": "straight",
+    "speed": 0.0,
+    "life": 14.0,
+    "gravity": 1.0,
+    "radius": 0.6,
+    "blast": "lava",
+    "kill": "Eruption",
+    "look": "turret_plasma",
+    "damage_kind": "fire"
+  },
+  // A vent's fireball (named to sort after vent-bomb, so earlier wire
+  // numbers stay): a map's vent may throw these instead of bombs. Wider
+  // than a bomb, and it burns whoever it touches in flight (`burn`)
+  // without bursting on them. The ground still sets off its blast. The vent
+  // sets its arc.
+  "vent-fireball": { "size": 5.0, "color": [1.0, 0.55, 0.12],
+    "trail": { "style": "smoke", "color": [0.22, 0.1, 0.06], "width": 2.2, "life": 3.2 },
+    "class": "straight",
+    "speed": 0.0,
+    "life": 14.0,
+    "gravity": 1.0,
+    "radius": 3.4,
+    "burn": 320.0,
+    "blast": "lava",
+    "kill": "Eruption",
+    "look": "turret_plasma",
+    "damage_kind": "fire"
+  },
+  // Lava thrown up by a burst in or on it (`sim::LAVA_SPLASH`; named to
+  // sort after every other base projectile, so their wire numbers stay).
+  // Never fired: its blast follows any shooter's burst that lands in lava,
+  // credited to them. The map's own bombs throw none.
+  "volcanic-splash": { "class": "straight", "life": 0.1, "color": [1.0, 0.45, 0.1],
+    "blast": "volcanic-splash",
+    "kill": "Lava splash",
+    "look": "turret_plasma",
+    "damage_kind": "fire"
+  }
+}

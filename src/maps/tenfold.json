@@ -1,0 +1,22 @@
+{
+  "id": "tenfold",
+  "name": "Tenfold Tower",
+  "seed": 61423,
+  "mode": "duel_lobby",
+  "fog_color": "0.72 0.70 0.74",
+  "look": {
+    "sun_color": [1.0, 0.9, 0.78],
+    "sun_disc": 1.0,
+    "exposure": 1.05,
+    "ambient_sky": [0.6, 0.62, 0.68],
+    "ambient_ground": [0.46, 0.44, 0.4],
+    "sky": {
+      "zenith": [0.2, 0.3, 0.55],
+      "horizon": [0.86, 0.76, 0.7],
+      "cloud_cover": 0.35,
+      "cloud_color": [0.98, 0.92, 0.88],
+      "cloud_scale": 1.4,
+      "sun_size": 0.03
+    }
+  }
+}

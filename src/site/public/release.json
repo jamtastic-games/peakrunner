@@ -1,0 +1,121 @@
+{
+  "version": "0.1.0-playtest.20261016.3",
+  "launcher_version": "0.1.0-r4",
+  "downloads": [
+    {
+      "platform": "MACOS / APPLE SILICON",
+      "title": "Mac launcher",
+      "description": "Install once; signed game/map updates, repair and rollback. Apple Silicon. Ad-hoc signed, not Apple notarized; may require Privacy & Security \u2192 Open Anyway.",
+      "label": "Get Mac launcher",
+      "url": "/downloads/PeakRunnerLauncher-0.1.0-r4-macos-arm64.zip",
+      "sha256": "7aa7e8fbd5748bd6de95ed6be66cca54c6af4bd6cac4f900b7090b90381291ff",
+      "kind": "launcher",
+      "os": "macos"
+    },
+    {
+      "platform": "MACOS / INTEL",
+      "title": "Mac launcher \u00b7 Intel",
+      "description": "Install once; signed game/map updates, repair and rollback, for Intel Macs on macOS 12 or later. Tested under Rosetta on Apple Silicon, not yet on an Intel Mac. Ad-hoc signed, not Apple notarized; may require Privacy & Security \u2192 Open Anyway.",
+      "label": "Get Mac launcher (Intel)",
+      "url": "/downloads/PeakRunnerLauncher-0.1.0-r4-macos-x64.zip",
+      "sha256": "9958cc9e0e57b02269ab41a66299e2eccef240420659bb53e5d49285f99b258f",
+      "kind": "launcher",
+      "os": "macos"
+    },
+    {
+      "platform": "WINDOWS / X64",
+      "title": "Windows launcher \u00b7 experimental",
+      "description": "Unsigned x64 launcher with signed game updates. Launcher and Old Holler rendered in Windows 11 ARM with the DirectX-capable backend. Native x64 hardware, audio and full gameplay still need testing.",
+      "label": "Get Windows launcher",
+      "url": "/downloads/PeakRunnerLauncher-0.1.0-r4-windows-x64.zip",
+      "sha256": "c1df044071be0258ed41fcec0a369ef1eb988a1552762388eb51aaba2633bd5b",
+      "kind": "launcher",
+      "os": "windows"
+    },
+    {
+      "platform": "LINUX / X64",
+      "title": "Linux launcher",
+      "description": "Signed updates, repair and rollback. Debian 12 / glibc 2.36+. Desktop OpenGL for launcher; Vulkan for game; ALSA, udev, X11/Wayland and libxkbcommon-x11. Software-rendered checks; audio and interactive gameplay untested.",
+      "label": "Get Linux launcher",
+      "url": "/downloads/PeakRunnerLauncher-0.1.0-r4-linux-x64.tar.gz",
+      "sha256": "08057f0ae6e21f0e2186feee4cda1c74e1fe284650e6d0b4ffb37cb960560e4f",
+      "kind": "launcher",
+      "os": "linux"
+    },
+    {
+      "platform": "STANDALONE / MACOS",
+      "title": "Mac standalone",
+      "description": "All-original playtest for Apple Silicon: Capture the Flag, Capture & Hold and Team Deathmatch on eight maps, Football on two, loadouts and new weapons. Ad-hoc signed, not notarized. Requires the matching .20261016.3 servers; download again for future standalone updates.",
+      "label": "Mac full game",
+      "url": "/downloads/PeakRunner-0.1.0-playtest.20261016.3-macos-arm64.zip",
+      "sha256": "e7efbfa2e9debb614b8bb8db9106c7a0d95ca94a8d064873e9f53719e8feee3e",
+      "kind": "standalone",
+      "os": "macos"
+    },
+    {
+      "platform": "STANDALONE / MACOS INTEL",
+      "title": "Mac standalone \u00b7 Intel",
+      "description": "All-original playtest for Intel Macs, macOS 12 or later. Built for Intel and run under Rosetta on Apple Silicon; not yet played on an Intel Mac. Ad-hoc signed, not notarized. Requires the matching .20261016.3 servers; download again for future standalone updates.",
+      "label": "Mac full game (Intel)",
+      "url": "/downloads/PeakRunner-0.1.0-playtest.20261016.3-macos-x64.zip",
+      "sha256": "c2fb9f87911d0e75354cab7239d9be39760c2dddb5b7af6413d6fcde1f5664f1",
+      "kind": "standalone",
+      "os": "macos"
+    },
+    {
+      "platform": "STANDALONE / WINDOWS",
+      "title": "Windows standalone \u00b7 experimental",
+      "description": "Unsigned x64 all-original playtest. Cross-built; this release has no Windows runtime verification. Requires the matching .20261016.3 servers.",
+      "label": "Windows full game",
+      "url": "/downloads/PeakRunner-0.1.0-playtest.20261016.3-windows-x64.zip",
+      "sha256": "0d383a7b8942bfefb3702b09612c118712f1e1529cd37943371427ce0b1b693b",
+      "kind": "standalone",
+      "os": "windows"
+    },
+    {
+      "platform": "STANDALONE / LINUX",
+      "title": "Linux standalone",
+      "description": "All-original playtest for Debian 12 / glibc 2.36+. Vulkan, ALSA, udev and X11/Wayland libraries required. Built on Debian 12; not launched in this release\u2019s QA, and hardware, audio and full gameplay are untested.",
+      "label": "Linux full game",
+      "url": "/downloads/PeakRunner-0.1.0-playtest.20261016.3-linux-x64.tar.gz",
+      "sha256": "a30e03263bd4aa7babd5844d12538e318dc0c573524e25a11e887ef86ad81443",
+      "kind": "standalone",
+      "os": "linux"
+    },
+    {
+      "platform": "SERVER / MACOS",
+      "title": "Mac server",
+      "description": "For Apple Silicon. Run it, answer a few questions and share the invite link; no domain or certificate needed. Ad-hoc signed, not notarized. Requires .20261016.3 players.",
+      "label": "Mac server",
+      "url": "/downloads/PeakRunner-Server-0.1.0-playtest.20261016.3-macos-arm64.zip",
+      "sha256": "b306160f9ec7d0457b72441ca08b4e14390571b264fe3d52664d3fc7bae1e7f3",
+      "kind": "server",
+      "os": "macos"
+    },
+    {
+      "platform": "SERVER / WINDOWS",
+      "title": "Windows server \u00b7 experimental",
+      "description": "x64 console program; double-click to answer the setup questions. Cross-built; not yet run on Windows. Requires .20261016.3 players.",
+      "label": "Windows server",
+      "url": "/downloads/PeakRunner-Server-0.1.0-playtest.20261016.3-windows-x64.zip",
+      "sha256": "d3b7ea20bd0d01540fd3df2c8cbd6fb1cf57c47cf4491590411c48377e4f50a5",
+      "kind": "server",
+      "os": "windows"
+    },
+    {
+      "platform": "SERVER / LINUX",
+      "title": "Linux server",
+      "description": "Debian 12 / glibc 2.36+. Run it in a terminal for the setup questions, or configure it with environment variables (see Host a server). Requires .20261016.3 players.",
+      "label": "Linux server",
+      "url": "/downloads/PeakRunner-Server-0.1.0-playtest.20261016.3-linux-x64.tar.gz",
+      "sha256": "c53d89c8f1dbe978c02990aa12bc074de33b9f4c6c3306e93397a0359164a685",
+      "kind": "server",
+      "os": "linux"
+    }
+  ],
+  "web": {
+    "version": "0.1.0-playtest.20261016.3",
+    "js": "/downloads/web/0.1.0-playtest.20261016.3/peakrunner.js",
+    "wasm_sha256": "fb7a23f2b0476fdb1629c49a37160888f96123adc2e7a58c64c68da769cfc367"
+  }
+}

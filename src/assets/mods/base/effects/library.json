@@ -1,0 +1,20 @@
+// Effects: what a player has for a while, or while a pack or ability holds
+// it on. The base game's own modes give none; these are the stock library's
+// building blocks, worn through its packs (packs/library.json), for mods to
+// use or redefine. Movement changes are predicted by every client.
+{
+  // Damage is paid from energy instead, while there is energy: half an
+  // energy a point of the hit before armor (the classic's price), so every
+  // armor pays the same for the same hit.
+  "shielded": { "name": "Shielded", "seconds": 0.25, "absorb": 0.5, "tint": [0.3, 0.6, 1.0, 0.08] },
+  // Energy comes back twice as fast.
+  "recharging": { "name": "Recharging", "seconds": 0.25, "regen_scale": 2.0 },
+  // Sensors, turrets and homing rounds don't pick its bearer out.
+  "jammed": { "name": "Jammed", "seconds": 0.25, "sensor_hidden": true },
+  // Health comes back over time.
+  "mending": { "name": "Mending", "seconds": 0.25, "heal": 6.0 },
+  // All but invisible; enemies close by see a shimmer; firing or being hit
+  // ends it, and a cloaked player can't take a flag.
+  "cloaked": { "name": "Cloaked", "seconds": 0.25, "visibility": 0.04, "hide_name": true, "sensor_hidden": true,
+    "shimmer": 12.0, "reveal": true, "blocks": { "flag": true }, "tint": [0.6, 0.6, 0.8, 0.12] }
+}

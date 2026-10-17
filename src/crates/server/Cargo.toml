@@ -1,0 +1,45 @@
+[package]
+name = "peakrunner-server"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.95"
+license = "GPL-3.0-only"
+publish = false
+description = "Dedicated authoritative match server."
+default-run = "peakrunner-server"
+[dependencies]
+peakrunner-core = { path = "../core" }
+peakrunner-protocol = { path = "../protocol" }
+peakrunner-discovery = { path = "../discovery" }
+# Rules scripts of the mods this server runs (players' games never have it).
+peakrunner-script = { path = "../script" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Player counts (stats.rs): salted hashes of game IDs, and the salt.
+sha2 = "0.10"
+getrandom = "0.3"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "io-util", "sync", "time", "signal"] }
+quinn = { version = "0.11", default-features = false, features = ["runtime-tokio", "rustls-ring"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+axum = { version = "0.8", features = ["ws"] }
+rustls-pemfile = "2"
+env_logger = "0.11"
+log = "0.4"
+# The generated self-signed identity for servers without a CA certificate.
+rcgen = "0.13"
+# Optional router port forwarding (UPnP IGD); plain HTTP to the LAN gateway.
+igd-next = "0.17"
+[dev-dependencies]
+peakrunner-net = { path = "../net" }
+peakrunner-directory = { path = "../directory" }
+postcard = { version = "1", features = ["alloc"] }
+tungstenite = { version = "0.29", features = ["rustls-tls-webpki-roots"] }
+[[bin]]
+name = "peakrunner-server"
+path = "src/main.rs"
+[[bin]]
+name = "peakrunner-lan-server"
+path = "src/bin/lan.rs"
+[[bin]]
+name = "peakrunner-websocket-server"
+path = "src/bin/websocket.rs"

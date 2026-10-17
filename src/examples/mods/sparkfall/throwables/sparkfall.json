@@ -1,0 +1,28 @@
+// What the grenade (G) and mine (M) keys throw in Sparkfall, and what class
+// keys toss. Each armor says which (armors/sparkfall.json).
+{
+  "frag": { "name": "Frag", "about": "A plain grenade.", "projectile": "frag", "speed": 20.0, "inherit": 1.0, "time": 0.1, "min_strength": 0.3 },
+  "kick-charge": { "name": "Kick charge", "about": "Little damage; throws everyone near it a long way.", "projectile": "kick-charge",
+    "speed": 22.0, "inherit": 1.0, "time": 0.3, "min_strength": 0.3 },
+  "concussion": { "name": "Concussion", "about": "Dazes whoever it catches: slow, short jumps.", "projectile": "concussion",
+    "speed": 20.0, "inherit": 1.0, "time": 0.3, "min_strength": 0.3 },
+  "static-grenade": { "name": "Static grenade", "about": "Drains energy and stops it coming back for a while.", "projectile": "static-grenade",
+    "speed": 20.0, "inherit": 1.0, "time": 0.3, "min_strength": 0.3 },
+  "blight-grenade": { "name": "Blight grenade", "about": "Poisons whoever it catches; stations cure it.", "projectile": "blight-grenade",
+    "speed": 20.0, "inherit": 1.0, "time": 0.3, "min_strength": 0.3 },
+  "breach-charge": { "name": "Breach charge", "about": "Four seconds, then a blast that tears through structures.", "projectile": "breach-charge",
+    "speed": 14.0, "inherit": 1.0, "time": 1.0, "min_strength": 0.3, "team_max": 4, "match_limit": 20 },
+  "contact-mine": { "name": "Contact mine", "about": "Arms at rest; an enemy close sets it off.", "projectile": "contact-mine",
+    "speed": 22.0, "inherit": 1.0, "time": 0.2, "min_strength": 0.3, "team_max": 10 },
+  "shock-mine": { "name": "Shock mine", "about": "Little damage; throws whoever sets it off.", "projectile": "shock-mine",
+    "speed": 22.0, "inherit": 1.0, "time": 0.2, "min_strength": 0.3, "team_max": 8 },
+  "tripwire": { "name": "Tripwire", "about": "Lands and becomes a small sensor that sounds an alarm.", "projectile": "tripwire-dart",
+    "speed": 18.0, "inherit": 1.0, "time": 0.5, "min_strength": 0.3, "team_max": 6 },
+  "laser-tripmine": { "name": "Laser tripmine", "about": "Lands and becomes a sentry that fires for ten seconds.", "projectile": "tripmine-dart",
+    "speed": 18.0, "inherit": 1.0, "time": 1.0, "min_strength": 0.3, "team_max": 4 },
+  // Class keys' throws.
+  "medkit": { "name": "Medkit", "about": "Lands as a repair kit for whoever needs it.", "projectile": "medkit",
+    "speed": 16.0, "inherit": 1.0, "time": 0.5, "min_strength": 0.6 },
+  "firebomb": { "name": "Firebomb", "about": "Throws everyone near it and sets them burning.", "projectile": "firebomb",
+    "speed": 20.0, "inherit": 1.0, "time": 0.5, "min_strength": 0.6 }
+}

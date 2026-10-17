@@ -1,0 +1,159 @@
+{
+  "id": "tower-complex",
+  "name": "Tower Complex",
+  "seed": 52091,
+  "bases": [
+    {
+      "team": 0,
+      "position": [
+        1024,
+        240,
+        820
+      ],
+      "yaw": 180
+    },
+    {
+      "team": 1,
+      "position": [
+        1024,
+        240,
+        1228
+      ],
+      "yaw": 0
+    }
+  ],
+  "pads": [
+    {
+      "team": 0,
+      "position": [
+        1119,
+        190,
+        904
+      ],
+      "yaw": 180
+    },
+    {
+      "team": 1,
+      "position": [
+        929,
+        190,
+        1144
+      ],
+      "yaw": 0
+    }
+  ],
+  "control_points": [
+    {
+      "id": "summit",
+      "name": "Summit",
+      "x": 1024,
+      "z": 1024,
+      "ctf_active": true,
+      "turret": "plasma-turret",
+      "turret_range": "half_to_base"
+    },
+    {
+      "id": "westfall",
+      "name": "Westfall",
+      "x": 880,
+      "z": 952
+    },
+    {
+      "id": "eastfall",
+      "name": "Eastfall",
+      "x": 1168,
+      "z": 1096
+    }
+  ],
+  "summits": [
+    {
+      "name": "Midfield flank",
+      "x": 1400,
+      "z": 984,
+      "height": 52,
+      "radius": 120
+    },
+    {
+      "name": "Approach flank",
+      "x": 1320,
+      "z": 800,
+      "height": 110,
+      "radius": 115
+    },
+    {
+      "name": "Rear summit",
+      "x": 1040,
+      "z": 1480,
+      "height": 110,
+      "radius": 140
+    },
+    {
+      "name": "Outer shoulder",
+      "x": 1400,
+      "z": 1240,
+      "height": 68,
+      "radius": 125
+    }
+  ],
+  "look": {
+    "exposure": 1.05,
+    "ambient_sky": [
+      0.6,
+      0.66,
+      0.76
+    ],
+    "ambient_ground": [
+      0.44,
+      0.42,
+      0.38
+    ],
+    "height_fog": {
+      "density": 0.002,
+      "base": 160,
+      "falloff": 35
+    },
+    "sky": {
+      "zenith": [
+        0.2,
+        0.36,
+        0.66
+      ],
+      "horizon": [
+        0.74,
+        0.8,
+        0.88
+      ],
+      "cloud_cover": 0.42,
+      "cloud_color": [
+        0.95,
+        0.94,
+        0.91
+      ],
+      "cloud_scale": 1.2
+    }
+  },
+  "water": {
+    "centre": [
+      1024,
+      1024
+    ],
+    "mirror": true,
+    "channel": 2,
+    "bodies": [
+      {
+        "name": "Westfall Tarn",
+        "x": 784,
+        "z": 896,
+        "rx": 26,
+        "rz": 20,
+        "yaw": 20,
+        "depth": 3.5,
+        "color": [
+          0.12,
+          0.3,
+          0.34
+        ]
+      }
+    ]
+  }
+}

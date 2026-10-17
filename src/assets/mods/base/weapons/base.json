@@ -1,0 +1,156 @@
+// Weapons: what a player holds and fires. A weapon names the projectile it
+// fires and says what a shot costs (a round, or `energy`), how fast it
+// cycles and how it kicks. `family` ties the light and heavy versions of a
+// weapon together: changing armor swaps a carried weapon for the new armor's
+// weapon of the same family (grenade launcher and mortar, laser and railgun).
+// `muzzle` is where its model's barrel ends as first person draws it, so its
+// rounds, beams and flash leave there.
+{
+  "disc": {
+    "name": "Disc launcher",
+    "about": "Splash damage and disc jumps.",
+    "family": "disc",
+    "projectile": "disc",
+    "reload": 1.05,
+    "shake": 0.08,
+    "bot_spread": 3.2,
+    "view": "disc",
+    "muzzle": [-0.030, -0.013, -0.454],
+    "sound": "disc",
+    "loot": "roll"
+  },
+  // The repeater (its id stays "chaingun", which mods and maps use).
+  "chaingun": {
+    "name": "Repeater",
+    "about": "Fast automatic rounds, some spread.",
+    "family": "chaingun",
+    "projectile": "bullet",
+    "reload": 0.075,
+    "spread": 6.0,
+    "recoil": 0.002,
+    "shake": 0.015,
+    "bot_spread": 3.2,
+    "view": "chaingun",
+    "muzzle": [-0.030, -0.017, -0.487],
+    "sound": "chain",
+    "loot": "all"
+  },
+  "grenade_launcher": {
+    "name": "Grenade launcher",
+    "about": "Bouncing shells on a short fuse.",
+    "family": "launcher",
+    "projectile": "grenade-shell",
+    "reload": 0.85,
+    "recoil": 0.012,
+    "shake": 0.08,
+    "bot_spread": 3.2,
+    "view": "launcher",
+    "muzzle": [-0.030, -0.017, -0.380],
+    "sound": "grenade",
+    "loot": "roll"
+  },
+  "mortar": {
+    "name": "Mortar",
+    "about": "Sticks where it lands; a big blast.",
+    "family": "launcher",
+    "projectile": "mortar-shell",
+    "reload": 2.0,
+    "recoil": 0.012,
+    "shake": 0.08,
+    "bot_spread": 3.2,
+    "view": "mortar",
+    "muzzle": [-0.030, 0.083, -0.673],
+    "sound": "mortar",
+    "elevation": true,
+    "loot": "roll"
+  },
+  "laser": {
+    "name": "Laser rifle",
+    "about": "An instant beam at any range; spends energy. Hold E to zoom.",
+    "family": "rifle",
+    "projectile": "laser",
+    "energy": 24.0,
+    "reload": 1.1,
+    "view": "rifle",
+    "muzzle": [-0.030, -0.035, -0.551],
+    "sound": "laser",
+    "zoom": true,
+    "lost_on_death": true
+  },
+  // A slug you lead, not a beam: one hit downs light armor and takes 95% of
+  // medium's; each shot empties the heavy's energy, so no jets right after.
+  "railgun": {
+    "name": "Railgun",
+    "about": "A heavy slug you lead; one hit downs light armor. Empties your energy. E zooms.",
+    "family": "rifle",
+    "projectile": "rail-slug",
+    "reload": 1.6,
+    "shake": 0.1,
+    "aim": 200.0,
+    "view": "railgun",
+    "muzzle": [-0.030, -0.001, -0.621],
+    "sound": "rail",
+    "zoom": true,
+    "empties_energy": true,
+    "lost_on_death": true
+  },
+  "plasma": {
+    "name": "Plasma gun",
+    "about": "A slow glowing bolt that bursts where it lands.",
+    "family": "plasma",
+    "projectile": "plasma-bolt",
+    "reload": 0.55,
+    "recoil": 0.004,
+    "shake": 0.04,
+    "bot_spread": 3.2,
+    "view": "plasma",
+    "muzzle": [-0.030, -0.030, -0.452],
+    "sound": "plasma"
+  },
+  "blaster": {
+    "name": "Blaster",
+    "about": "Quick bolts on your energy, never empty; they glance off the ground.",
+    "family": "blaster",
+    "projectile": "blaster-bolt",
+    "energy": 7.0,
+    "reload": 0.3,
+    "shake": 0.03,
+    "view": "blaster",
+    "muzzle": [-0.030, -0.027, -0.169],
+    "sound": "blaster"
+  },
+  // Held on an enemy, a beam that drains their energy and wears them down,
+  // on the holder's energy (every armor).
+  "drain-gun": {
+    "name": "Drain gun",
+    "about": "Hold on an enemy: drains their energy. Spends yours.",
+    "family": "drain",
+    "projectile": "drain-stream",
+    "fire": "sustained",
+    "energy": 4.0,
+    "reload": 0.1,
+    "shake": 0.0,
+    "bot_spread": 0.0,
+    "view": "rifle",
+    "muzzle": [-0.030, -0.015, -0.686],
+    "sound": "laser",
+    "loot": "none"
+  },
+  // A held laser (every armor): what it touches is a target on teammates'
+  // screens, and the team's turrets reach their sensed range (`firing`).
+  "target-marker": {
+    "name": "Target marker",
+    "about": "Hold the laser on anything: your team sees a target there, for 12 s after you let go. Hold E to zoom.",
+    "family": "marker",
+    "projectile": "marker-beam",
+    "fire": "sustained",
+    "energy": 3.0,
+    "reload": 0.1,
+    "shake": 0.0,
+    "view": "rifle",
+    "muzzle": [-0.030, -0.018, -0.237],
+    "sound": "laser",
+    "zoom": true,
+    "loot": "none"
+  }
+}

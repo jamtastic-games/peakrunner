@@ -1,0 +1,8 @@
+// Sparkfall's damage kinds, beside the base game's. A marksman's slug hurts
+// double in the head and, hard enough from behind, knocks a carried flag
+// loose; a heavy pistol round knocks a weapon out of the hand.
+{
+  "snipe": { "name": "Snipe", "head": 2.0, "knock_flag": 60.0 },
+  "heavy-round": { "name": "Heavy round", "head": 1.5, "disarm": 45.0 },
+  "static": { "name": "Static" }
+}

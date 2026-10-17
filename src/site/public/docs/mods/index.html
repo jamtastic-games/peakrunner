@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mods — PeakRunner</title>
+  <meta name="description" content="Make PeakRunner yours: tune the physics and weapons, add new modes, write new rules, and add maps. Host them on your server; players get them when they join.">
+  <meta property="og:title" content="Make PeakRunner yours"><meta property="og:description" content="Mods are folders of data. Drop one in, host it, and players get it when they join.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://peakrunner.net/docs/mods/"><meta property="og:image" content="https://peakrunner.net/assets/maps/old-holler.jpg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="wordmark" href="/" aria-label="PeakRunner home">PEAK<span>RUNNER</span><i aria-hidden="true"></i></a>
+      <nav aria-label="Main navigation">
+        <a href="/#servers">Servers</a><a href="/#maps">Maps</a><a href="/docs/">Guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/" aria-current="page">Mods</a>
+        <a class="button small primary" href="/#downloads">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="mod-hero" aria-labelledby="mods-title">
+    <div class="wrap mod-hero-copy">
+      <p class="eyebrow">Mods · make it yours</p>
+      <h1 id="mods-title">Change<br><em>the rules.</em></h1>
+      <p class="lede">Lower the gravity. Double every capture. Invent a mode. A mod is a folder of plain files: drop it in your server's <code>content</code> folder, and every player who joins gets it, after they say yes.</p>
+      <div class="actions"><a class="button primary" href="#recipe">Make one in 4 steps</a><a class="button" href="#rules">Write new rules</a></div>
+    </div>
+    <p class="wrap hero-caption">Old Holler at Dusk · in-game capture of a map variant</p>
+  </section>
+
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="On this page">
+      <span class="group">Mods</span>
+      <a href="#levels">Three levels</a><a href="#journey">How players get it</a><a href="#recipe">Make one in 4 steps</a>
+      <span class="group">Build</span>
+      <a href="#folder">The folder</a><a href="#tune">Tune numbers</a><a href="#modes">Add a mode</a><a href="#rules">Write rules</a><a href="#maps">Add a map</a>
+      <span class="group">Reference</span>
+      <a href="#reference">Script reference</a><a href="#examples">Examples</a><a href="#safety">What keeps it safe</a>
+      <span class="group">More</span>
+      <a href="/docs/hosting/">Host a server</a><a href="/docs/">Player guide</a>
+    </nav>
+    <main class="prose" id="main">
+      <p class="eyebrow">How modding works</p>
+      <h2 id="levels" class="first">Three levels, one folder.</h2>
+      <p>The engine runs the physics, the weapons, flags, capture points and the ball. Everything a match plays <em>by</em> is data you can change, and you go only as deep as you need:</p>
+      <div class="levels">
+        <article class="level">
+          <span class="level-no">01</span>
+          <h3>Tune</h3>
+          <p>Change any number: gravity, jets, armor, weapon speed and damage, equipment.</p>
+          <pre class="snippet"><code>{ <span class="s">"movement"</span>:
+  { <span class="s">"gravity"</span>: <span class="n">12.0</span> } }</code></pre>
+          <span class="tag">defs.json</span>
+        </article>
+        <article class="level">
+          <span class="level-no">02</span>
+          <h3>Vary</h3>
+          <p>Make a new mode from any mode: clock, score limit, respawns, what's allowed.</p>
+          <pre class="snippet"><code>{ <span class="s">"base"</span>: <span class="s">"ctf"</span>,
+  <span class="s">"score_limit"</span>: <span class="n">5</span> }</code></pre>
+          <span class="tag">modes/&lt;key&gt;.json</span>
+        </article>
+        <article class="level hot">
+          <span class="level-no">03</span>
+          <h3>Rewrite</h3>
+          <p>Decide what scores, what wins and what gets announced, in a short script.</p>
+          <pre class="snippet"><code><span class="k">fn</span> on_frag(g, k, v) {
+  add_score(g.team(k), <span class="n">2</span>);
+}</code></pre>
+          <span class="tag ember">rules/&lt;key&gt;.rhai</span>
+        </article>
+      </div>
+
+      <h2 id="journey">How players get it.</h2>
+      <p>Players never install anything by hand. The server lists what it runs, the game compares that with what it already has, and asks.</p>
+      <ol class="journey">
+        <li><strong>Your folder</strong><span>Maps and mods in <code>content/</code> beside <code>server.json</code>. <code>--check</code> proves them.</span></li>
+        <li><strong>Your server</strong><span>Runs them, lists them, and keeps rules scripts to itself.</span></li>
+        <li><strong>Find match</strong><span>Shows your mods and the download size before anyone clicks.</span></li>
+        <li><strong>Their game</strong><span>"Download and join": every file checked, kept for next time. Leave, and their game is its own again.</span></li>
+      </ol>
+
+      <h2 id="recipe">Make one in 4 steps.</h2>
+      <div class="recipe">
+        <div class="step"><span>1</span><div><h3>Make the folder</h3><p>In your server's <code>content/mods/</code>, make a folder named for the mod: lowercase letters, digits and hyphens, like <code>moon-ctf</code>.</p></div></div>
+        <div class="step"><span>2</span><div><h3>Name it</h3><p>Add <code>mod.json</code> with a name and a line about what it does:</p>
+          <pre><code>{ "name": "Moon CTF", "note": "Low gravity, five captures.", "api": 1 }</code></pre></div></div>
+        <div class="step"><span>3</span><div><h3>Change something</h3><p>A <code>defs.json</code> for numbers, a <code>modes/moon-ctf.json</code> for a mode, or both:</p>
+          <pre><code>{ "base": "ctf", "label": "Moon CTF", "short": "MOON",
+  "goal": "First to 5 captures", "score_limit": 5 }</code></pre></div></div>
+        <div class="step"><span>4</span><div><h3>Check it and host it</h3><p><code>peakrunner-server --check</code> reads it exactly as the server will and names every problem. Then <code>peakrunner-server --setup</code> asks which mods to run and offers your new mode. Done: it's live.</p></div></div>
+      </div>
+
+      <h2 id="folder">The folder.</h2>
+      <p>A mod holds only these files; anything else is refused. Each file is up to 64 KB.</p>
+<pre class="tree"><code><span class="d">content/</span>
+├─ <span class="d">maps/</span>
+│  └─ <span class="d">river-fort/</span>          <span class="c">a map: map.json, its files, info.json</span>
+└─ <span class="d">mods/</span>
+   └─ <span class="d">moon-ctf/</span>
+      ├─ mod.json            <span class="c">name, note, api (required)</span>
+      ├─ defs.json           <span class="c">only the numbers you change</span>
+      ├─ <span class="d">modes/</span>
+      │  └─ moon-ctf.json    <span class="c">a mode, varying another</span>
+      ├─ <span class="d">armors/</span> <span class="d">weapons/</span> <span class="d">packs/</span> …  <span class="c">the engine's classes</span>
+      ├─ <span class="d">sounds/</span>             <span class="c">short WAVE sounds</span>
+      ├─ <span class="d">rules/</span>
+      │  └─ moon.rhai        <span class="e">server only</span>
+      └─ <span class="d">hooks/</span>
+         └─ guardian.rhai    <span class="e">server only</span></code></pre>
+
+      <h2 id="classes">Build new things.</h2>
+      <p>Everything in the game is an entry of one of the engine's classes: armors, weapons, projectiles, blasts, throwables, deployables, damage kinds, effects, packs, items and vehicles. A mod adds its own entries or changes the game's by id, one folder per class, and entries name the ones they use, so capabilities mix freely: put the disc on a turret, a drain beam on a gun, a plate on an armor, a shield in a pack.</p>
+      <pre><code>// deployables/disc-turret.json: the base turret, firing discs
+{ "disc-turret": { "extends": "turret", "name": "Disc turret",
+    "turret": { "range": 60, "sensed_range": 80, "speed": 95, "life": 5,
+      "cooldown": 1.6, "leads": true, "fires": true, "projectile": "disc" } } }</code></pre>
+      <p>Armors get class keys (C) and mounts, packs are switched or used, effects shield, cloak or poison, maps add moving parts and zones, modes add a purse, and <strong>hooks</strong> (server scripts named by entries) answer what happens. The full reference, generated from the engine so it can't drift, is <code>docs/mod-format.md</code> in the server download; <code>peakrunner-server --schema</code> prints it.</p>
+
+      <h2 id="tune">Tune numbers.</h2>
+      <p><code>defs.json</code> names only what changes; everything else stays as the game ships it. There are sections for <code>movement</code> (gravity, jumps, speed limits, skiing and air control, the energy tank), <code>armors</code> (light, heavy, football), <code>weapons</code> (disc, chaingun (the Repeater), grenade launcher, mortar, laser, railgun, plasma gun, blaster), <code>blasts</code>, <code>throwables</code>, <code>repair</code>, <code>equipment</code> and <code>deployables</code>.</p>
+      <pre><code>{ "movement": { "gravity": 12.0 },
+  "weapons":  { "disc": { "speed": 120.0, "reload": 0.8 } } }</code></pre>
+      <p>Every number must be from 0 to 1,000,000. A misspelled field is refused with the list of the right ones, so a typo never slips through.</p>
+
+      <h2 id="modes">Add a mode.</h2>
+      <p>A mode varies an existing one (<code>ctf</code>, <code>capture_and_hold</code>, <code>team_deathmatch</code>, <code>rabbit</code>, <code>team_rabbit</code>, <code>football</code>, <code>duel</code>, or another mode in your mod) and changes any of its fields. A variant of <code>duel</code> (heavy armor, first to 5) makes a duel server when a rotation names only it. The file name is the new mode's key.</p>
+      <table class="fields">
+        <thead><tr><th>Field</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>label</code>, <code>short</code>, <code>note</code>, <code>goal</code>, <code>start_message</code></td><td>What players see: menu name, list tag, description, HUD goal, the banner at the start</td></tr>
+          <tr><td><code>clock</code>, <code>halves</code>, <code>warmup</code></td><td>Seconds per match (30–7200), one or two halves, first countdown</td></tr>
+          <tr><td><code>respawn</code>, <code>suicide_delay</code></td><td>Seconds from death, and from <kbd>Ctrl</kbd>+<kbd>K</kbd>, to respawn</td></tr>
+          <tr><td><code>score_limit</code></td><td>Captures, points, touchdowns or frags to win</td></tr>
+          <tr><td><code>equipment</code>, <code>deployables</code>, <code>ammo_stations</code>, <code>throwables</code>, <code>loot</code>, <code>repair_tool</code>, <code>purchases</code></td><td>Switch whole systems on or off</td></tr>
+          <tr><td><code>weapons</code></td><td>The guns allowed: any of <code>disc</code>, <code>chaingun</code> (the Repeater), <code>grenade_launcher</code>, <code>mortar</code>, <code>laser</code>, <code>railgun</code>, <code>plasma</code>, <code>blaster</code>, or none (<code>[]</code>). <code>["disc"]</code> with <code>throwables</code> on is discs, grenades and mines.</td></tr>
+          <tr><td><code>banned</code></td><td>Weapons and throwables taken out of play by id, whatever the rest allows. Rabbit bans <code>["mortar", "mine"]</code>.</td></tr>
+          <tr><td><code>conditions</code>, <code>armor_scaling</code>, <code>movement</code></td><td>Random weather and twists, armor damage scaling, <code>skier</code> or <code>classic</code> movement</td></tr>
+          <tr><td><code>script</code></td><td>Rules from <code>rules/&lt;script&gt;.rhai</code> instead of the mode's own (below)</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="rules">Write rules.</h2>
+      <p>Numbers and switches can't invent a new way to score. A <strong>rules script</strong> can. Name it in your mode (<code>"script": "spree"</code>) and put it in <code>rules/spree.rhai</code>. The engine still runs every mechanic; the script answers what happens.</p>
+      <div class="split">
+        <pre class="code-card"><code><span class="c">// Spree: every third frag in a row scores double.</span>
+<span class="k">fn</span> on_frag(game, killer, victim) {
+  <span class="k">if</span> !game.playing { <span class="k">return</span>; }
+  <span class="k">if</span> type_of(this.streaks) != <span class="s">"map"</span> { this.streaks = #{}; }
+  this.streaks.remove(<span class="s">`${victim}`</span>);
+  <span class="k">if</span> !game.hostile(killer, victim) { <span class="k">return</span>; }
+  <span class="k">let</span> streak = (this.streaks[<span class="s">`${killer}`</span>] ?? <span class="n">0</span>) + <span class="n">1</span>;
+  this.streaks[<span class="s">`${killer}`</span>] = streak;
+  <span class="k">let</span> bonus = streak % <span class="n">3</span> == <span class="n">0</span>;
+  add_score(game.team(killer), <span class="k">if</span> bonus { <span class="n">2</span> } <span class="k">else</span> { <span class="n">1</span> });
+  <span class="k">if</span> bonus {
+    feed(<span class="s">`${game.name(killer)} is on a spree!`</span>);
+    sound(<span class="s">"point"</span>);
+  }
+}</code></pre>
+        <div class="callouts">
+          <p><strong>Events in.</strong> The engine calls your handler when something happens: a capture, a frag, a touchdown, the clock running out.</p>
+          <p><strong>Commands out.</strong> Your script answers with commands like <code>add_score</code> and <code>end_match</code>, checked before they count.</p>
+          <p><strong>Memory.</strong> <code>this</code> lasts the round: streaks, counts, anything.</p>
+          <p><strong>Server only.</strong> Scripts are never sent to players. Offline, a scripted mode plays the rules of the mode it varies.</p>
+        </div>
+      </div>
+      <p>Scripts are written in <a class="text-link" href="https://rhai.rs/book/">Rhai</a>, a small language that reads like Rust or JavaScript. The base game's own rules are written this way too, and tested to match the engine's exactly.</p>
+
+      <h2 id="maps">Add a map.</h2>
+      <p>A map is a folder in <code>content/maps/&lt;key&gt;/</code>: <code>map.json</code>, the files it lists (terrain, collision, textures, lighting, props) and an <code>info.json</code> with its menu name and description. Name its key in your rotation, and players who don't have it download it when they join. A map's identity is the fingerprint of its <code>map.json</code>, so change anything and it's a new map to everyone.</p>
+      <div class="dusk-compare" role="group" aria-label="A map and its variant">
+        <figure><img src="/assets/maps/old-holler-rain-640.jpg" alt="Old Holler's valley under its usual grey, rainy sky" width="640" height="400" loading="lazy"><figcaption>Old Holler</figcaption></figure>
+        <figure><img src="/assets/maps/old-holler-dusk-640.jpg" alt="The same valley from the same spot under a warm evening sky" width="640" height="400" loading="lazy"><figcaption>Old Holler at Dusk · same ground, new <code>look</code></figcaption></figure>
+      </div>
+      <p>Changing a map's <code>look</code> (sun, sky, fog and exposure) in <code>map.json</code> is the quickest variant. New terrain comes from the map pipeline.</p>
+
+      <h2 id="reference">Script reference.</h2>
+      <h3>Handlers</h3>
+      <p>Define any of these; a missing one does nothing. Players are numbered from 0; teams are 0 (Ember) and 1 (Glacier).</p>
+      <table>
+        <thead><tr><th>Handler</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td><code>on_flag_captured(game, player)</code></td><td>A flag reached home (the engine has returned it)</td></tr>
+          <tr><td><code>on_touchdown(game, player)</code></td><td>The ball crossed the line</td></tr>
+          <tr><td><code>on_carrier_tackled(game, winner, loser)</code></td><td>The ball carrier was tackled</td></tr>
+          <tr><td><code>on_frag(game, killer, victim)</code></td><td>A player died; <code>killer == victim</code> for a suicide</td></tr>
+          <tr><td><code>on_died(game, victim, killer)</code></td><td>Every death, after any <code>on_frag</code>; <code>killer</code> is -1 when nobody did it</td></tr>
+          <tr><td><code>on_rabbit_grab(game, player)</code>, <code>on_rabbit_held(game, player)</code></td><td>A player took the rabbit flag; has held it another 15 seconds in all</td></tr>
+          <tr><td><code>on_zone_points(game, gained)</code></td><td>Held capture points earned <code>[ember, glacier]</code> this step</td></tr>
+          <tr><td><code>on_clock_expired(game)</code></td><td>Time's up (if you don't end the match, the engine does)</td></tr>
+        </tbody>
+      </table>
+      <h3>Reading the game</h3>
+      <table>
+        <thead><tr><th>On <code>game</code></th><th>Gives</th></tr></thead>
+        <tbody>
+          <tr><td><code>score</code>, <code>limit</code></td><td><code>[ember, glacier]</code> and the mode's score limit</td></tr>
+          <tr><td><code>playing</code>, <code>ffa</code>, <code>player_count</code></td><td>Whether the match is on, free-for-all, how many players</td></tr>
+          <tr><td><code>team(i)</code>, <code>frags(i)</code>, <code>losses(i)</code>, <code>name(i)</code></td><td>A player's team, frags, deaths and name</td></tr>
+          <tr><td><code>is_you(i)</code></td><td>Whether the name is "You" (offline, the player at the screen), so a line can say "You score" rather than "You scores"</td></tr>
+          <tr><td><code>hostile(a, b)</code>, <code>leader()</code>, <code>team_name(t)</code></td><td>Whether a's shots hurt b; the top player (-1: none); <code>"EMBER"</code> or <code>"GLACIER"</code></td></tr>
+          <tr><td><code>touchdown_points</code>, <code>tackle_points</code></td><td>Football's personal points</td></tr>
+          <tr><td><code>rabbit</code></td><td>Who holds the rabbit flag (-1: nobody)</td></tr>
+        </tbody>
+      </table>
+      <h3>Commands</h3>
+      <table>
+        <thead><tr><th>Command</th><th>Does</th></tr></thead>
+        <tbody>
+          <tr><td><code>add_score(team, points)</code>, <code>set_score(team, points)</code></td><td>Team score, 0 to 100,000</td></tr>
+          <tr><td><code>add_frags(player, n)</code></td><td>A player's personal points (negative takes away)</td></tr>
+          <tr><td><code>end_match(text, seconds)</code></td><td>Ends the match with a banner (up to 80 characters)</td></tr>
+          <tr><td><code>message(text, seconds)</code>, <code>feed(text)</code></td><td>A center banner; a line in the play-by-play feed</td></tr>
+          <tr><td><code>sound(name)</code>, <code>shake(amount)</code></td><td>An announcer cue (<code>capture_win</code>, <code>capture_loss</code>, <code>touchdown_win</code>, <code>touchdown_loss</code>, <code>point</code>, <code>contest</code>, <code>whistle</code>, <code>horn</code>, <code>halftime</code>, <code>go</code>, <code>flag</code>, <code>return</code>, <code>tackle</code>, <code>catch</code>, <code>intercept</code>, <code>end</code>); screen shake 0–1</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="examples">Examples.</h2>
+      <p>The server download has these in <code>examples/mods/</code>: copy one into <code>content/mods/</code> and run <code>--setup</code>.</p>
+      <div class="example-grid">
+        <article class="example"><h3>Low Gravity</h3><p>Gravity at 12 instead of 20, in every mode. One line.</p><span class="tag">defs</span></article>
+        <article class="example"><h3>Quick CTF</h3><p>Five captures, five-minute rounds.</p><span class="tag">mode</span></article>
+        <article class="example"><h3>Sidearms</h3><p>Faster discs and repeater; Team Deathmatch with no mines or deployables.</p><span class="tag">defs</span> <span class="tag">mode</span></article>
+        <article class="example hot"><h3>Spree</h3><p>Streaks score double; a suicide costs your team a point.</p><span class="tag">mode</span> <span class="tag ember">rules</span></article>
+        <article class="example"><h3>Disc Turret</h3><p>A turret that fires discs, carried as a pack.</p><span class="tag">classes</span></article>
+        <article class="example"><h3>Drain Gun</h3><p>Patches the drain gun's beam: farther, and it mends teammates.</p><span class="tag">classes</span></article>
+        <article class="example hot"><h3>Guardian</h3><p>A heavy armor with a plate in front, a ward on C, and a hook.</p><span class="tag">classes</span> <span class="tag ember">hooks</span></article>
+        <article class="example hot"><h3>Sparkfall</h3><p>Nine classes with class keys, gadgets, fliers, a team purse and advanced scoring.</p><span class="tag">classes</span> <span class="tag">modes</span> <span class="tag ember">hooks</span></article>
+      </div>
+
+      <h2 id="safety">What keeps it safe.</h2>
+      <div class="safety">
+        <div><strong>Data, not programs</strong><p>Players download JSON and map files only. A server can't make your game run anything.</p></div>
+        <div><strong>Checked twice</strong><p>Every file is matched to its fingerprint when it arrives, then loaded as the game loads its own maps.</p></div>
+        <div><strong>Scripts stay home</strong><p>Rules scripts run on the server, fenced in: no files, network or clock, limited work per event.</p></div>
+        <div><strong>Your call</strong><p>Nothing downloads until you choose to, and leaving puts your game back as it was.</p></div>
+      </div>
+      <div class="note"><p>Keep it original: build your own maps and mods rather than copying other games' material.</p></div>
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="/">PEAK<span>RUNNER</span></a>
+      <nav aria-label="Footer"><a href="/docs/">Player guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a><a href="https://dir.peakrunner.net/servers">Directory API</a><a href="/legal/">Terms and privacy</a></nav>
+      <p>Independent playtest · original maps and art · provided as is, without warranty</p>
+    </div>
+  </footer>
+</body>
+</html>

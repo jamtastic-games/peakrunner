@@ -1,0 +1,14 @@
+{
+  "base": "team_deathmatch",
+  "label": "Sparkfall TDM",
+  "short": "GTDM",
+  "note": "Sparkfall's classes, frag their team. No purse: everything is free. First to 40.",
+  "goal": "Frag their team · first to 40",
+  "start_message": "SPARKFALL — FRAG THEIR TEAM",
+  "score_limit": 40,
+  "armors": ["courier", "longshot", "veil", "striker", "bombard", "rigger", "warden", "bulwark", "siegeframe"],
+  "packs": ["veil", "buffer", "cell", "mender", "recall", "hornet", "bandolier", "deck", "mend-pylon", "ward-pylon", "eye", "spark-turret"],
+  "death_drops": { "pack": true, "items": ["repair-kit"] },
+  "player_drops": true,
+  "hooks": ["scoring"]
+}

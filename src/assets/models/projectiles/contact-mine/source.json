@@ -1,0 +1,19 @@
+{
+  "team": "none",
+  "parts": {
+    "body": {
+      "raw": "projectiles/contact-mine/raw.glb",
+      "fit": {
+        "min": [-0.25, -0.25, -0.25],
+        "max": [0.25, 0.25, 0.25]
+      },
+      "triangles": 1500,
+      "texture": 512,
+      "orient": [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, -1]
+      ]
+    }
+  }
+}

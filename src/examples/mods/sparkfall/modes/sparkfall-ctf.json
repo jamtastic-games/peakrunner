@@ -1,0 +1,17 @@
+{
+  "base": "ctf",
+  "label": "Sparkfall CTF",
+  "short": "GEAR",
+  "note": "Nine classes with class keys, packs and gadgets; fliers; a team purse. Kills by the underdog, near your flag or at range score more.",
+  "goal": "Capture their flag",
+  "start_message": "SPARKFALL — CAPTURE THEIR FLAG",
+  "score_limit": 5,
+  "flag_return": 30.0,
+  "armors": ["courier", "longshot", "veil", "striker", "bombard", "rigger", "warden", "bulwark", "siegeframe"],
+  "packs": ["veil", "buffer", "cell", "mender", "recall", "hornet", "bandolier", "spring-pad", "boost-plate", "gate", "deck", "zap-grate",
+    "mend-pylon", "ward-pylon", "veil-pylon", "static-pylon", "hush-pylon", "eye", "spark-turret", "missile-battery", "command-post", "flier-bay"],
+  "economy": { "shared": true, "start": 800, "max": 8000, "per_minute": 150, "frag": 60, "capture": 500, "return": 100 },
+  "death_drops": { "pack": true },
+  "player_drops": true,
+  "hooks": ["scoring"]
+}

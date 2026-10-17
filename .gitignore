@@ -1,0 +1,13 @@
+/src/target/
+/src/dist/
+/src/out/
+/src/*.app/
+/src/site/public/downloads/
+**/node_modules/
+**/__pycache__/
+*.pyc
+.DS_Store
+*.key
+*.pem
+.env
+.env.*

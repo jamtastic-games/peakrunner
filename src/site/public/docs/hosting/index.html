@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Host a server — PeakRunner</title>
+  <meta name="description" content="Run your own PeakRunner match server: download it, answer a few questions, share the invite link, and optionally list it in the public server directory.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="wordmark" href="/" aria-label="PeakRunner home">PEAK<span>RUNNER</span><i aria-hidden="true"></i></a>
+      <nav aria-label="Main navigation">
+        <a href="/#servers">Servers</a><a href="/#maps">Maps</a><a href="/docs/">Guide</a><a href="/docs/hosting/" aria-current="page">Host a server</a><a href="/docs/mods/">Mods</a>
+        <a class="button small primary" href="/#downloads">Download</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap docs">
+    <nav class="docs-nav" aria-label="On this page">
+      <span class="group">Host a server</span>
+      <a href="#overview">Overview</a><a href="#quick">Quick start</a><a href="#requirements">Requirements</a><a href="#run">Run it with Docker</a>
+      <a href="#settings">Settings</a><a href="#rotation">Maps and rotation</a><a href="#duels">A duel server</a><a href="#content">Your own maps and mods</a><a href="#directory">Get listed</a><a href="#certificate">Your own certificate</a><a href="#operate">Operate it</a><a href="#lan">LAN and friends</a>
+      <span class="group">More</span>
+      <a href="/docs/mods/">Mods</a><a href="/docs/">Player guide</a>
+    </nav>
+    <main class="prose" id="main">
+      <p class="eyebrow">Host a server</p>
+      <h1>Run your own match.</h1>
+      <p class="lede">A PeakRunner server is one small program: it runs the match, checks every move and shot, and talks to players over encrypted UDP. Download it, answer a few questions, and share the invite link. No domain name or certificate needed.</p>
+
+      <h2 id="overview">Overview</h2>
+      <ul>
+        <li>Each server hosts <strong>one match of up to 28 players</strong> (14 a side; 8 by default) and rotates through the maps and modes you choose.</li>
+        <li>The server is <strong>authoritative</strong>: players send inputs, and the server decides movement, hits, scores and teams.</li>
+        <li>Connections use <strong>encrypted QUIC over UDP</strong>. On first run the server makes its own key; players' games check that exact key (from the invite link, or as vouched for by the public directory), so no domain or certificate is needed. A server with its own certificate works too.</li>
+        <li>To appear on this site and in the game's server list, the server <strong>announces itself</strong> to the public directory. It's optional; players can always join with the invite link.</li>
+        <li>Players must run the same game version as the server. When a new release comes out, update the server too.</li>
+      </ul>
+
+      <h2 id="quick">Quick start</h2>
+      <ol>
+        <li>Download <strong>PeakRunner Server</strong> for your computer from the <a class="text-link" href="/#downloads">downloads</a> (macOS on Apple Silicon, Windows x64 or Linux x64) and unpack it.</li>
+        <li>Run <code>peakrunner-server</code> from a terminal (on Windows, double-click <code>peakrunner-server.exe</code>). It asks for a name, the mode and maps, how many players, bots, an optional password, the UDP port (<code>7777</code>), whether to announce to the public list, and whether to open the port on your router automatically (UPnP). Press Enter to accept each default.</li>
+        <li>It saves your answers to <code>server.json</code> in your user settings folder and starts. Later runs start straight away; run with <code>--setup</code> to change them.</li>
+        <li>Share the <strong>invite link</strong> it prints (<code>peakrunner://join/…#sha256=…</code>): players paste it into <strong>Direct server address or invite link</strong> in the game. If you announced, your server also appears under <strong>Community servers</strong> here and in the game's server list.</li>
+      </ol>
+      <pre><code>Server name [PeakRunner Community]: Garage CTF
+Mode [1]:
+Maps (numbers like 1,3, or all) [all]:
+Max players (2-28) [16]: 12
+UDP port [7777]:
+Announce to the public server list? (yes/no) [yes]:</code></pre>
+      <div class="note"><p>Players outside your network need UDP to reach your computer: the server tries UPnP if you let it, and says plainly whether the directory could reach it; if not, forward the UDP port on your router. An unlisted server contacts nothing; run it with <code>--publicip</code> to also print an invite link with your public address. The password, if any, is kept in <code>server.json</code>, readable only by your user account; <code>PEAKRUNNER_MATCH_PASSWORD</code> overrides it.</p></div>
+
+      <h2 id="requirements">Requirements</h2>
+      <table>
+        <thead><tr><th>You need</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>A computer</td><td>macOS on Apple Silicon, Windows x64 or Linux x64 (Debian 12 / glibc 2.36 or newer). Docker is an option on Linux. One CPU core and 256 MB of memory per server is plenty, even for 28 players (a full local test used under a millisecond of simulation per tick); the official servers idle at about 35 MB.</td></tr>
+          <tr><td>A public address</td><td>A public IPv4 address, or a home router that forwards the port to your machine.</td></tr>
+          <tr><td>An open UDP port</td><td><code>7777</code> by default; any port works. Run several servers on one machine with one port each (for example 7777, 7778, …).</td></tr>
+          <tr><td>Bandwidth</td><td>About 120 kbit/s upload per player in a busy match (each player gets 20 compact updates a second): roughly 1 Mbit/s for 8 players, 3.5 Mbit/s for 28. Download is small.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="run">Run it with Docker</h2>
+      <p>For an always-on Linux host, the same program runs in Docker, configured only by environment variables (it never asks questions without a terminal). This is how the official servers run, with their own certificate; for a Docker server without one, mount a writable folder at <code>PEAKRUNNER_SERVER_DIR</code> to keep its generated key. A server that plays every map in Capture the Flag and Capture &amp; Hold, then Team Deathmatch, and lists itself publicly:</p>
+      <pre><code>services:
+  match:
+    image: peakrunner/server:&lt;version&gt;      # published with the source release
+    command: [peakrunner-server]
+    user: "10001:10001"
+    environment:
+      PEAKRUNNER_MATCH_NAME: Example Ridge
+      PEAKRUNNER_LOCATION: Dallas, US
+      PEAKRUNNER_MAX_PLAYERS: "16"
+      PEAKRUNNER_MATCH_ROTATION: '[{"playlist":"ctf_cnh"},{"playlist":"team_deathmatch"}]'
+      PEAKRUNNER_DIRECTORY_URL: https://dir.peakrunner.net/announce
+      PEAKRUNNER_ADVERTISE_URL: quic://play.example.net:7777
+    ports:
+      - "7777:7777/udp"
+    volumes:
+      - ./certs:/run/peakrunner:ro             # fullchain.pem and privkey.pem
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1g                            # Ashveil, the heaviest map, holds about 60 MB
+    cpus: 1.0
+    healthcheck:
+      test: [CMD, peakrunner-server, --healthcheck]
+      interval: 15s</code></pre>
+      <p>Start it with <code>docker compose up -d</code>, then open the port in your firewall, for example <code>sudo ufw allow 7777/udp</code>.</p>
+      <div class="note"><p>Only publish the UDP game port. Inside the container the server also answers a small health endpoint on TCP 8080 for the health check. Run with a <code>server.json</code> (outside Docker), it keeps that page on this computer only (<code>127.0.0.1</code>, TCP, at the game port's number), so there's nothing extra to firewall.</p></div>
+
+      <h2 id="settings">Settings</h2>
+      <p>The setup questions cover the common ones. Every setting can also be set with an environment variable, which overrides <code>server.json</code>.</p>
+      <table>
+        <thead><tr><th>Variable</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>PEAKRUNNER_MATCH_NAME</code></td><td>Server name shown in lists, up to 64 characters. Names starting with "Springdale" (including the default) are kept for the official servers, so set your own.</td></tr>
+          <tr><td><code>PEAKRUNNER_MATCH_ROTATION</code></td><td>The maps and modes to play, as JSON (see below). Without it the server plays one map in CTF.</td></tr>
+          <tr><td><code>PEAKRUNNER_ROTATION_ORDER</code></td><td><code>in_order</code> (default) plays the rotation as listed; <code>random</code> plays the same maps and modes in a new random order each time through. In <code>server.json</code>: <code>"rotation_order": "random"</code>.</td></tr>
+          <tr><td><code>PEAKRUNNER_MATCH_MAP</code></td><td>The map when no rotation is set (default <code>old-holler</code>, Old Holler).</td></tr>
+          <tr><td><code>PEAKRUNNER_LOCATION</code></td><td>Where the server is, shown in server lists so players can pick a nearby one: for example <code>Dallas, US</code>. Up to 40 letters, digits, spaces, commas, periods or hyphens.</td></tr>
+          <tr><td><code>PEAKRUNNER_MAX_PLAYERS</code></td><td>How many players the match holds, 2–28 (default 8). Teams are kept even.</td></tr>
+          <tr><td><code>PEAKRUNNER_BOTS</code></td><td>Fill the match with bots up to this many players (even number, at most the capacity; default 0). Each person who joins takes a bot's place, and a bot returns when they leave. Bots count as players in the server lists, marked as bots.</td></tr>
+          <tr><td><code>PEAKRUNNER_TIME_OF_DAY</code>, <code>PEAKRUNNER_WEATHER</code></td><td>Each round's sky: <code>default</code> (the map's own look; Team Deathmatch rolls its own), <code>random</code> (again each round), or one of <code>map</code>, <code>dawn</code>, <code>day</code>, <code>dusk</code>, <code>night</code> and <code>clear</code>, <code>overcast</code>, <code>rain</code>, <code>storm</code>, <code>snow</code>, <code>fog</code>. Only the look changes. In <code>server.json</code>: <code>time_of_day</code> and <code>weather</code>.</td></tr>
+          <tr><td><code>PEAKRUNNER_MATCH_PASSWORD</code></td><td>Optional. Players must enter it to join. Keep it out of files you share; an <code>.env</code> file next to the Compose file works well.</td></tr>
+          <tr><td><code>PEAKRUNNER_MAX_SPECTATORS</code></td><td>Spectator places, 0–8 (default 8). Spectators take no player slot; a full match seats newcomers as spectators and puts them in when a slot opens.</td></tr>
+          <tr><td><code>PEAKRUNNER_SESSIONS_PER_IP</code></td><td>Players from one address, 1–28 (default 4). Raise it for a LAN party behind one router.</td></tr>
+          <tr><td><code>PEAKRUNNER_SERVER_DIR</code></td><td>Where <code>server.json</code> and the generated key live (or <code>--config-dir</code>).</td></tr>
+          <tr><td><code>PEAKRUNNER_UDP_BIND</code></td><td>Address and port to listen on inside the container (default <code>0.0.0.0:7777</code>).</td></tr>
+          <tr><td><code>PEAKRUNNER_TLS_CERT</code>, <code>PEAKRUNNER_TLS_KEY</code></td><td>Optional certificate chain and key (see <a class="text-link" href="#certificate">Your own certificate</a>). Without them the server uses its generated key.</td></tr>
+          <tr><td><code>PEAKRUNNER_DIRECTORY_URL</code></td><td>Where to announce: <code>https://dir.peakrunner.net/announce</code>. Leave unset to stay unlisted.</td></tr>
+          <tr><td><code>PEAKRUNNER_ADVERTISE_URL</code></td><td>The address players use: <code>quic://your-hostname-or-public-ip:port</code>, with the port as seen from the internet. The setup questions fill this in for you.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="rotation">Maps and rotation</h2>
+      <p>The rotation is a JSON list. Each entry is either a <strong>playlist</strong>, which expands to every map that supports that mode, or one <strong>map in a mode</strong>. Entries play in order and then repeat; an empty server goes back to the start. Up to 32 entries, expanding to at most 64 matches.</p>
+      <pre><code>[{"playlist":"ctf"},
+ {"map":"reefbreak","mode":"team_deathmatch"},
+ {"map":"highgoal","mode":"football"}]</code></pre>
+      <table>
+        <thead><tr><th>Playlist</th><th>Plays</th></tr></thead>
+        <tbody>
+          <tr><td><code>ctf_cnh</code></td><td>Every CTF map in CTF, then every Capture &amp; Hold map in Capture &amp; Hold</td></tr>
+          <tr><td><code>ctf</code></td><td>Every CTF map</td></tr>
+          <tr><td><code>capture_and_hold</code></td><td>Every map with Capture &amp; Hold towers</td></tr>
+          <tr><td><code>team_deathmatch</code></td><td>Every map except the stadiums</td></tr>
+          <tr><td><code>rabbit</code>, <code>team_rabbit</code></td><td>Every map except the stadiums, in Rabbit or Team Rabbit</td></tr>
+          <tr><td><code>football</code></td><td>The two stadiums</td></tr>
+          <tr><td><code>duel</code></td><td>A duel server: a lobby, and one on one duels side by side on every map except the stadiums (below)</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>Map key</th><th>Map</th><th>Modes</th></tr></thead>
+        <tbody>
+          <tr><td><code>old-holler</code></td><td>Old Holler</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>tower-complex</code></td><td>Tower Complex</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>cairnhold</code></td><td>Cairnhold</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>frostline</code></td><td>Frostline</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>dustreach</code></td><td>Dustreach</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>ozarktic-blast</code></td><td>Ozarktic Blast</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>reefbreak</code></td><td>Reefbreak</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>ashveil</code></td><td>Ashveil</td><td>CTF, C&amp;H, TDM</td></tr>
+          <tr><td><code>longfield</code></td><td>Longfield</td><td>Football</td></tr>
+          <tr><td><code>highgoal</code></td><td>Highgoal</td><td>Football</td></tr>
+          <tr><td><code>tenfold</code></td><td>Tenfold Tower</td><td>A duel server's lobby (not in rotations; below)</td></tr>
+        </tbody>
+      </table>
+      <p>Mode keys are <code>ctf</code>, <code>capture_and_hold</code>, <code>team_deathmatch</code>, <code>rabbit</code>, <code>team_rabbit</code>, <code>football</code> and <code>duel</code>, plus the modes of any mods you run. Some map keys are older working names; they stay so existing rotations keep working. The server refuses to start if the rotation names a map or mode it can't play, and says why.</p>
+
+      <h2 id="duels">A duel server</h2>
+      <p>A rotation of only <code>duel</code> entries (<code>[{"playlist":"duel"}]</code>, "Duels" in the setup, or Duel on the game's Host screen) makes a duel server. Everyone joins its lobby, Tenfold Tower, where the only weapon is a blade and nothing counts. From the duel board (the map-vote key, V) players challenge each other, or a bot, and watch duels being played. Each accepted challenge plays in an arena of its own, on a map drawn from the rotation, so many duels run at once: one life a round, first to 3 rounds, light armor's default kit. The capacity counts everyone: the lobby, the duelists and those away watching. The lobby is Tenfold Tower, and server bots spar with blades on its floors (two to a floor, from the ground up); each person who joins takes a bot's place.</p>
+
+      <h2 id="content">Your own maps and mods</h2>
+      <p>The server plays the maps that come with it. To run more, or to change how the game plays, put them in the <code>content</code> folder beside <code>server.json</code> (the setup creates it: on Linux <code>~/.config/PeakRunner/server/content</code>, on a Mac <code>~/Library/Application Support/PeakRunner/server/content</code>, on Windows <code>%APPDATA%\PeakRunner\server\content</code>):</p>
+      <ul>
+        <li><code>content/maps/&lt;key&gt;/</code>: a map, named in your rotation by its key.</li>
+        <li><code>content/mods/&lt;id&gt;/</code>: a mod, which can change any number, add modes, and bring its own rules. The download's <code>examples/mods/</code> folder has four to copy.</li>
+      </ul>
+      <ol>
+        <li><code>peakrunner-server --check</code> reads that folder exactly as the server will and names every problem, rules scripts included.</li>
+        <li><code>peakrunner-server --setup</code> lists the mods it found, asks which to run, and offers their modes and your maps with the rest.</li>
+        <li>Start it. The game's <strong>Find match</strong> shows your mods and how much joining downloads; players who lack something are asked, then get it straight from your server and keep it for next time.</li>
+      </ol>
+      <p>Players only ever receive data. Rules scripts stay on your server. <a class="text-link" href="/docs/mods/">How to make mods →</a></p>
+
+      <h2 id="directory">Get listed</h2>
+      <p>Answer <strong>yes</strong> to announcing (or set <code>PEAKRUNNER_DIRECTORY_URL</code> and <code>PEAKRUNNER_ADVERTISE_URL</code>), and the server announces itself every 20 seconds. Before listing it, the directory checks that:</p>
+      <ul>
+        <li>the advertised address is the address the announcement came from (or a hostname resolving to it), so nobody can list someone else's server;</li>
+        <li>an encrypted status query to that address succeeds. For a server with its own key, the directory records the key it saw and publishes it with the listing, and players' games accept exactly that key; a key change is checked afresh before it's listed again;</li>
+        <li>the name and map are sensible, and the name doesn't start with "Springdale".</li>
+      </ul>
+      <p>Listings show the player count and capacity, and disappear about a minute after the announcements stop. Each address can list up to 4 servers. Your server then shows under <strong>Community servers</strong> on this site and in every player's <strong>Find match</strong> list, with its map, mode and player count. Servers with a certificate from a public authority are listed like the official ones.</p>
+      <div class="note"><p>Behind a home router, forward the UDP port to the machine running the server (or let UPnP do it). The server reports whether the directory could reach it.</p></div>
+
+      <h2 id="certificate">Your own certificate (optional)</h2>
+      <p>You don't need one: the generated key is checked just as strictly. A certificate from a public authority for a hostname is useful if you want players to join by name (<code>quic://play.example.net:7777</code>) or already run one. Players' games then check it against the usual public root authorities and the hostname, exactly as a browser does.</p>
+      <p>Any ACME client works. With <a class="text-link" href="https://certbot.eff.org/">certbot</a> and a DNS provider plugin (no web server needed), for example Cloudflare:</p>
+      <pre><code>sudo certbot certonly --dns-cloudflare \
+  --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini \
+  -d play.example.net</code></pre>
+      <p>The server reads the full chain and the private key in PEM form: by default <code>/run/peakrunner/fullchain.pem</code> and <code>/run/peakrunner/privkey.pem</code>. The key must be readable by the server's user and nobody else.</p>
+      <p>The certificate is loaded when the server starts, so restart it after each renewal (a certbot <em>deploy hook</em> can do this). A restart briefly disconnects players; they can rejoin straight away.</p>
+
+
+
+      <h2 id="operate">Operate it</h2>
+      <ul>
+        <li><strong>Health:</strong> <code>docker compose ps</code> shows the health check. Logs: <code>docker compose logs -f match</code>. Outside Docker, <code>peakrunner-server --healthcheck</code> (with the same <code>--config-dir</code>, if any) exits 0 while the match is running, for a service manager or a cron job.</li>
+        <li><strong>Updates:</strong> when a new game version is released, change the image version and run <code>docker compose up -d</code>. Players on the old version can't join the new server, and the reverse, so update promptly.</li>
+        <li><strong>Several servers:</strong> copy the service with another name and host port, for example <code>"7778:7777/udp"</code> and <code>quic://play.example.net:7778</code>.</li>
+        <li><strong>Security:</strong> keep the container read-only, as a non-root user and with capabilities dropped, as above. The server checks every input, rate-limits connections, chat and renames, and never runs code sent by players.</li>
+        <li><strong>Floods:</strong> a server on a small line can be knocked offline by a denial-of-service attack. Hosting providers with DDoS filtering help; a kernel rate limit on the game port helps with smaller floods.</li>
+      </ul>
+
+      <h2 id="lan">LAN and friends</h2>
+      <p>For a LAN party or a private VPN such as Tailscale there is a lighter <strong>LAN server</strong>. It needs no certificate or hostname, but it only listens on private addresses, and its traffic is not encrypted, so it refuses to listen on a public address.</p>
+      <pre><code>peakrunner-lan-server --bind 192.168.1.20 --port 7781 --name "Basement" --map reefbreak --players 12</code></pre>
+      <p>Players join by typing the address and port (for example <code>192.168.1.20:7781</code>) as the direct server address. Set <code>PEAKRUNNER_MATCH_PASSWORD</code> to require a password. The LAN server plays one map: CTF, or Football on a stadium.</p>
+      <p>For quick games you don't need a server at all: <strong>Start match</strong> in the game runs a local match with bots.</p>
+    </main>
+  </div>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="/">PEAK<span>RUNNER</span></a>
+      <nav aria-label="Footer"><a href="/docs/">Player guide</a><a href="/docs/hosting/">Host a server</a><a href="/docs/mods/">Mods</a><a href="https://dir.peakrunner.net/servers">Directory API</a><a href="/legal/">Terms and privacy</a></nav>
+      <p>Independent playtest · original maps and art · provided as is, without warranty</p>
+    </div>
+  </footer>
+</body>
+</html>

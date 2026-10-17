@@ -1,0 +1,15 @@
+[package]
+name = "peakrunner-script"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.95"
+license = "GPL-3.0-only"
+publish = false
+description = "Rules scripts for servers: a mode's scoring and winning in Rhai (docs/modding.md, P6)."
+
+[dependencies]
+peakrunner-core = { path = "../core" }
+log = "0.4"
+# Sandboxed: no modules (so no file access), no clock, no eval; Send + Sync
+# so a match's rule set lives on its server thread.
+rhai = { version = "1.26", default-features = false, features = ["std", "sync", "no_module", "no_time"] }

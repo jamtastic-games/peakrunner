@@ -1,0 +1,7 @@
+// Sparkfall's fliers: the library's, armed. Bought at a flier bay.
+{
+  "sparkfall-skiff": { "extends": "skiff", "name": "Skiff", "seats": { "pilot": { "at": [0.0, 0.4, 0.4], "weapon": "skiff-spark" } },
+    "price": 300, "team_limit": 2, "blast": "wreck" },
+  "sparkfall-transport": { "extends": "transport", "name": "Transport", "price": 500, "team_limit": 1, "blast": "wreck",
+    "seats": { "left-front": { "weapon": "spark-rifle" }, "right-front": { "weapon": "spark-rifle" } } }
+}

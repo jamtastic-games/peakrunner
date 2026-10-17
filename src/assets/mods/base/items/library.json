@@ -1,0 +1,9 @@
+// The stock library's items: what can lie on the ground for whoever runs
+// over it. The base game's own modes place none (its death drops are
+// rounds and grenades, by each weapon's `loot`); mods drop them on death,
+// place them on maps, or redefine them.
+{
+  "repair-kit": { "name": "Repair kit", "about": "Mends 40.", "health": 40.0, "look": "kit" },
+  "ammo-box": { "name": "Ammo box", "about": "Half your rounds, two grenades.", "rounds": 0.5, "grenades": 2, "look": "box" },
+  "energy-cell": { "name": "Energy cell", "about": "A full tank.", "energy": 200.0, "look": "cell" }
+}
